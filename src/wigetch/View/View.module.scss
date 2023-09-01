@@ -1,0 +1,83 @@
+.view {
+  width: 100%;
+}
+.viewPlayer {
+  position: relative;
+  width: 100%;
+  & .logo {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+  }
+  .wrap_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0%;
+    bottom: 40px;
+    transform: translate(0, -50%);
+    width: 100%;
+    &:nth-child(1) {
+      margin-right: 38px;
+    }
+    &:nth-last-child(1) {
+      margin-right: 0;
+    }
+  }
+}
+.back_bottom {
+  position: absolute;
+  left: 10%;
+  top: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80vh;
+  position: absolute;
+  left: 6%;
+  top: 50%;
+  z-index: 10;
+  transform: translate(0%, -50%);
+  & .logoText {
+    display: flex;
+    flex-direction: column;
+    & .title {
+      color: #161516;
+      font-family: 'Proxima Nova';
+      font-size: 48px;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 130%; /* 62.4px */
+      text-transform: uppercase;
+    }
+    & .subTitle {
+      color: #161516;
+      font-family: 'Proxima Nova';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+    }
+  }
+}
+
+.navigate_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}

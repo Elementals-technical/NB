@@ -1,0 +1,63 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 0.3s;
+  cursor: pointer;
+  .colorBorder {
+    min-height: 68px;
+    min-width: 68px;
+    max-height: 68px;
+    max-width: 68px;
+    height: 68px;
+    width: 68px;
+    display: flex;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid transparent;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  .color {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .name {
+    margin-top: 8px;
+    color: #000;
+    text-align: center;
+    font-family: 'Proxima Nova';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    background: #f8f9fa;
+  }
+
+  &.active {
+    background: #f8f9fa;
+    cursor: default;
+  }
+}

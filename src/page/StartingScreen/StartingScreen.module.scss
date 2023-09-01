@@ -1,0 +1,142 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(64.04% 50% at 50% 50%, #fff 0%, #e9ecef 100%);
+  height: 100vh;
+  width: 100vw;
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 110px;
+  }
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+
+    padding-bottom: 20vh;
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .title {
+        color: #161516;
+        text-align: center;
+        font-family: 'Proxima Nova';
+        font-size: 32px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 110%;
+        padding-bottom: 16px;
+      }
+
+      .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        & .wrapBg {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+          margin-bottom: 10%;
+        }
+        .product {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          z-index: 10;
+          transition: 0.3s;
+          &:hover {
+            cursor: pointer;
+            .img img {
+              transition: 0.3s;
+              transform: scale(1.2);
+            }
+            .btn {
+              transition: 0.3s;
+              background: #cf202e;
+              border: 1px solid #cf202e;
+              color: #fff;
+            }
+          }
+
+          .img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            transition: 0.3s;
+
+            & img {
+              width: 100%;
+              transition: 0.3s;
+            }
+          }
+
+          .name {
+            color: #161516;
+            font-family: 'Proxima Nova';
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 110%; /* 35.2px */
+            text-transform: uppercase;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding-bottom: 12px;
+          }
+
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            padding: 12px 24px;
+            color: #161516;
+            border: 1px solid #161516;
+
+            transition: 0.3s;
+
+            font-weight: 600;
+            font-family: 'Proxima Nova';
+            font-style: normal;
+            font-size: 20px;
+            line-height: 1.1;
+
+            &:hover {
+              background: #cf202e;
+              border: 1px solid #cf202e;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    transform: translate(0, -100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

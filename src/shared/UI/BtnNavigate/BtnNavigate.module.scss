@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  max-width: 104px;
+  border: 1px solid #ced4da;
+  background: rgba(255, 255, 255);
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.icon {
+  margin-bottom: 10px;
+}
+.text {
+  color: #161516;
+  text-align: center;
+  font-family: 'Proxima Nova';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3;
+}
