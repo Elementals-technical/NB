@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink, redirect, useNavigate } from 'react-router-dom';
 import s from './StartingScreen.module.scss';
+import { useId } from 'react';
 
 const groupsProducts = [
   {
@@ -41,6 +42,8 @@ const groupsProducts = [
 ];
 
 export const StartingScreen = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={s.page_wrap}>
       <div className={s.page}>
@@ -50,22 +53,26 @@ export const StartingScreen = () => {
         <div className={s.main}>
           {groupsProducts.map((group) => {
             return (
-              <div className={s.section}>
+              <div key={useId()} className={s.section}>
                 <div className={s.title}>{group.title}</div>
                 <div className={s.wrap}>
                   <div className={s.wrapBg}>
                     <img src={group.img} alt={group.title} />
                   </div>
                   {group.poducts.map((product) => (
-                    // <Link to={product.idConfig}>
-                    <div>
-                      <div className={s.img}>
-                        <img src={product.link} alt="Jersey" />
+                    <>
+                      <div
+                        key={useId()}
+                        onClick={() => navigate(product.idConfig)}
+                        className={s.product}
+                      >
+                        <div className={s.img}>
+                          <img src={product.link} alt="Jersey" />
+                        </div>
+                        <div className={s.name}>{product.name}</div>
+                        <div className={s.btn}>{product.name_btn}</div>
                       </div>
-                      <div className={s.name}>{product.name}</div>
-                      <div className={s.btn}>{product.name_btn}</div>
-                    </div>
-                    // </Link>
+                    </>
                   ))}
                 </div>
               </div>

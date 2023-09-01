@@ -71,92 +71,96 @@ const listColor: any = [
   },
 ];
 
-export const SectionBase = {
-  short: {
-    type: 'ListColor',
-    data: {
-      label: 'Short color',
-      nameThreekit: 'Color',
-      id: 'Color',
-      typeOptions: 'configurationOptions',
-      values: [
-        {
-          label: 'White',
-          value: 'White',
-          hex: '#FFFFFF',
-        },
-      ],
-    },
-  },
-  jersey: {
-    type: 'TabContainer',
-    data: {
-      headerComponent: {
-        type: 'LineParam',
-        data: {
-          label: 'Color application area',
-          id: 'Area',
-          typeOptions: 'configurationOptions',
-          values: [
-            {
-              label: 'Front',
-              value: 'front',
-            },
-            {
-              label: 'Back',
-              value: 'back',
-            },
-            {
-              label: 'Sleeves',
-              value: 'sleeves',
-            },
-            {
-              label: 'Buttons',
-              value: 'buttons',
-            },
-          ],
-        },
+export const SectionBase: any = {
+  short: [
+    {
+      type: 'ListColor',
+      data: {
+        label: 'Short color',
+        nameThreekit: 'Color',
+        id: 'Color',
+        typeOptions: 'configurationOptions',
+        values: [
+          {
+            label: 'White',
+            value: 'White',
+            hex: '#FFFFFF',
+          },
+        ],
       },
-      sectionsComponent: [
-        {
-          type: 'ListColor',
-          data: {
-            label: 'Jersey color',
-            id: 'BaseColor#front#',
-            typeOptions: 'configurationOptions',
-            values: listColor,
-          },
-        },
-        {
-          type: 'ListColor',
-          data: {
-            label: 'Jersey color',
-            id: 'BaseColor#back#',
-            typeOptions: 'configurationOptions',
-            values: listColor,
-          },
-        },
-        {
-          type: 'ListColor',
-          data: {
-            label: 'Jersey color',
-            id: 'BaseColor#sleeves#',
-            typeOptions: 'configurationOptions',
-            values: listColor,
-          },
-        },
-        {
-          type: 'ListColor',
-          data: {
-            label: 'Jersey color',
-            id: 'BaseColor#buttons#',
-            typeOptions: 'configurationOptions',
-            values: listColor,
-          },
-        },
-      ],
     },
-  },
+  ],
+  jersey: [
+    {
+      type: 'TabContainer',
+      data: {
+        headerComponent: {
+          type: 'LineParam',
+          data: {
+            label: 'Color application area',
+            id: 'Area',
+            typeOptions: 'configurationOptions',
+            values: [
+              {
+                label: 'Front',
+                value: 'front',
+              },
+              {
+                label: 'Back',
+                value: 'back',
+              },
+              {
+                label: 'Sleeves',
+                value: 'sleeves',
+              },
+              {
+                label: 'Buttons',
+                value: 'buttons',
+              },
+            ],
+          },
+        },
+        sectionsComponent: [
+          {
+            type: 'ListColor',
+            data: {
+              label: 'Jersey color',
+              id: 'BaseColor#front#',
+              typeOptions: 'configurationOptions',
+              values: listColor,
+            },
+          },
+          {
+            type: 'ListColor',
+            data: {
+              label: 'Jersey color',
+              id: 'BaseColor#back#',
+              typeOptions: 'configurationOptions',
+              values: listColor,
+            },
+          },
+          {
+            type: 'ListColor',
+            data: {
+              label: 'Jersey color',
+              id: 'BaseColor#sleeves#',
+              typeOptions: 'configurationOptions',
+              values: listColor,
+            },
+          },
+          {
+            type: 'ListColor',
+            data: {
+              label: 'Jersey color',
+              id: 'BaseColor#buttons#',
+              typeOptions: 'configurationOptions',
+              values: listColor,
+            },
+          },
+        ],
+      },
+    },
+  ],
 };
 
 const sectionPersonalize = [

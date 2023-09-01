@@ -5,6 +5,8 @@ import { SectionBase } from '../../shared/data/structureUI';
 import { LogoNSmal } from '../../shared/assets/svg/LogoNSmal';
 import { ConfiguratorMenu } from '../../shared/UI/ConfiguratorMenu/ConfiguratorMenu';
 import { PersonalizeGroup } from '../PersonalizeGroup/PersonalizeGroup';
+import { Outlet, useParams } from 'react-router-dom';
+import { DestributeComponent } from '../DestributeComponent/DestributeComponent';
 
 const listMenu: any = {
   color: 'Colors & Design',
@@ -12,31 +14,19 @@ const listMenu: any = {
   review: 'Review',
 };
 export const Configuration = () => {
-  const [idMain, setIdMain] = useState(Object.keys(listMenu)[1]);
+  let { configID } = useParams();
+  if (!configID) return <></>;
 
   return (
     <div className={s.configurator}>
       <div className={s.workspace}>
-        {idMain === 'color' && (
-          <div className={s.group}>
-            {/* <TabComponent data={SectionBase[0]['data']} /> */}
-          </div>
-        )}
-        {idMain === 'personalize' && (
-          <div className={s.group}>
-            <PersonalizeGroup />
-          </div>
-        )}
+        <Outlet />
       </div>
       <div className={s.control}>
         <div className={s.logo}>
           <LogoNSmal />
         </div>
-        <ConfiguratorMenu
-          listMenu={listMenu}
-          idMain={idMain}
-          setIdMain={setIdMain}
-        />
+        <ConfiguratorMenu listMenu={listMenu} />
       </div>
     </div>
   );

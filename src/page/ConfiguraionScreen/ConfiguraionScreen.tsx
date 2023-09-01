@@ -7,13 +7,12 @@ import { ListColor } from '../../shared/UI/ListColor/ListColor';
 import { TabComponent } from '../../shared/UI/TabComponent/TabComponent';
 import { Configuration } from '../../wigetch/Configuration/Configuration';
 export const ConfiguraionScreen = () => {
-  SectionBase;
   return (
     <>
       <div className={s.page}>
         <View />
 
-        <div className="wrap_configurator">
+        <div className={s.wrap_configurator}>
           <Configuration />
         </div>
       </div>

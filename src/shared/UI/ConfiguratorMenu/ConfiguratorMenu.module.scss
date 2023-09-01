@@ -14,9 +14,11 @@
   padding: 0 8px;
   border-bottom: 2px solid transparent;
   cursor: pointer;
+  text-decoration: none;
 }
-.item {
-  &.active {
+
+.active {
+  .item {
     border-bottom: 2px solid #cf202e;
     cursor: default;
   }

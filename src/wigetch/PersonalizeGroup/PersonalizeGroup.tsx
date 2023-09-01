@@ -22,7 +22,7 @@ export const PersonalizeGroup = () => {
     return response.data.result.output.texture[0].assetId;
   }
   return (
-    <div>
+    <div className={s.group}>
       <PersonalizeScreenStart />
 
       <div className="">

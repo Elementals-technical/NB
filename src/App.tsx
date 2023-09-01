@@ -3,6 +3,18 @@ import { StartingScreen } from './page/StartingScreen/StartingScreen';
 import './shared/fonts.css';
 import { ConfiguraionScreen } from './page/ConfiguraionScreen/ConfiguraionScreen';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ColorGroup } from './wigetch/ColorGroup/ColorGroup';
+import { PersonalizeGroup } from './wigetch/PersonalizeGroup/PersonalizeGroup';
+
+export const saveConfig = {
+  '3d': {
+    short: '5rabMva22',
+    jersey: 'y02VQRz0y',
+    w_hoodie: '5rabMva22',
+    w_pant: '5rabMva22',
+  },
+};
+
 const projects = {
   credentials: {
     preview: {
@@ -14,8 +26,6 @@ const projects = {
     preview: {
       configurationId: '5rabMva22',
     },
-    // preview: { assetId: '2da29661-6bbe-4a44-8d6d-b6ef30e06d8a' },
-    // preview: { assetId: '5rabMva22' },
   },
 };
 
@@ -35,6 +45,21 @@ const router = createBrowserRouter([
   {
     path: ':configID',
     element: <ConfiguraionScreen />,
+    children: [
+      { index: true, element: <ColorGroup /> },
+      {
+        path: 'color',
+        element: <ColorGroup />,
+      },
+      {
+        path: 'personalize',
+        element: <PersonalizeGroup />,
+      },
+      {
+        path: 'review',
+        element: <></>,
+      },
+    ],
   },
 ]);
 
