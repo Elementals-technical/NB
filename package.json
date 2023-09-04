@@ -30,7 +30,7 @@
   "main": "src/index.tsx",
   "scripts": {
     "start": "treble-scripts start",
-    "build": "treble-scripts build && node server.js",
+    "build": "treble-scripts build  ",
     "format": "prettier --write ./src",
     "lint": "eslint ./src",
     "serve": "node server.js"
