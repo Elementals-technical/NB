@@ -10,16 +10,41 @@ interface Props {
   [key: string]: any;
 }
 export const ListColor = ({ label, values, ...props }: Props) => {
-  const [idValue, setValue] = useState(values[0]['value']);
-
-  const selectedColor = (id: string) => {
-    setValue(id);
-    debugger;
-  };
-  debugger;
-
   const [attribute, setAttribute]: any = useAttribute(props['nameThreekit']);
 
+  console.log('---', attribute);
+  if (!attribute) return <></>;
+  const selectedColor = (id: string) => {
+    setAttribute(id);
+  };
+
+  const valueThreekit = [
+    {
+      label: 'Grey',
+      value: 'Grey',
+      hex: '#8A8E8C',
+    },
+    {
+      label: 'Red',
+      value: 'Red',
+      hex: '#E30D31',
+    },
+    {
+      label: 'Yellow',
+      value: 'Yellow',
+      hex: '#fde408',
+    },
+    {
+      label: 'Black',
+      value: 'Black',
+      hex: '#161516',
+    },
+    {
+      label: 'Forest Green',
+      value: 'Green',
+      hex: '#385644',
+    },
+  ];
   debugger;
   return (
     <div className={s.wrap}>
@@ -28,12 +53,12 @@ export const ListColor = ({ label, values, ...props }: Props) => {
         <div className={s.value}>White</div>
       </div>
       <div className={s.main}>
-        {values.map((value: any) => {
+        {valueThreekit.map((value: any) => {
           return (
             <BtnColor
-              key={useId()}
+              key={value['value']}
               //   key={uuidv4()}
-              isActive={value['value'] === idValue}
+              isActive={value['value'] === attribute['value']}
               value={value}
               onClick={(value) => {
                 selectedColor(value['value']);

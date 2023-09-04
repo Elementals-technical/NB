@@ -1,0 +1,48 @@
+.wrapPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 64px;
+    width: 178px;
+    height: auto;
+    & svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .title {
+    color: #161516;
+    text-align: center;
+    font-family: 'Proxima Nova';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 130%; /* 46.8px */
+  }
+  .subTitle {
+    color: #161516;
+    text-align: center;
+    font-family: 'Proxima Nova';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 26px */
+  }
+}
