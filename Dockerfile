@@ -7,6 +7,5 @@ COPY package.json /app/
 
 RUN yarn install
 
-COPY . /app/
 
 CMD yarn serve
