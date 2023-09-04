@@ -13,7 +13,7 @@ import { PersonalizationSetting } from './wigetch/PersonalizationSetting/Persona
 
 // createHashRouter
 // createBrowserRouter
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <StartingScreen />,

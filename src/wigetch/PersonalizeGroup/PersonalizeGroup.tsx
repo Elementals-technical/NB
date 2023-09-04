@@ -7,9 +7,14 @@ import { Outlet } from 'react-router-dom';
 export const PersonalizeGroup = () => {
   return (
     <div className={s.group}>
-      <PersonalizeScreenStart />
+      <header>
+        <div className={s.title}>Personalization summary</div>
+      </header>
+      <main>
+        <PersonalizeScreenStart />
 
-      <Outlet />
+        <Outlet />
+      </main>
     </div>
   );
 };
