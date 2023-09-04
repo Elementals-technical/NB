@@ -178,10 +178,10 @@ export const SettingsPersonaliztionCustomText = () => {
         </div>
       </div>
       <div className="">
-        1
         <ListColor
           name={'Text color'}
           values={listColor}
+          //   nameThreekit={}
           //@ts-ignore
           onClickBtn={(value: any) => {
             console.log(value);

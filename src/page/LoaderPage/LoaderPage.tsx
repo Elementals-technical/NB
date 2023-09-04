@@ -9,16 +9,15 @@ export const LoaderPage = () => {
   const hasLoadedPage = hasLoadedStatus;
 
   return !hasLoadedPage ? (
-    // <div className={s.wrapPage}>
-    //   <div className={s.main}>
-    //     <div className={s.logo}>
-    //       <LogoNSmal />
-    //     </div>
-    //     <div className={s.title}>We're preparing your content</div>
-    //     <div className={s.subTitle}>This shouldn't take too long</div>
-    //   </div>
-    // </div>
-    <></>
+    <div className={s.wrapPage}>
+      <div className={s.main}>
+        <div className={s.logo}>
+          <LogoNSmal />
+        </div>
+        <div className={s.title}>We're preparing your content</div>
+        <div className={s.subTitle}>This shouldn't take too long</div>
+      </div>
+    </div>
   ) : (
     <></>
   );
