@@ -122,7 +122,7 @@ app.get('/api/safeImage', function (req, res) {
 async function loadAssetId({ status, jobId }) {
   return new Promise(async (resolve, reject) => {
     try {
-      const threeAdminToken = 'a5cde04b-734f-4983-bb1d-33b575a42020';
+      const threeAdminToken = '1d759d73-c696-4b6f-b96d-607fa4bad16b';
       const orgId = '62e2af29-9c24-48f3-ad7b-ddac67694a2a';
       const envUrl = 'https://preview.threekit.com';
 

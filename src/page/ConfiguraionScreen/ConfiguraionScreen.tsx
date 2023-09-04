@@ -18,7 +18,7 @@ export const ConfiguraionScreen = () => {
   const projects = {
     credentials: {
       preview: {
-        publicToken: 'a5cde04b-734f-4983-bb1d-33b575a42020',
+        publicToken: '1d759d73-c696-4b6f-b96d-607fa4bad16b',
         orgId: '62e2af29-9c24-48f3-ad7b-ddac67694a2a',
       },
     },
@@ -47,8 +47,9 @@ export const ConfiguraionScreen = () => {
         <LoaderPage />
 
         <div className={s.page}>
-          <View />
-
+          <div className={s.view}>
+            <View />
+          </div>
           <div className={s.wrap_configurator}>
             <Configuration />
           </div>
