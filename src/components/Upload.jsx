@@ -12,7 +12,7 @@ export default function Upload(props) {
   const inputRef = useRef(null);
   const imgRef = useRef(null);
 
-  const handleUpload = async file => {
+  const handleUpload = async (file) => {
     setIsUploading(true);
     await setAttribute(file);
     setIsUploading(false);
@@ -43,7 +43,7 @@ export default function Upload(props) {
         type="file"
         ref={inputRef}
         className="hidden"
-        onChange={async e => {
+        onChange={async (e) => {
           if (!e.target.files?.[0] || !handleUpload) return;
           handleUpload(e.target.files[0]);
         }}
@@ -70,7 +70,7 @@ export default function Upload(props) {
             <div className="absolute top-0 left-0 flex flex-col justify-center h-full w-full cursor-auto bg-gray-200/[0.7] opacity-0 hover:opacity-100 duration-300">
               <div
                 className="h-max w-max mx-auto cursor-pointer"
-                onClick={e => {
+                onClick={(e) => {
                   handleUpload(undefined);
                   e.stopPropagation();
                 }}

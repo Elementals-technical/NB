@@ -73,7 +73,7 @@ export const UploadFile = ({
           <div className={s.fileUploadContainer}>
             {files === undefined && (
               <div className={s.uploadContaiter}>
-                <img src="/loadFile.svg" alt="" />
+                <img src="images/loadFile.svg" alt="" />
                 <div className={s.nameBtn}>
                   Drag & Drop or
                   <UploadFileBtn type="button" onClick={handleUploadBtnClick}>

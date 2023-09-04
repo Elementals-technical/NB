@@ -52,7 +52,7 @@ export default function Wishlist() {
               <div className="h-50 w-50 mx-auto">
                 <img
                   className="h-50 w-50 object-contain"
-                  src={item.thumbnail}
+                  src={`images/${item.thumbnail}`}
                 />
               </div>
               <div className="">{item.label}</div>

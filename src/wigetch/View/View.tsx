@@ -46,7 +46,7 @@ export const View = () => {
 
       <div className={s.viewPlayer}>
         <div className={s.logo}>
-          <img src="/logo.svg" alt="" />
+          <img src="images/logo.svg" alt="" />
         </div>
 
         <PlayerElem />
