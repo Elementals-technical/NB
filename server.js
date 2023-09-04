@@ -200,11 +200,11 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir);
 }
 
-// app.use('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'build'));
-// });
-
 app.use(express.static(path.join(__dirname, 'build')));
 app.use('/images', express.static(path.join(__dirname, 'public')));
+
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.listen(PORT, () => console.log('listening on port: ', PORT));
