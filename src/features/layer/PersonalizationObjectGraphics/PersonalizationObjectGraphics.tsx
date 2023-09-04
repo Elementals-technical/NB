@@ -19,6 +19,8 @@ export const PersonalizationObjectGraphics = () => {
   }
 
   function extractAssetId(response: any) {
+    console.log('response', response);
+
     return response.data.result.output.texture[0].assetId;
   }
   return (

@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const POSTMARK_TOKEN = process.env.POSTMARK_TOKEN;
 
-const threeAdminToken = 'a5cde04b-734f-4983-bb1d-33b575a42020';
+const threeAdminToken = '2e113be6-bbfb-48c6-998a-7efa10593f29';
 const orgId = '62e2af29-9c24-48f3-ad7b-ddac67694a2a';
 const envUrl = 'https://preview.threekit.com';
 
@@ -122,7 +122,7 @@ app.get('/api/safeImage', function (req, res) {
 async function loadAssetId({ status, jobId }) {
   return new Promise(async (resolve, reject) => {
     try {
-      const threeAdminToken = '1d759d73-c696-4b6f-b96d-607fa4bad16b';
+      const threeAdminToken = '2e113be6-bbfb-48c6-998a-7efa10593f29';
       const orgId = '62e2af29-9c24-48f3-ad7b-ddac67694a2a';
       const envUrl = 'https://preview.threekit.com';
 
@@ -202,9 +202,5 @@ if (!fs.existsSync(uploadsDir)) {
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use('/images', express.static(path.join(__dirname, 'public')));
-
-app.use('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 app.listen(PORT, () => console.log('listening on port: ', PORT));

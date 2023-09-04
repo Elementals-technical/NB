@@ -18,7 +18,7 @@ export const ConfiguraionScreen = () => {
   const projects = {
     credentials: {
       preview: {
-        publicToken: '1d759d73-c696-4b6f-b96d-607fa4bad16b',
+        publicToken: '2e113be6-bbfb-48c6-998a-7efa10593f29',
         orgId: '62e2af29-9c24-48f3-ad7b-ddac67694a2a',
       },
     },
