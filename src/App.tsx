@@ -35,6 +35,30 @@ const router = createBrowserRouter([
           {
             path: 'settings',
             element: <PersonalizationSetting />,
+            children: [
+              {
+                path: 'text',
+                element: <PersonalizationSetting />,
+                children: [
+                  {
+                    path: 'custom',
+                    element: <PersonalizationSetting />,
+                  },
+                  {
+                    path: 'player-name',
+                    element: <PersonalizationSetting />,
+                  },
+                  {
+                    path: 'player-number',
+                    element: <PersonalizationSetting />,
+                  },
+                ],
+              },
+              {
+                path: 'graphics',
+                element: <PersonalizationSetting />,
+              },
+            ],
           },
         ],
       },
