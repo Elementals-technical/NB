@@ -10,5 +10,21 @@
   display: flex;
   align-items: center;
 }
+.view {
+  max-width: 62vw;
+  width: 100%;
+}
 .wrap_configurator {
+  max-width: 38vw;
+  width: 100%;
+}
+@media screen and (max-width: 1600px) {
+  .view {
+    max-width: 55vw;
+    width: 100%;
+  }
+  .wrap_configurator {
+    max-width: 45vw;
+    width: 100%;
+  }
 }

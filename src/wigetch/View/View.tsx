@@ -12,10 +12,11 @@ import { BackIcon } from '../../shared/assets/svg/BackIcon';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
 import { LoaderWrap } from '../../shared/UI/LoaderWrap.tsx/LoaderWrap';
+import { Navigation } from '../../shared/UI/View/Navigation/Navigation';
 export const View = () => {
   const navigate = useNavigate();
   return (
-    <div className={s.view}>
+    <>
       {/* <LoaderWrap /> */}
       <div className={s.back_bottom}>
         <BtnBack
@@ -25,24 +26,7 @@ export const View = () => {
         />
       </div>
 
-      <div className={s.navigation}>
-        <div className={s.logoText}>
-          <div className={s.title}>Jersey</div>
-          <div className={s.subTitle}>Custom uniform</div>
-        </div>
-        <div className={s.navigate_box}>
-          <BtnNavigate svg={<SaveDesign />} name={<>Save design</>} />
-          <BtnNavigate
-            svg={<TransferIcon />}
-            name={
-              <>
-                Transfer design to <strong>W Hoodie</strong>
-              </>
-            }
-          />
-        </div>
-        <div className=""></div>
-      </div>
+      <Navigation />
 
       <div className={s.viewPlayer}>
         <div className={s.logo}>
@@ -58,6 +42,6 @@ export const View = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };

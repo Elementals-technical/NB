@@ -1,4 +1,4 @@
-type typeZone = 'text' | 'logo';
+type typeZone = 'text' | 'graphic';
 type logoPositions = string;
 
 // const logoPositions: logoPositions[] = [

@@ -2,12 +2,13 @@ import React from 'react';
 import { UploadFile } from '../../shared/UI/UploadFile/UploadFile';
 import axios from 'axios';
 import s from './PersonalizationSetting.module.scss';
-import { useNavigate } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
 import { BackIcon } from '../../shared/assets/svg/BackIcon';
 import { LineParam } from '../../shared/UI/LineParam/LineParam';
 import { AITextIcon } from '../../shared/assets/svg/AITextIcon';
 import { GraphicIcon } from '../../shared/assets/svg/GraphicIcon';
+import { PersonalizationTypeAria } from '../../shared/UI/Control/PersonalizationTypeAria/PersonalizationTypeAria';
 export const PersonalizationSetting = () => {
   const navigate = useNavigate();
 
@@ -28,6 +29,7 @@ export const PersonalizationSetting = () => {
   function extractAssetId(response: any) {
     return response.data.result.output.texture[0].assetId;
   }
+
   return (
     <div className={s.wrap}>
       <div className={s.header}>
@@ -38,52 +40,10 @@ export const PersonalizationSetting = () => {
         />
       </div>
       <div className={s.main}>
-        <LineParam
-          name="Personalization type"
-          values={[
-            {
-              label: (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <AITextIcon style={{ marginRight: '4px' }} />
-                  {` `}
-                  Text
-                </div>
-              ),
-              value: 'AiText',
-            },
-            {
-              label: (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <GraphicIcon /> Graphics
-                </div>
-              ),
-              value: 'Grap',
-            },
-          ]}
-          isSelectedId="Grap"
-          onClickBtn={() => {}}
-        />
-        <LineParam
-          name="Object"
-          values={[
-            {
-              label: 'Custom Text',
-              value: 'CustomText',
-            },
-            {
-              label: 'Player Name',
-              value: 'Player_Name',
-            },
-            {
-              label: 'Player Number',
-              value: 'Player_umber',
-            },
-          ]}
-          isSelectedId="CustomText"
-          onClickBtn={() => {}}
-        />
+        <PersonalizationTypeAria />
 
-        <UploadFile
+        <Outlet />
+        {/* <UploadFile
           updateFilesCb={async (files: any) => {
             const formFile = files[0];
 
@@ -106,8 +66,15 @@ export const PersonalizationSetting = () => {
               },
             });
           }}
-        />
+        /> */}
       </div>
+      <footer>
+        <div className="reset"></div>
+        <div className="wrap_box">
+          <button>Cancel</button>
+          <button>Save Personalization</button>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -1,3 +1,6 @@
+.menu {
+  width: 100%;
+}
 .item {
   color: #495057;
   text-align: center;
@@ -21,5 +24,12 @@
   .item {
     border-bottom: 2px solid #cf202e;
     cursor: default;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .item {
+    font-size: 18px;
+    padding: 0 2px;
   }
 }

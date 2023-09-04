@@ -1,32 +1,4 @@
-[
-  {
-    label: 'Grey',
-    value: 'Grey',
-    hex: '#8A8E8C',
-  },
-  {
-    label: 'Red',
-    value: 'Red',
-    hex: '#E30D31',
-  },
-  {
-    label: 'Yellow',
-    value: 'Yellow',
-    hex: '#fde408',
-  },
-  {
-    label: 'Black',
-    value: 'Black',
-    hex: '#161516',
-  },
-  {
-    label: 'Forest Green',
-    value: 'Forest Green',
-    hex: '#385644',
-  },
-];
-
-const listColor: any = [
+export const listColor: any = [
   {
     label: 'White',
     value: 'White',
@@ -128,24 +100,24 @@ export const SectionBase: any = {
     //         label: 'Color application area',
     //         id: 'Area',
     //         typeOptions: 'configurationOptions',
-    //         values: [
-    //           {
-    //             label: 'Front',
-    //             value: 'front',
-    //           },
-    //           {
-    //             label: 'Back',
-    //             value: 'back',
-    //           },
-    //           {
-    //             label: 'Sleeves',
-    //             value: 'sleeves',
-    //           },
-    //           {
-    //             label: 'Buttons',
-    //             value: 'buttons',
-    //           },
-    //         ],
+    // values: [
+    //   {
+    //     label: 'Front',
+    //     value: 'front',
+    //   },
+    //   {
+    //     label: 'Back',
+    //     value: 'back',
+    //   },
+    //   {
+    //     label: 'Sleeves',
+    //     value: 'sleeves',
+    //   },
+    //   {
+    //     label: 'Buttons',
+    //     value: 'buttons',
+    //   },
+    // ],
     //       },
     //     },
     //     sectionsComponent: [

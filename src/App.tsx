@@ -10,10 +10,13 @@ import {
 import { ColorGroup } from './wigetch/ColorGroup/ColorGroup';
 import { PersonalizeGroup } from './wigetch/PersonalizeGroup/PersonalizeGroup';
 import { PersonalizationSetting } from './wigetch/PersonalizationSetting/PersonalizationSetting';
+import { PersonalizationObjectText } from './features/layer/PersonalizationObjectText/PersonalizationObjectText';
+import { SettingsPersonaliztionText } from './shared/UI/Control/SettingsPersonaliztionText.tsx/SettingsPersonaliztionText';
+import { SettingsPersonaliztionCustomText } from './features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 
 // createHashRouter
 // createBrowserRouter
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <StartingScreen />,
@@ -38,25 +41,29 @@ const router = createBrowserRouter([
             children: [
               {
                 path: 'text',
-                element: <PersonalizationSetting />,
+                element: <PersonalizationObjectText />,
                 children: [
                   {
+                    index: true,
+                    element: <SettingsPersonaliztionText />,
+                  },
+                  {
                     path: 'custom',
-                    element: <PersonalizationSetting />,
+                    element: <SettingsPersonaliztionCustomText />,
                   },
                   {
                     path: 'player-name',
-                    element: <PersonalizationSetting />,
+                    element: <SettingsPersonaliztionText />,
                   },
                   {
                     path: 'player-number',
-                    element: <PersonalizationSetting />,
+                    element: <SettingsPersonaliztionText />,
                   },
                 ],
               },
               {
-                path: 'graphics',
-                element: <PersonalizationSetting />,
+                path: 'graphic',
+                element: <>g</>,
               },
             ],
           },
