@@ -13,10 +13,11 @@ import { PersonalizationSetting } from './wigetch/PersonalizationSetting/Persona
 import { PersonalizationObjectText } from './features/layer/PersonalizationObjectText/PersonalizationObjectText';
 import { SettingsPersonaliztionText } from './shared/UI/Control/SettingsPersonaliztionText.tsx/SettingsPersonaliztionText';
 import { SettingsPersonaliztionCustomText } from './features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
+import { PersonalizationObjectGraphics } from './features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
 
 // createHashRouter
 // createBrowserRouter
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <StartingScreen />,
@@ -63,7 +64,7 @@ const router = createHashRouter([
               },
               {
                 path: 'graphic',
-                element: <>g</>,
+                element: <PersonalizationObjectGraphics />,
               },
             ],
           },

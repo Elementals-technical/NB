@@ -12,24 +12,6 @@ import { PersonalizationTypeAria } from '../../shared/UI/Control/Personalization
 export const PersonalizationSetting = () => {
   const navigate = useNavigate();
 
-  async function uploadFile(file: any) {
-    const fileName = file.name;
-    const formData = new FormData();
-    formData.append('files', file, fileName);
-
-    const requestOptions = {
-      method: 'POST',
-      data: formData,
-      url: 'http://localhost:3001/api/loadFile', // Replace with your actual API endpoint
-    };
-
-    return await axios(requestOptions);
-  }
-
-  function extractAssetId(response: any) {
-    return response.data.result.output.texture[0].assetId;
-  }
-
   return (
     <div className={s.wrap}>
       <div className={s.header}>
@@ -43,30 +25,7 @@ export const PersonalizationSetting = () => {
         <PersonalizationTypeAria />
 
         <Outlet />
-        {/* <UploadFile
-          updateFilesCb={async (files: any) => {
-            const formFile = files[0];
-
-            if (!formFile) {
-              console.error('No file selected.');
-              return;
-            }
-
-            const response = await uploadFile(formFile);
-            const assetId = extractAssetId(response);
-
-            window.threekit.configurator.setConfiguration({
-              ['Add Logo 1']: {
-                assetId: assetId,
-              },
-            });
-            window.threekit.configurator.setConfiguration({
-              ['Add Logo 2']: {
-                assetId: assetId,
-              },
-            });
-          }}
-        /> */}
+        {/* */}
       </div>
       <footer>
         <div className="reset"></div>
