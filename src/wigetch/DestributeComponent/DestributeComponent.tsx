@@ -7,10 +7,10 @@ export const DestributeComponent = (props: any) => {
 
   switch (type) {
     case 'ListColor': {
-      return <ListColor key={useId()} {...data} />;
+      return <ListColor key={useId()} {...props} {...data} />;
     }
     case 'TabContainer': {
-      return <TabComponent data={data} />;
+      return <TabComponent data={data} {...props} />;
     }
 
     default:

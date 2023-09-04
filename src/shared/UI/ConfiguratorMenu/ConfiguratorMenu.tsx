@@ -1,9 +1,8 @@
 import React, { useId, useState } from 'react';
 import s from './ConfiguratorMenu.module.scss';
-import { useNavigate, useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 export const ConfiguratorMenu = ({ listMenu }: any) => {
-  const navigate = useNavigate();
   let { configID } = useParams();
   if (!configID) return <></>;
 
@@ -11,7 +10,6 @@ export const ConfiguratorMenu = ({ listMenu }: any) => {
     <div className={s.menu}>
       {Object.keys(listMenu).map((menuId) => {
         let itemClass = `${s.item}`;
-        // if (idMain === menuId) itemClass = itemClass + ` ${s.active}`;
 
         return (
           <NavLink

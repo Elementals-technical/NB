@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ced4da;
+    .btnPrew {
+      display: flex;
+      align-items: center;
+      & .icon {
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+        background-color: #161516;
+        border-radius: 50%;
+      }
+      & .text {
+        color: #161516;
+        font-family: 'Proxima Nova';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.1; /* 15.4px */
+      }
+    }
+  }
+}

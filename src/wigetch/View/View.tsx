@@ -9,14 +9,20 @@ import { ZoomInOut } from '../../shared/assets/svg/ZoomInOut';
 import { SaveDesign } from '../../shared/assets/svg/SaveDesign';
 import { TransferIcon } from '../../shared/assets/svg/TransferIcon';
 import { BackIcon } from '../../shared/assets/svg/BackIcon';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
+import { LoaderWrap } from '../../shared/UI/LoaderWrap.tsx/LoaderWrap';
 export const View = () => {
+  const navigate = useNavigate();
   return (
     <div className={s.view}>
+      {/* <LoaderWrap /> */}
       <div className={s.back_bottom}>
-        <div className={s.icon}>
-          <BackIcon />
-        </div>
-        <div className={s.name}>Back to products</div>
+        <BtnBack
+          icon={<BackIcon />}
+          name={'Close personalization'}
+          onClick={() => navigate('/')}
+        />
       </div>
 
       <div className={s.navigation}>

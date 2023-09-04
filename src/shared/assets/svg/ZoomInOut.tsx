@@ -10,8 +10,8 @@ export const ZoomInOut = () => {
       fill="none"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M23 22V10C23 6.13401 19.866 3 16 3C12.134 3 9 6.13401 9 10V22C9 25.866 12.134 29 16 29C19.866 29 23 25.866 23 22ZM16 2C11.5817 2 8 5.58172 8 10V22C8 26.4183 11.5817 30 16 30C20.4183 30 24 26.4183 24 22V10C24 5.58172 20.4183 2 16 2Z"
         fill="#161516"
       />
