@@ -82,3 +82,19 @@
   font-weight: 100;
   font-style: normal;
 }
+
+.animate-fill {
+  animation: fillColorChange 5s infinite;
+}
+
+@keyframes fillColorChange {
+  0% {
+    fill: #cf202e;
+  }
+  50% {
+    fill: #00ff00;
+  }
+  100% {
+    fill: #cf202e;
+  }
+}
