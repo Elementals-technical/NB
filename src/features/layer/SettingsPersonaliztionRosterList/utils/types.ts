@@ -2,7 +2,7 @@ export type PlayerInputT = {
   addClassName?: any;
   inputData: any;
   setInputData: any;
-  index: number;
+  currentValue: inputT;
   showNumber?: boolean;
 };
 
@@ -10,5 +10,5 @@ export type inputT = {
   id: number;
   show: boolean;
   name: string | undefined;
-  number?: number | undefined;
+  number?: any;
 };

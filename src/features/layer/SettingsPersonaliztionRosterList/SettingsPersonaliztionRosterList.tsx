@@ -48,7 +48,7 @@ export const SettingsPersonaliztionRosterList = () => {
                     key={`roster_input_${index}`}
                     inputData={inputData}
                     setInputData={setInputData}
-                    index={index}
+                    currentValue={item}
                   />
                 );
               })}

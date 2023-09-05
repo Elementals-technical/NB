@@ -54,8 +54,8 @@ export function genEmptyValues(value: number) {
     values.push({
       id: i,
       show: false,
-      name: undefined,
-      number: undefined,
+      name: '',
+      number: '',
     });
   }
   return values;

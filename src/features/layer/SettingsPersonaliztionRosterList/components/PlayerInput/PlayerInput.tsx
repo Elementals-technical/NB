@@ -15,7 +15,7 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
     addClassName,
     inputData,
     setInputData,
-    index,
+    currentValue,
     showNumber = false,
   } = props;
   let container = `${s.wrapper}`;
@@ -23,7 +23,6 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
   showNumber ? (container += ` ${s.showNumber}`) : container;
   const nameId = useId();
   const numberId = useId();
-  const currentValue = inputData[index];
   const [nameValue, setNameValue] = useState(currentValue.name);
   const [numberValue, setNumberValue] = useState(currentValue.number);
 
