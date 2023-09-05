@@ -14,6 +14,7 @@ import { PersonalizationObjectText } from './features/layer/PersonalizationObjec
 import { SettingsPersonaliztionText } from './shared/UI/Control/SettingsPersonaliztionText.tsx/SettingsPersonaliztionText';
 import { SettingsPersonaliztionCustomText } from './features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { PersonalizationObjectGraphics } from './features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
+import { SettingsPersonaliztionRosterList } from './features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
 
 // createHashRouter
 // createBrowserRouter
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
                 element: <PersonalizationObjectGraphics />,
               },
             ],
+          },
+          {
+            path: 'roster-list',
+            element: <SettingsPersonaliztionRosterList />,
           },
         ],
       },

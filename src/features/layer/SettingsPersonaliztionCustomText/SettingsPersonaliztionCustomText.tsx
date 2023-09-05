@@ -7,6 +7,7 @@ import { listColor } from '../../../shared/data/structureUI';
 import { LineParam } from '../../../shared/UI/LineParam/LineParam';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { cloneDeep } from 'lodash';
+import { Navigate, useNavigate } from 'react-router';
 
 const defaultObjText = {
   'Add Text back 2': '',

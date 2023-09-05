@@ -24,7 +24,6 @@ export const BtnColor: React.FC<BtnColorProps> = ({
       onClick(value);
     }
   };
-  debugger;
 
   let style: CSSProperties = {
     background: value['hex'],
