@@ -8,7 +8,7 @@ export const LoaderPage = () => {
 
   const hasLoadedPage = hasLoadedStatus;
 
-  return (
+  return !hasLoadedPage ? (
     <div className={s.wrapPage}>
       <div className={s.main}>
         <div className={s.logo}>
@@ -67,5 +67,7 @@ export const LoaderPage = () => {
         <div className={s.subTitle}>This shouldn't take too long</div>
       </div>
     </div>
+  ) : (
+    <></>
   );
 };

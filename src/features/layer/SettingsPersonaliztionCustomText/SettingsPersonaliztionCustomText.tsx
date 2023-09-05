@@ -1,12 +1,12 @@
 import React, { useId, useState } from 'react';
 import s from './SettingsPersonaliztionCustomText.module.scss';
 
-import Select, { useStateManager } from 'react-select';
 import { ListColor } from '../../../shared/UI/ListColor/ListColor';
 import { listColor } from '../../../shared/data/structureUI';
 import { LineParam } from '../../../shared/UI/LineParam/LineParam';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { cloneDeep } from 'lodash';
+import { Select } from '../../../shared/UI/Select/Select';
 
 const defaultObjText = {
   'Add Text back 2': '',
@@ -135,17 +135,14 @@ export const SettingsPersonaliztionCustomText = () => {
   return (
     <div>
       <div className={s.wrap}>
-        <div className={s.header}>
-          <div className={s.title}>Text location</div>
-        </div>
-        <div className={s.main}>
-          <Select
-            options={options}
-            onChange={(value) => {
-              selectedZoneText(value);
-            }}
-          />
-        </div>
+        <Select
+          title={'Text location'}
+          options={options}
+          value={options[0]['value']}
+          onChange={(value) => {
+            selectedZoneText(value);
+          }}
+        />
       </div>
       <div className={s.wrap}>
         <div className={s.header}>
@@ -158,17 +155,14 @@ export const SettingsPersonaliztionCustomText = () => {
 
       <div className="line">
         <div className={s.wrap}>
-          <div className={s.header}>
-            <div className={s.title}>Select font</div>
-          </div>
-          <div className={s.main}>
-            <Select
-              options={optionsFonts}
-              onChange={(value) => {
-                selectedFoneText(value);
-              }}
-            />
-          </div>
+          <Select
+            title={'Select font'}
+            options={optionsFonts}
+            value={optionsFonts[0]['value']}
+            onChange={(value) => {
+              selectedFoneText(value);
+            }}
+          />
         </div>
         <div className={s.header}>
           <div className={s.title}>Select height</div>
@@ -203,12 +197,14 @@ export const SettingsPersonaliztionCustomText = () => {
       </div>
       <div className="line">
         <div className={s.wrap}>
-          <div className={s.header}>
-            <div className={s.title}>Text effect</div>
-          </div>
-          <div className={s.main}>
-            <Select options={optionsEffect} />
-          </div>
+          <Select
+            title={'Text effect'}
+            options={optionsEffect}
+            value={optionsEffect[0]['value']}
+            onChange={(value) => {
+              selectedFoneText(value);
+            }}
+          />
         </div>
         <div className={s.header}>
           <div className={s.title}>Select height</div>

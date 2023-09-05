@@ -11,7 +11,7 @@ export function TextInput(props) {
         type="text"
         maxLength={props.maxLength}
         value={attribute.value}
-        onChange={e => handleChange?.(e.target.value)}
+        onChange={(e) => handleChange?.(e.target.value)}
         className="w-full px-2 py-2 rounded-sm bg-white outline-0 border border-solid border-gray-400 hover:border-blue-500 focus:border-blue-500"
       />
     </div>
