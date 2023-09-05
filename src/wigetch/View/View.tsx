@@ -13,16 +13,16 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
 import { LoaderWrap } from '../../shared/UI/LoaderWrap.tsx/LoaderWrap';
 import { Navigation } from '../../shared/UI/View/Navigation/Navigation';
+import { URLS } from '../../shared/providers/router/AppRouter';
 export const View = () => {
   const navigate = useNavigate();
   return (
     <>
-      {/* <LoaderWrap /> */}
       <div className={s.back_bottom}>
         <BtnBack
           icon={<BackIcon />}
           name={'Close personalization'}
-          onClick={() => navigate('/')}
+          onClick={() => navigate(URLS.ROOT)}
         />
       </div>
 
