@@ -6,7 +6,7 @@ import { listColor } from '../../../shared/data/structureUI';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { cloneDeep } from 'lodash';
 import { Select } from '../../../shared/UI/Select/Select';
-import { setCurentLayer } from '../../../shared/providers/redax/action';
+import { setCurentLayer } from '../../../shared/function/providers/redax/action';
 import { useDispatch } from 'react-redux';
 import { Counter } from '../../../shared/UI/Counter/Counter';
 import { InputText } from '../../../shared/UI/BaseComponent/InputText/InputText';
@@ -16,8 +16,14 @@ import {
   getValueThreekit,
   setValueThreekit,
 } from '../../../shared/function/ThreekitAttributeText';
-import { URLS } from '../../../shared/providers/router/AppRouter';
-import { useLocation } from 'react-router';
+import { URLS } from '../../../shared/function/providers/router/AppRouter';
+import { useLocation, useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import {
+  getSelectedLayers,
+  getSelectedTextLayers,
+  getVisibleLayers,
+} from '../../../shared/function/providers/redax/selectore';
 
 const defaultObjText = {
   'Add Text back 2': '',
@@ -39,28 +45,35 @@ const defaultObjText = {
   'Text Bookend Effect back 2': false,
   'Text Bookend Effect Size back 2': 128,
 };
+export const options = [
+  { value: 'upperfron', label: 'Upper Fron', nameThreekit: 'front 1' },
+  { value: 'upperback', label: 'Upper Back', nameThreekit: 'back 1' },
+  { value: 'lowerback', label: 'Lower back', nameThreekit: 'back 2' },
+];
+export const optionsFonts = [
+  { value: 'Arial', label: 'Arial' },
+  { value: 'Mogula', label: 'Modula' },
+  { value: 'Rometano', label: 'Rometano' },
+  { value: 'Times', label: 'Times' },
+  { value: 'Running led', label: 'Running led' },
+];
 
 export const SettingsPersonaliztionCustomText = () => {
-  const [attributes, setConfiguration]: any = useConfigurator();
   const dispatch = useDispatch();
-
   const location = useLocation();
+  let { configID } = useParams();
+
+  const visibleLayers = useSelector(
+    getVisibleLayers({ objectId: configID, typeZone: 'text' })
+  );
+  const layer = visibleLayers.find((layer) => layer['isShow']);
+
+  const [attributes, setConfiguration]: any = useConfigurator();
   const [zoneText, setZoneText]: any = useState(undefined);
 
-  const options = [
-    { value: 'upperfron', label: 'Upper Fron', nameThrekit: 'front 1' },
-    { value: 'upperback', label: 'Upper Back', nameThrekit: 'back 1' },
-    { value: 'lowerback', label: 'Lower back', nameThrekit: 'back 2' },
-  ];
-  const optionsFonts = [
-    { value: 'Arial', label: 'Arial' },
-    { value: 'Mogula', label: 'Modula' },
-    { value: 'Rometano', label: 'Rometano' },
-    { value: 'Times', label: 'Times' },
-    { value: 'Running led', label: 'Running led' },
-  ];
-
   const setText = (valueText: string) => {
+    console.log('defaultValue', valueText, zoneText);
+
     setConfiguration({ [`Add Text ${zoneText}`]: valueText });
   };
 
@@ -106,32 +119,31 @@ export const SettingsPersonaliztionCustomText = () => {
           zoneText
         )
       );
-      debugger;
       const nextObjText = cloneDeep(
-        replaceKeywordInObject(prewText, zoneText, value['nameThrekit'])
+        replaceKeywordInObject(prewText, zoneText, value['nameThreekit'])
       );
-      debugger;
       const prewObjText = cloneDeep(
         replaceKeywordInObject(defaultObjText, 'back 2', zoneText)
       );
-      debugger;
 
       setConfiguration({ ...nextObjText });
       setConfiguration({ ...prewObjText });
-      setZoneText(value['nameThrekit']);
+      setZoneText(value['nameThreekit']);
     } else {
-      setZoneText(value['nameThrekit']);
+      setZoneText(value['nameThreekit']);
     }
   };
 
   useEffect(() => {
     if (Object.keys(attributes).length > 0) {
-      selectedZoneText(options[0]);
-      dispatch(
-        setCurentLayer({
-          nameThreekit: options[0]['nameThrekit'],
-        })
-      );
+      if (layer) {
+        selectedZoneText(layer);
+        dispatch(
+          setCurentLayer({
+            nameThreekit: layer['nameThreekit'],
+          })
+        );
+      }
     }
   }, []);
 
@@ -142,7 +154,8 @@ export const SettingsPersonaliztionCustomText = () => {
   }, [location]);
   if (Object.keys(attributes).length < 1) return <></>;
   if (!zoneText) return <></>;
-
+  if (!layer) return <></>;
+  if (!configID) return <></>;
   const getValueThreekitFunc = getValueThreekit(zoneText, attributes);
   const setValueThreekitFunc = setValueThreekit(zoneText, setConfiguration);
 
@@ -154,15 +167,15 @@ export const SettingsPersonaliztionCustomText = () => {
       <div className={s.wrap}>
         <Select
           title={'Text location'}
-          options={options}
-          value={options[0]['value']}
+          options={visibleLayers}
+          value={layer['value']}
           onChange={(value) => {
-            const valueObj = options.find((i) => i['value'] === value);
+            const valueObj = visibleLayers.find((i) => i['value'] === value);
             if (valueObj) {
               selectedZoneText(valueObj);
               dispatch(
                 setCurentLayer({
-                  nameThreekit: valueObj['nameThrekit'],
+                  nameThreekit: valueObj['nameThreekit'],
                 })
               );
             }
@@ -173,12 +186,8 @@ export const SettingsPersonaliztionCustomText = () => {
         <LinerWrap name={'Enter text'}>
           <InputText
             placeholder={'Enter custom text'}
-            value={getValueThreekitFunc('Add Text ')}
-            onChange={(value: any) => {
-              // console.log('value', value);
-              const valueText = value['target']['value'];
-              console.log('valueText', valueText);
-
+            defaultValue={getValueThreekitFunc('Add Text ')}
+            onChange={(valueText: any) => {
               setText(valueText);
             }}
           />

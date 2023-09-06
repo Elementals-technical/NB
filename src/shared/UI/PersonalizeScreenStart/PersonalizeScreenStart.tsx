@@ -13,9 +13,9 @@ export const PersonalizeScreenStart = () => {
         Add personalization
       </NavLink>
 
-      <NavLink to={`roster-list`} className={s.rosterBtn}>
+      {/* <NavLink to={`roster-list`} className={s.rosterBtn}>
         Enter Roster List (test)
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 };

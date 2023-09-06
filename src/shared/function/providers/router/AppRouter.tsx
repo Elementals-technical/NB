@@ -1,16 +1,16 @@
 import React from 'react';
 import { RouterProvider } from 'react-router';
-import { createHashRouter } from 'react-router-dom';
-import { StartingScreen } from '../../../page/StartingScreen/StartingScreen';
-import { ConfiguraionScreen } from '../../../page/ConfiguraionScreen/ConfiguraionScreen';
-import { ColorGroup } from '../../../wigetch/ColorGroup/ColorGroup';
-import { PersonalizeGroup } from '../../../wigetch/PersonalizeGroup/PersonalizeGroup';
-import { PersonalizationSetting } from '../../../wigetch/PersonalizationSetting/PersonalizationSetting';
-import { PersonalizationObjectTextRuster } from '../../../features/layer/PersonalizationObjectTextRuster/PersonalizationObjectTextRuster';
-import { SettingsPersonaliztionCustomText } from '../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
-import { PersonalizationObjectGraphics } from '../../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
-import { PersonalizationObjectText } from '../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
-import { SettingsPersonaliztionRosterList } from '../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
+import { createBrowserRouter, createHashRouter } from 'react-router-dom';
+import { StartingScreen } from '../../../../page/StartingScreen/StartingScreen';
+import { ConfiguraionScreen } from '../../../../page/ConfiguraionScreen/ConfiguraionScreen';
+import { ColorGroup } from '../../../../wigetch/ColorGroup/ColorGroup';
+import { PersonalizeGroup } from '../../../../wigetch/PersonalizeGroup/PersonalizeGroup';
+import { PersonalizationSetting } from '../../../../wigetch/PersonalizationSetting/PersonalizationSetting';
+import { PersonalizationObjectTextRuster } from '../../../../features/layer/PersonalizationObjectTextRuster/PersonalizationObjectTextRuster';
+import { SettingsPersonaliztionCustomText } from '../../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
+import { PersonalizationObjectGraphics } from '../../../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
+import { PersonalizationObjectText } from '../../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
+import { SettingsPersonaliztionRosterList } from '../../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
 
 export const URLS = {
   ROOT: '/',
@@ -32,7 +32,7 @@ export const URL_PAGE = {
 
 // createHashRouter
 // createBrowserRouter
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: URLS.ROOT,
     element: <StartingScreen />,

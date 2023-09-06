@@ -11,10 +11,10 @@ type logoPositions = string;
 // ];
 
 type zone = {
+  label: string;
+  value: string;
   nameThreekit: string;
   type: typeZone;
-  sort: number;
-  position: logoPositions;
 };
 
 export type listZoneT = zone[];

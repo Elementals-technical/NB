@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 interface OptionI {
   label: string | number;
   value: any;
+  [key: string]: any;
 }
 
 interface SelectI {
@@ -75,18 +76,36 @@ export const Select: React.FC<SelectI> = (props) => {
               background: '#fff',
             }}
           >
-            {options.map((op, index) => (
-              <div
-                key={index}
-                onClick={() => handleChange(op['value'])}
-                className="cursor-pointer hover:font-semibold"
-                style={{
-                  padding: '6px 0 ',
-                }}
-              >
-                {op.label}
-              </div>
-            ))}
+            {options.map((op, index) => {
+              debugger;
+
+              const stypeHidden = {
+                opacity: '0.6',
+                pointerEvents: 'none',
+              };
+
+              let style = {
+                padding: '6px 0 ',
+              };
+              if (Object.keys(op).includes('isShow') && !op['isShow']) {
+                style = {
+                  ...style,
+                  ...stypeHidden,
+                };
+              }
+              return (
+                <div
+                  key={index}
+                  onClick={() => handleChange(op['value'])}
+                  className="cursor-pointer hover:font-semibold"
+                  style={{
+                    ...style,
+                  }}
+                >
+                  {op.label}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
