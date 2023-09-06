@@ -79,7 +79,9 @@ export const SettingsPersonaliztionCustomText = () => {
     ) => {
       return Object.fromEntries(
         Object.entries(config).filter(
-          ([key]) => key.includes(keyZone) && key.includes('Text')
+          ([key]) =>
+            (key.includes(keyZone) && key.includes('Text')) ||
+            (key.includes(keyZone) && key.includes('text'))
         )
       );
     };
@@ -104,12 +106,15 @@ export const SettingsPersonaliztionCustomText = () => {
           zoneText
         )
       );
+      debugger;
       const nextObjText = cloneDeep(
         replaceKeywordInObject(prewText, zoneText, value['nameThrekit'])
       );
+      debugger;
       const prewObjText = cloneDeep(
         replaceKeywordInObject(defaultObjText, 'back 2', zoneText)
       );
+      debugger;
 
       setConfiguration({ ...nextObjText });
       setConfiguration({ ...prewObjText });
@@ -129,14 +134,18 @@ export const SettingsPersonaliztionCustomText = () => {
       );
     }
   }, []);
+
+  useEffect(() => {
+    if (location.pathname.includes(URLS.CUSTOM)) {
+      setText('');
+    }
+  }, [location]);
   if (Object.keys(attributes).length < 1) return <></>;
   if (!zoneText) return <></>;
 
   const getValueThreekitFunc = getValueThreekit(zoneText, attributes);
   const setValueThreekitFunc = setValueThreekit(zoneText, setConfiguration);
-  if (location.pathname.includes(URLS.CUSTOM)) {
-    setText('');
-  }
+
   return (
     <div>
       <div className={s.wrapRotation}>
