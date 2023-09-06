@@ -18,6 +18,12 @@ import {
 } from '../../../shared/function/ThreekitAttributeText';
 import { URLS } from '../../../shared/providers/router/AppRouter';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
+import {
+  getSelectedLayers,
+  getSelectedTextLayers,
+  getVisibleLayers,
+} from '../../../shared/providers/redax/selectore';
 
 const defaultObjText = {
   'Add Text back 2': '',
@@ -39,26 +45,29 @@ const defaultObjText = {
   'Text Bookend Effect back 2': false,
   'Text Bookend Effect Size back 2': 128,
 };
+export const options = [
+  { value: 'upperfron', label: 'Upper Fron', nameThrekit: 'front 1' },
+  { value: 'upperback', label: 'Upper Back', nameThrekit: 'back 1' },
+  { value: 'lowerback', label: 'Lower back', nameThrekit: 'back 2' },
+];
+export const optionsFonts = [
+  { value: 'Arial', label: 'Arial' },
+  { value: 'Mogula', label: 'Modula' },
+  { value: 'Rometano', label: 'Rometano' },
+  { value: 'Times', label: 'Times' },
+  { value: 'Running led', label: 'Running led' },
+];
 
 export const SettingsPersonaliztionCustomText = () => {
-  const [attributes, setConfiguration]: any = useConfigurator();
   const dispatch = useDispatch();
-
   const location = useLocation();
-  const [zoneText, setZoneText]: any = useState(undefined);
 
-  const options = [
-    { value: 'upperfron', label: 'Upper Fron', nameThrekit: 'front 1' },
-    { value: 'upperback', label: 'Upper Back', nameThrekit: 'back 1' },
-    { value: 'lowerback', label: 'Lower back', nameThrekit: 'back 2' },
-  ];
-  const optionsFonts = [
-    { value: 'Arial', label: 'Arial' },
-    { value: 'Mogula', label: 'Modula' },
-    { value: 'Rometano', label: 'Rometano' },
-    { value: 'Times', label: 'Times' },
-    { value: 'Running led', label: 'Running led' },
-  ];
+  const visibleLayers = useSelector(getVisibleLayers);
+  const layer = visibleLayers.find((layer) => layer['isShow']);
+  debugger;
+
+  const [attributes, setConfiguration]: any = useConfigurator();
+  const [zoneText, setZoneText]: any = useState(undefined);
 
   const setText = (valueText: string) => {
     setConfiguration({ [`Add Text ${zoneText}`]: valueText });
@@ -126,12 +135,14 @@ export const SettingsPersonaliztionCustomText = () => {
 
   useEffect(() => {
     if (Object.keys(attributes).length > 0) {
-      selectedZoneText(options[0]);
-      dispatch(
-        setCurentLayer({
-          nameThreekit: options[0]['nameThrekit'],
-        })
-      );
+      if (layer) {
+        selectedZoneText(layer);
+        dispatch(
+          setCurentLayer({
+            nameThreekit: layer['nameThrekit'],
+          })
+        );
+      }
     }
   }, []);
 
@@ -142,6 +153,7 @@ export const SettingsPersonaliztionCustomText = () => {
   }, [location]);
   if (Object.keys(attributes).length < 1) return <></>;
   if (!zoneText) return <></>;
+  if (!layer) return <></>;
 
   const getValueThreekitFunc = getValueThreekit(zoneText, attributes);
   const setValueThreekitFunc = setValueThreekit(zoneText, setConfiguration);
@@ -154,10 +166,10 @@ export const SettingsPersonaliztionCustomText = () => {
       <div className={s.wrap}>
         <Select
           title={'Text location'}
-          options={options}
-          value={options[0]['value']}
+          options={visibleLayers}
+          value={layer['value']}
           onChange={(value) => {
-            const valueObj = options.find((i) => i['value'] === value);
+            const valueObj = visibleLayers.find((i) => i['value'] === value);
             if (valueObj) {
               selectedZoneText(valueObj);
               dispatch(
@@ -174,10 +186,10 @@ export const SettingsPersonaliztionCustomText = () => {
           <InputText
             placeholder={'Enter custom text'}
             value={getValueThreekitFunc('Add Text ')}
-            onChange={(value: any) => {
-              // console.log('value', value);
-              const valueText = value['target']['value'];
+            onChange={(valueText: any) => {
               console.log('valueText', valueText);
+              // const valueText = value['target']['value'];
+              // console.log('valueText', valueText);
 
               setText(valueText);
             }}

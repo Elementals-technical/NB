@@ -1,12 +1,20 @@
+import { ChangeEvent, useEffect, useState } from 'react';
 import s from './InputText.module.scss';
 
-export const InputText = ({ onChange, ...props }: any) => {
+export const InputText = ({ onChange, defaultValue, ...props }: any) => {
+  const [valueState, setValue] = useState(defaultValue);
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    onChange(value);
+    setValue(value);
+  };
+
   return (
     <input
+      value={valueState}
       className={s.input}
       {...props}
-      type="text"
-      onChange={onChange}
+      onChange={handleInputChange}
     ></input>
   );
 };

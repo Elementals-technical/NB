@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash';
 import { typeZone } from '../../../../typing/ZoneType';
 import { TYPE_REDUCER } from '../action';
 
@@ -79,7 +80,18 @@ const initialState: stateT = {
     type: '',
     nameThreekit: '',
   },
-  selectedLayers: [],
+  selectedLayers: [
+    {
+      typeArea: 'text',
+      type: 'custom',
+      nameThreekit: 'front 1',
+    },
+    {
+      typeArea: 'text',
+      type: 'player-name',
+      nameThreekit: 'back 1',
+    },
+  ],
   //   view: {
   //     sidesBarn: views,
   //     typeConfiguration: ["2D", "3D"],
@@ -156,11 +168,11 @@ const Settings = (state = initialState, action: any) => {
     case TYPE_REDUCER.SET_LAYER_AREA: {
       const layer = action.payload;
 
-      const selectedLayers = state.selectedLayers.push(layer);
-
+      const layers = cloneDeep(state.selectedLayers);
+      layers.push(layer);
       return {
         ...state,
-        selectedLayers: selectedLayers,
+        selectedLayers: layers,
       };
       break;
     }

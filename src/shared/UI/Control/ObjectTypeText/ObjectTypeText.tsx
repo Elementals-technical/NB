@@ -5,26 +5,24 @@ import { SettingsPersonaliztionText } from '../SettingsPersonaliztionText.tsx/Se
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCurentLayer } from '../../../providers/redax/action';
-
+export const listType = [
+  {
+    label: 'Custom Text',
+    value: 'custom',
+  },
+  {
+    label: 'Player Name',
+    value: 'player-name',
+  },
+  {
+    label: 'Player Number',
+    value: 'player-number',
+  },
+];
 export const ObjectTypeText = () => {
   const [TypeText, setTypeText] = useState('custom');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const listType = [
-    {
-      label: 'Custom Text',
-      value: 'custom',
-    },
-    {
-      label: 'Player Name',
-      value: 'player-name',
-    },
-    {
-      label: 'Player Number',
-      value: 'player-number',
-    },
-  ];
 
   useEffect(() => {
     navigate(listType[0]['value']);

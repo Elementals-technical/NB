@@ -12,6 +12,7 @@ import {
   getValueThreekit,
   setValueThreekit,
 } from '../../../shared/function/ThreekitAttributeText';
+import useSetThreekitHook from '../../Threekit/hooks/useSendThreekit';
 
 const textEffect = [
   {
@@ -68,6 +69,25 @@ export const TextEffect = ({ nameText }: any) => {
 
   const [attributes, setConfiguration]: any = useConfigurator();
 
+  const [setValueAmount] = useSetThreekitHook<string>((value) => {
+    setValueThreekitFunc('Text curve Amount ', value);
+  }, 300);
+  const [setValueBookendEffectSize] = useSetThreekitHook<string>((value) => {
+    setValueThreekitFunc('Text Bookend Effect Size ', value);
+  }, 300);
+  const [setValueBookendOffsetY] = useSetThreekitHook<string>((value) => {
+    setValueThreekitFunc('Text shadow Offset Y ', value);
+  }, 300);
+  const [setValueBookendOffsetX] = useSetThreekitHook<string>((value) => {
+    setValueThreekitFunc('Text shadow Offset X ', value);
+  }, 300);
+  const [setValueShadowThickness] = useSetThreekitHook<string>((value) => {
+    setValueThreekitFunc('Text shadow Thickness ', value);
+  }, 300);
+  const [setValueOpacityy] = useSetThreekitHook<string>((value) => {
+    setValueThreekitFunc('Text shadow opacity ', value);
+  }, 300);
+
   if (!nameThreekitCurentLayer) return <></>;
   if (Object.keys(attributes).length < 1) return <></>;
 
@@ -119,10 +139,15 @@ export const TextEffect = ({ nameText }: any) => {
                 {/* Text curve Amount front 1 */}
                 <LinerWrap name={'Effect amount'}>
                   <InputText
-                    value={getValueThreekitFunc('Text curve Amount ')}
+                    step={0.1}
+                    min={-1}
+                    max={1}
+                    inputmode="decimal"
+                    type="number"
+                    lang="nl"
+                    defaultValue={getValueThreekitFunc('Text curve Amount ')}
                     onChange={(value: any) => {
-                      const valueProp = value['target']['value'];
-                      setValueThreekitFunc('Text curve Amount ', valueProp);
+                      setValueAmount(value);
                     }}
                   />
                 </LinerWrap>
@@ -162,13 +187,17 @@ export const TextEffect = ({ nameText }: any) => {
                 {/* Text Bookend Effect Size front 1 */}
                 <LinerWrap name={'Bookend amount'}>
                   <InputText
-                    value={getValueThreekitFunc('Text Bookend Effect Size ')}
+                    step={1}
+                    min={10}
+                    max={250}
+                    inputmode="decimal"
+                    type="number"
+                    lang="nl"
+                    defaultValue={getValueThreekitFunc(
+                      'Text Bookend Effect Size '
+                    )}
                     onChange={(value: any) => {
-                      const valueProp = value['target']['value'];
-                      setValueThreekitFunc(
-                        'Text Bookend Effect Size ',
-                        valueProp
-                      );
+                      setValueBookendEffectSize(value);
                     }}
                   />
                 </LinerWrap>
@@ -213,10 +242,15 @@ export const TextEffect = ({ nameText }: any) => {
                 {/* Text shadow opacity back 1 */}
                 <LinerWrap name={'Opacity'}>
                   <InputText
-                    value={getValueThreekitFunc('Text shadow opacity ')}
+                    step={0.1}
+                    min={0}
+                    max={1}
+                    inputmode="decimal"
+                    type="number"
+                    lang="nl"
+                    defaultValue={getValueThreekitFunc('Text shadow opacity ')}
                     onChange={(value: any) => {
-                      const valueProp = value['target']['value'];
-                      setValueThreekitFunc('Text shadow opacity ', valueProp);
+                      setValueOpacityy(value);
                     }}
                   />
                 </LinerWrap>
@@ -225,10 +259,17 @@ export const TextEffect = ({ nameText }: any) => {
               <div className={s.box25}>
                 <LinerWrap name={'Thickness'}>
                   <InputText
-                    value={getValueThreekitFunc('Text shadow Thickness ')}
+                    step={1}
+                    min={0}
+                    max={50}
+                    inputmode="decimal"
+                    type="number"
+                    lang="nl"
+                    defaultValue={getValueThreekitFunc(
+                      'Text shadow Thickness '
+                    )}
                     onChange={(value: any) => {
-                      const valueProp = value['target']['value'];
-                      setValueThreekitFunc('Text shadow Thickness ', valueProp);
+                      setValueShadowThickness(value);
                     }}
                   />
                 </LinerWrap>
@@ -237,10 +278,15 @@ export const TextEffect = ({ nameText }: any) => {
               <div className={s.box25}>
                 <LinerWrap name={'Offset X'}>
                   <InputText
-                    value={getValueThreekitFunc('Text shadow Offset X ')}
+                    step={1}
+                    min={-100}
+                    max={100}
+                    inputmode="decimal"
+                    type="number"
+                    lang="nl"
+                    defaultValue={getValueThreekitFunc('Text shadow Offset X ')}
                     onChange={(value: any) => {
-                      const valueProp = value['target']['value'];
-                      setValueThreekitFunc('Text shadow Offset X ', valueProp);
+                      setValueBookendOffsetX(value);
                     }}
                   />
                 </LinerWrap>
@@ -249,10 +295,15 @@ export const TextEffect = ({ nameText }: any) => {
                 {/* Text shadow Offset Y back 1 */}
                 <LinerWrap name={'Offset Y'}>
                   <InputText
-                    value={getValueThreekitFunc('Text shadow Offset Y ')}
+                    step={1}
+                    min={-100}
+                    max={100}
+                    inputmode="decimal"
+                    type="number"
+                    lang="nl"
+                    defaultValue={getValueThreekitFunc('Text shadow Offset Y ')}
                     onChange={(value: any) => {
-                      const valueProp = value['target']['value'];
-                      setValueThreekitFunc('Text shadow Offset Y ', valueProp);
+                      setValueBookendOffsetY(value);
                     }}
                   />
                 </LinerWrap>
