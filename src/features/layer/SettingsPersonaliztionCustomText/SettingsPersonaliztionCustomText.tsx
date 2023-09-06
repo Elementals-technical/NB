@@ -5,9 +5,6 @@ import { ListColor } from '../../../shared/UI/ListColor/ListColor';
 import { listColor } from '../../../shared/data/structureUI';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { cloneDeep } from 'lodash';
-<<<<<<< HEAD
-import { Navigate, useNavigate } from 'react-router';
-=======
 import { Select } from '../../../shared/UI/Select/Select';
 import { setCurentLayer } from '../../../shared/providers/redax/action';
 import { useDispatch } from 'react-redux';
@@ -21,7 +18,6 @@ import {
 } from '../../../shared/function/ThreekitAttributeText';
 import { URLS } from '../../../shared/providers/router/AppRouter';
 import { useLocation } from 'react-router';
->>>>>>> 0336c7eb8ff497757bda283f46467a3efb595cee
 
 const defaultObjText = {
   'Add Text back 2': '',

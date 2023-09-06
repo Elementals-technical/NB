@@ -9,11 +9,8 @@ import { PersonalizationSetting } from '../../../wigetch/PersonalizationSetting/
 import { PersonalizationObjectTextRuster } from '../../../features/layer/PersonalizationObjectTextRuster/PersonalizationObjectTextRuster';
 import { SettingsPersonaliztionCustomText } from '../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { PersonalizationObjectGraphics } from '../../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
-<<<<<<< HEAD
-import { SettingsPersonaliztionRosterList } from '../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
-=======
 import { PersonalizationObjectText } from '../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
->>>>>>> 0336c7eb8ff497757bda283f46467a3efb595cee
+import { SettingsPersonaliztionRosterList } from '../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
 
 export const URLS = {
   ROOT: '/',
