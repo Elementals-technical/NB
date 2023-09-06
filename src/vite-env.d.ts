@@ -8,4 +8,8 @@ declare module '*.scss' {
   export default classes;
 }
 
+declare module '*.png' {
+  const value: any;
+  export default value;
+}
 /// <reference types="vite/client" />
