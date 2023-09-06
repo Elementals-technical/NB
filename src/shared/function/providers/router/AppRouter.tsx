@@ -10,6 +10,7 @@ import { PersonalizationObjectTextRuster } from '../../../../features/layer/Pers
 import { SettingsPersonaliztionCustomText } from '../../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { PersonalizationObjectGraphics } from '../../../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
 import { PersonalizationObjectText } from '../../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
+import { SettingsPersonaliztionRosterList } from '../../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
 
 export const URLS = {
   ROOT: '/',
@@ -31,7 +32,7 @@ export const URL_PAGE = {
 
 // createHashRouter
 // createBrowserRouter
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: URLS.ROOT,
     element: <StartingScreen />,
@@ -81,6 +82,10 @@ const router = createHashRouter([
                 element: <PersonalizationObjectGraphics />,
               },
             ],
+          },
+          {
+            path: 'roster-list',
+            element: <SettingsPersonaliztionRosterList />,
           },
         ],
       },

@@ -45,7 +45,6 @@ export const ListColor = ({ label, values, ...props }: Props) => {
       hex: '#385644',
     },
   ];
-  debugger;
   return (
     <div className={s.wrap}>
       <div className={s.header}>

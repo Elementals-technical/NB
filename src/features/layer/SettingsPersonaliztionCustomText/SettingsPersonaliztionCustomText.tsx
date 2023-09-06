@@ -72,6 +72,8 @@ export const SettingsPersonaliztionCustomText = () => {
   const [zoneText, setZoneText]: any = useState(undefined);
 
   const setText = (valueText: string) => {
+    console.log('defaultValue', valueText, zoneText);
+
     setConfiguration({ [`Add Text ${zoneText}`]: valueText });
   };
 
@@ -184,7 +186,7 @@ export const SettingsPersonaliztionCustomText = () => {
         <LinerWrap name={'Enter text'}>
           <InputText
             placeholder={'Enter custom text'}
-            value={getValueThreekitFunc('Add Text ')}
+            defaultValue={getValueThreekitFunc('Add Text ')}
             onChange={(valueText: any) => {
               setText(valueText);
             }}

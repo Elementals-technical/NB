@@ -1,7 +1,8 @@
 .wrapPage {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   z-index: 1000;
@@ -11,6 +12,7 @@
   background-color: #fff;
 }
 .main {
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,34 +49,66 @@
   }
 }
 
-.animateFill {
-  fill: #cf202e;
-  animation: fillAnimation 2s steps(4, end) infinite;
-}
+// .animateFill {
+//   fill: #cf202e;
+//   animation: fillAnimation 2s steps(4, end) infinite;
+// }
 
-@keyframes fillAnimation {
+// @keyframes fillAnimation {
+//   0% {
+//     clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+//   }
+//   // 25% {
+//   //   clip-path: polygon(0% 75%, 100% 75%, 100% 100%, 0% 100%);
+//   // }
+//   // 50% {
+//   //   clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+//   // }
+//   // 75% {
+//   //   clip-path: polygon(0% 25%, 100% 25%, 100% 100%, 0% 100%);
+//   // }
+//   33% {
+//     clip-path: polygon(0% 66%, 100% 66%, 100% 100%, 0% 100%);
+//   }
+//   66% {
+//     clip-path: polygon(0% 33%, 100% 33%, 100% 100%, 0% 100%);
+//   }
+//   90% {
+//     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+//   }
+//   100% {
+//     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+//   }
+// }
+
+/* Стили для маски */
+@keyframes maskAnimation {
   0% {
-    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-  }
-  // 25% {
-  //   clip-path: polygon(0% 75%, 100% 75%, 100% 100%, 0% 100%);
-  // }
-  // 50% {
-  //   clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
-  // }
-  // 75% {
-  //   clip-path: polygon(0% 25%, 100% 25%, 100% 100%, 0% 100%);
-  // }
-  33% {
-    clip-path: polygon(0% 66%, 100% 66%, 100% 100%, 0% 100%);
-  }
-  66% {
-    clip-path: polygon(0% 33%, 100% 33%, 100% 100%, 0% 100%);
-  }
-  90% {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    y: 50px;
   }
   100% {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    y: 0px;
+  }
+}
+
+.bg {
+  // animation: maskAnimation 3s ease-in-out forwards;
+}
+
+#rect {
+  mask-image: url(#SVGMask);
+  mask-mode: luminance;
+}
+
+@media (max-width: 992px) {
+  .logo {
+    margin-bottom: 30px;
+  }
+  .title {
+    font-size: 18px !important;
+  }
+
+  .subtitle {
+    font-size: 16px !important;
   }
 }

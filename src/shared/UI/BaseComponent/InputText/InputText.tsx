@@ -5,6 +5,8 @@ export const InputText = ({ onChange, defaultValue, ...props }: any) => {
   const [valueState, setValue] = useState(defaultValue);
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
+    console.log('value', value);
+
     onChange(value);
     setValue(value);
   };

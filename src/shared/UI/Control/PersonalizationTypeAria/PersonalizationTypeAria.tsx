@@ -7,7 +7,6 @@ import { filterAvailableZones } from '../../../data/areasObjects';
 import { getProductByKey } from '../../../data/productInformation';
 import { useDispatch } from 'react-redux';
 import { setCurentLayer } from '../../../function/providers/redax/action';
-
 export const PersonalizationTypeAria = () => {
   const [TypePersonalize, setTypePersonalize] = useState('text');
 

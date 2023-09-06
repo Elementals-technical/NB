@@ -7,8 +7,8 @@ import { URL_PAGE } from '../../shared/function/providers/router/AppRouter';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
 import { setLayerArea } from '../../shared/function/providers/redax/action';
+import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
 export const PersonalizationSetting = () => {
   const { configID } = useParams();
   if (!configID) return <></>;

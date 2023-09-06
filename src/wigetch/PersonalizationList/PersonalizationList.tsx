@@ -10,11 +10,13 @@ export const PersonalizationList = ({ layers }: any) => {
       {layers.map((item: any) => {
         if (item['typeArea'] === 'text') {
           const valueObj = options.find(
-            (i) => i['nameThreekit'] === item['nameThreekit']
+            (i: any) => i['nameThreekit'] === item['nameThreekit']
           );
           if (!valueObj) return <></>;
           if (Object.keys(valueObj).length < 1) return <></>;
-          const typeObj = listType.find((i) => i['value'] === item['type']);
+          const typeObj = listType.find(
+            (i: any) => i['value'] === item['type']
+          );
           if (!typeObj) return <></>;
           if (Object.keys(typeObj).length < 1) return <></>;
 
