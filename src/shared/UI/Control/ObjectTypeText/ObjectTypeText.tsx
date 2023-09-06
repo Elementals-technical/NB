@@ -3,10 +3,13 @@ import { LineParam } from '../../LineParam/LineParam';
 import s from './ObjectTypeText.module.scss';
 import { SettingsPersonaliztionText } from '../SettingsPersonaliztionText.tsx/SettingsPersonaliztionText';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurentLayer } from '../../../providers/redax/action';
 
 export const ObjectTypeText = () => {
   const [TypeText, setTypeText] = useState('custom');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const listType = [
     {
@@ -26,11 +29,21 @@ export const ObjectTypeText = () => {
   useEffect(() => {
     navigate(listType[0]['value']);
     setTypeText(listType[0]['value']);
+    dispatch(
+      setCurentLayer({
+        type: listType[0]['value'],
+      })
+    );
   }, []);
 
   const onChange = (value: any) => {
     navigate(value);
     setTypeText(value);
+    dispatch(
+      setCurentLayer({
+        type: value,
+      })
+    );
   };
 
   return (

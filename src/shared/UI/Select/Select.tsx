@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 interface OptionI {
   label: string | number;
-  value: string;
+  value: any;
 }
 
 interface SelectI {
@@ -24,6 +24,7 @@ export const Select: React.FC<SelectI> = (props) => {
     togglePicker();
   };
 
+  const selectedOption = options.find((option) => option['value'] === value);
   return (
     <div className="text-base font-proxima">
       {title && (
@@ -44,7 +45,7 @@ export const Select: React.FC<SelectI> = (props) => {
           }}
           onClick={() => togglePicker()}
         >
-          {value}
+          {selectedOption ? selectedOption['label'] : value}
         </div>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-5 text-gray-700">
           <svg
@@ -77,7 +78,7 @@ export const Select: React.FC<SelectI> = (props) => {
             {options.map((op, index) => (
               <div
                 key={index}
-                onClick={() => handleChange(op.value)}
+                onClick={() => handleChange(op['value'])}
                 className="cursor-pointer hover:font-semibold"
                 style={{
                   padding: '6px 0 ',

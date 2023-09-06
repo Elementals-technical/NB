@@ -1,20 +1,16 @@
-import React from 'react';
-import { UploadFile } from '../../shared/UI/UploadFile/UploadFile';
-import axios from 'axios';
 import s from './PersonalizationSetting.module.scss';
 import { Outlet, useNavigate, useParams } from 'react-router';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
 import { BackIcon } from '../../shared/assets/svg/BackIcon';
-import { LineParam } from '../../shared/UI/LineParam/LineParam';
-import { AITextIcon } from '../../shared/assets/svg/AITextIcon';
-import { GraphicIcon } from '../../shared/assets/svg/GraphicIcon';
 import { PersonalizationTypeAria } from '../../shared/UI/Control/PersonalizationTypeAria/PersonalizationTypeAria';
-import { URLS, URL_PAGE } from '../../shared/providers/router/AppRouter';
+import { URL_PAGE } from '../../shared/providers/router/AppRouter';
+import { useConfigurator } from '@threekit-tools/treble/dist';
 export const PersonalizationSetting = () => {
   const { configID } = useParams();
   if (!configID) return <></>;
 
   const navigate = useNavigate();
+  const [attributes, setConfiguration]: any = useConfigurator();
 
   return (
     <div className={s.wrap}>
@@ -26,15 +22,19 @@ export const PersonalizationSetting = () => {
         />
       </div>
       <div className={s.main}>
-        <PersonalizationTypeAria />
+        {Object.keys(attributes).length > 1 && (
+          <>
+            <PersonalizationTypeAria />
 
-        <Outlet />
+            <Outlet />
+          </>
+        )}
       </div>
       <footer>
         <div className="reset"></div>
-        <div className="wrap_box">
-          <button>Cancel</button>
-          <button>Save Personalization</button>
+        <div className={s.wrap_box}>
+          <button className={s.btn_trancperent}>Cancel</button>
+          <button className={s.btn}>Save Personalization</button>
         </div>
       </footer>
     </div>

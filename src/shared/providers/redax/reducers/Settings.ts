@@ -1,4 +1,19 @@
+import { typeZone } from '../../../../typing/ZoneType';
+import { TYPE_REDUCER } from '../action';
+
+export type selectedLayer = {
+  typeArea: typeZone;
+  type: string;
+  nameThreekit: string;
+};
 export type stateT = {
+  curentLayer: selectedLayer;
+  selectedLayers: selectedLayer[];
+  // {
+  //   typeArea: 'text';
+  //   type: 'cutom';
+  //   nameThreekit: '';
+  // },
   //   view: {
   //     sidesBarn: viewT[];
   //     typeConfiguration: any[];
@@ -59,6 +74,12 @@ export type stateT = {
   //   };
 };
 const initialState: stateT = {
+  curentLayer: {
+    typeArea: 'text',
+    type: '',
+    nameThreekit: '',
+  },
+  selectedLayers: [],
   //   view: {
   //     sidesBarn: views,
   //     typeConfiguration: ["2D", "3D"],
@@ -132,18 +153,30 @@ const initialState: stateT = {
 
 const Settings = (state = initialState, action: any) => {
   switch (action.type) {
-    // case TYPE_REDUCER.SET_INITIALIZATION_THREEKIT: {
-    //   const { initializationThreekit, modelId }: any = action.payload;
+    case TYPE_REDUCER.SET_LAYER_AREA: {
+      const layer = action.payload;
 
-    //   return {
-    //     ...state,
-    //     barns: {
-    //       ...state.barns,
-    //       activeBarn: modelId,
-    //     },
-    //     initializationThreekitData: initializationThreekit,
-    //   };
-    // }
+      const selectedLayers = state.selectedLayers.push(layer);
+
+      return {
+        ...state,
+        selectedLayers: selectedLayers,
+      };
+      break;
+    }
+    case TYPE_REDUCER.SET_CURENT_AREA: {
+      const layerAreaProp = action.payload;
+
+      return {
+        ...state,
+
+        curentLayer: {
+          ...state.curentLayer,
+          ...layerAreaProp,
+        },
+      };
+      break;
+    }
 
     // case TYPE_REDUCER.SET_STATUS_HINTS: {
     //   const { status, idHelpPorch } = action.payload;
