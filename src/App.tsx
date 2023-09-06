@@ -1,6 +1,6 @@
 import './shared/fonts.css';
-import { AppRouter } from './shared/providers';
-import { ReactRedaxProvide } from './shared/providers/redax';
+import { AppRouter } from './shared/function/providers';
+import { ReactRedaxProvide } from './shared/function/providers/redax';
 
 const App = () => {
   return (

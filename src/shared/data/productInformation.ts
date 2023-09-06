@@ -14,6 +14,11 @@ export const ProductInfo: infoProduct = {
     category: 'Custom Uniform',
   },
   jersey: { name: 'Jersey', category: 'Custom Uniform' },
+  w_hoodie: {
+    name: 'W hoodie',
+    category: 'Embellished Products',
+  },
+  w_pant: { name: 'W pant', category: 'Embellished' },
 };
 
 const getAreaObjects = () => cloneDeep(ProductInfo);

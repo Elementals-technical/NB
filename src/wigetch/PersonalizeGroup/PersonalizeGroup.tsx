@@ -4,7 +4,7 @@ import { PersonalizeScreenStart } from '../../shared/UI/PersonalizeScreenStart/P
 
 import { NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getSelectedLayers } from '../../shared/providers/redax/selectore';
+import { getSelectedLayers } from '../../shared/function/providers/redax/selectore';
 import { PersonalizationList } from '../PersonalizationList/PersonalizationList';
 export const PersonalizeGroup = () => {
   const selectedLayers = useSelector(getSelectedLayers);
@@ -39,13 +39,14 @@ export const PersonalizeGroup = () => {
 
         <Outlet />
       </main>
-      <footer className={s.footer}>
-        {selectedLayers.length > 0 && (
+
+      {selectedLayers.length > 0 && (
+        <footer className={s.footer}>
           <NavLink to={`settings`} className={s.btn}>
             Add another personalization
           </NavLink>
-        )}
-      </footer>
+        </footer>
+      )}
     </div>
   );
 };

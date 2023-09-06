@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './ConfiguraionScreen.module.scss';
 import { View } from '../../wigetch/View/View';
 import { Configuration } from '../../wigetch/Configuration/Configuration';
@@ -9,10 +9,10 @@ export const ConfiguraionScreen = () => {
   const { configID } = useParams();
   if (!configID) return <></>;
   const saveConfig: Record<string, string> = {
-    short: '5rabMva22',
-    jersey: 'y02VQRz0y',
-    w_hoodie: '5rabMva22',
-    w_pant: '5rabMva22',
+    short: 'rL7-gjOig',
+    jersey: 'n0nAvYnGH',
+    w_hoodie: 'JOksyDpjv',
+    w_pant: 'tjic2RroK',
   };
 
   const projects = {
@@ -36,6 +36,13 @@ export const ConfiguraionScreen = () => {
     //   // onAnnotationChange(navigate)(annotations, parentEl);
     // },
   };
+
+  useEffect(() => {
+    console.log('test2');
+  }, [configID]);
+  useEffect(() => {
+    console.log('test1');
+  }, []);
 
   return (
     <>

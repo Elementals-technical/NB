@@ -3,12 +3,12 @@ import { Outlet, useNavigate, useParams } from 'react-router';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
 import { BackIcon } from '../../shared/assets/svg/BackIcon';
 import { PersonalizationTypeAria } from '../../shared/UI/Control/PersonalizationTypeAria/PersonalizationTypeAria';
-import { URL_PAGE } from '../../shared/providers/router/AppRouter';
+import { URL_PAGE } from '../../shared/function/providers/router/AppRouter';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCurentLayer } from '../../shared/providers/redax/selectore';
-import { setLayerArea } from '../../shared/providers/redax/action';
+import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
+import { setLayerArea } from '../../shared/function/providers/redax/action';
 export const PersonalizationSetting = () => {
   const { configID } = useParams();
   if (!configID) return <></>;

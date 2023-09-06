@@ -10,7 +10,7 @@ export const PersonalizationList = ({ layers }: any) => {
       {layers.map((item: any) => {
         if (item['typeArea'] === 'text') {
           const valueObj = options.find(
-            (i) => i['nameThrekit'] === item['nameThreekit']
+            (i) => i['nameThreekit'] === item['nameThreekit']
           );
           if (!valueObj) return <></>;
           if (Object.keys(valueObj).length < 1) return <></>;
@@ -64,7 +64,7 @@ export const PersonalizationList = ({ layers }: any) => {
 
         if (item['typeArea'] === 'graphic') {
           const valueObj = options.find(
-            (i) => i['nameThrekit'] === item['nameThreekit']
+            (i) => i['nameThreekit'] === item['nameThreekit']
           );
           if (!valueObj) return <></>;
           if (Object.keys(valueObj).length < 1) return <></>;

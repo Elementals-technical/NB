@@ -7,7 +7,7 @@ import { IconStart } from '../../../shared/assets/svg/IconІStart';
 import { useConfigurator } from '@threekit-tools/treble/dist';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getNameThreekitCurentLayer } from '../../../shared/providers/redax/selectore';
+import { getNameThreekitCurentLayer } from '../../../shared/function/providers/redax/selectore';
 import {
   getValueThreekit,
   setValueThreekit,

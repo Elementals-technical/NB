@@ -2,6 +2,9 @@ import s from './PersonalizationObjectGraphics.module.scss';
 import { UploadFile } from '../../../shared/UI/UploadFile/UploadFile';
 import axios from 'axios';
 import Select from 'react-select/dist/declarations/src/Select';
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import { getVisibleLayers } from '../../../shared/function/providers/redax/selectore';
 
 export const PersonalizationObjectGraphics = () => {
   async function uploadFile(file: any) {
@@ -23,6 +26,14 @@ export const PersonalizationObjectGraphics = () => {
 
     return response.data.result.output.texture[0].assetId;
   }
+
+  let { configID } = useParams();
+
+  const visibleLayers = useSelector(
+    getVisibleLayers({ objectId: configID, typeZone: 'text' })
+  );
+  const layer = visibleLayers.find((layer) => layer['isShow']);
+
   return (
     <>
       <UploadFile
@@ -49,19 +60,32 @@ export const PersonalizationObjectGraphics = () => {
           });
         }}
       />
-      {/* <div className={s.wrap}>
-        <div className={s.header}>
-          <div className={s.title}>Text location</div>
+      <div className={s.wrap}>
+        <div className={s.line}>
+          <div className={s.boxFont}>
+            <Select
+              title={'Select font'}
+              options={optionsFonts}
+              value={getValueThreekitFunc('Font Text ')}
+              onChange={(value) => {
+                const valueObj = optionsFonts.find((i) => i['value'] === value);
+                selectedFoneText(valueObj);
+              }}
+            />
+          </div>
+
+          <div className={s.boxheight}>
+            <Counter
+              title="Select height"
+              value={getValueThreekitFunc('Size text ')}
+              onChange={(value) => {
+                console.log('value n', value);
+                selectedFoneSizeText(value);
+              }}
+            />
+          </div>
         </div>
-        <div className={s.main}>
-          <Select
-            options={options}
-            onChange={(value) => {
-              selectedZoneText(value);
-            }}
-          />
-        </div>
-      </div> */}
+      </div>
     </>
   );
 };

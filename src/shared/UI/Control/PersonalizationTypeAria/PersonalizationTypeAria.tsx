@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router';
 import { filterAvailableZones } from '../../../data/areasObjects';
 import { getProductByKey } from '../../../data/productInformation';
 import { useDispatch } from 'react-redux';
-import { setCurentLayer } from '../../../providers/redax/action';
+import { setCurentLayer } from '../../../function/providers/redax/action';
 
 export const PersonalizationTypeAria = () => {
   const [TypePersonalize, setTypePersonalize] = useState('text');
@@ -59,6 +59,7 @@ export const PersonalizationTypeAria = () => {
   };
 
   const availableZones = filterAvailableZones(configID, listPersonalization);
+
   useEffect(() => {
     setTypeArea(availableZones[0]['value']);
   }, []);

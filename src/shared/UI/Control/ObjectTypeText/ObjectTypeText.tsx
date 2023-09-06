@@ -4,7 +4,7 @@ import s from './ObjectTypeText.module.scss';
 import { SettingsPersonaliztionText } from '../SettingsPersonaliztionText.tsx/SettingsPersonaliztionText';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurentLayer } from '../../../providers/redax/action';
+import { setCurentLayer } from '../../../function/providers/redax/action';
 export const listType = [
   {
     label: 'Custom Text',

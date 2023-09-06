@@ -91,75 +91,42 @@ export const SectionBase: any = {
     },
   ],
   jersey: [
-    // {
-    //   type: 'TabContainer',
-    //   data: {
-    //     headerComponent: {
-    //       type: 'LineParam',
-    //       data: {
-    //         label: 'Color application area',
-    //         id: 'Area',
-    //         typeOptions: 'configurationOptions',
-    // values: [
-    //   {
-    //     label: 'Front',
-    //     value: 'front',
-    //   },
-    //   {
-    //     label: 'Back',
-    //     value: 'back',
-    //   },
-    //   {
-    //     label: 'Sleeves',
-    //     value: 'sleeves',
-    //   },
-    //   {
-    //     label: 'Buttons',
-    //     value: 'buttons',
-    //   },
-    // ],
-    //       },
-    //     },
-    //     sectionsComponent: [
-    //       {
-    //         type: 'ListColor',
-    //         data: {
-    //           label: 'Jersey color',
-    //           id: 'BaseColor#front#',
-    //           typeOptions: 'configurationOptions',
-    //           values: listColor,
-    //         },
-    //       },
-    //       {
-    //         type: 'ListColor',
-    //         data: {
-    //           label: 'Jersey color',
-    //           id: 'BaseColor#back#',
-    //           typeOptions: 'configurationOptions',
-    //           values: listColor,
-    //         },
-    //       },
-    //       {
-    //         type: 'ListColor',
-    //         data: {
-    //           label: 'Jersey color',
-    //           id: 'BaseColor#sleeves#',
-    //           typeOptions: 'configurationOptions',
-    //           values: listColor,
-    //         },
-    //       },
-    //       {
-    //         type: 'ListColor',
-    //         data: {
-    //           label: 'Jersey color',
-    //           id: 'BaseColor#buttons#',
-    //           typeOptions: 'configurationOptions',
-    //           values: listColor,
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      type: 'ListColor',
+      data: {
+        label: 'Short color',
+        nameThreekit: 'Color',
+        id: 'Color',
+        typeOptions: 'configurationOptions',
+        values: [
+          {
+            label: 'White',
+            value: 'White',
+            hex: '#FFFFFF',
+          },
+        ],
+      },
+    },
+  ],
+  w_hoodie: [
+    {
+      type: 'ListColor',
+      data: {
+        label: 'Short color',
+        nameThreekit: 'Color',
+        id: 'Color',
+        typeOptions: 'configurationOptions',
+        values: [
+          {
+            label: 'White',
+            value: 'White',
+            hex: '#FFFFFF',
+          },
+        ],
+      },
+    },
+  ],
+  w_pant: [
     {
       type: 'ListColor',
       data: {
@@ -178,60 +145,6 @@ export const SectionBase: any = {
     },
   ],
 };
-
-const sectionPersonalize = [
-  {
-    type: 'startComponent',
-    data: {
-      label: 'Personalize product',
-      description:
-        'Right now you don’t have any personalization. Customize your product with graphics, team names and player names!',
-      id: 'Area',
-      typeOptions: 'configurationOptions',
-      values: listColor,
-    },
-  },
-  {
-    type: 'LineParam',
-    data: {
-      label: 'Personalization type',
-      id: 'Area',
-      typeOptions: 'configurationOptions',
-      values: [
-        {
-          label: 'Text',
-          value: 'front',
-        },
-        {
-          label: 'Text',
-          value: 'back',
-        },
-      ],
-    },
-  },
-  {
-    type: 'LineParam',
-    data: {
-      label: 'Object type',
-      id: 'Area',
-      typeOptions: 'configurationOptions',
-      values: [
-        {
-          label: 'Custom Text',
-          value: 'front',
-        },
-        {
-          label: 'Player Name',
-          value: 'back',
-        },
-        {
-          label: 'Player Number',
-          value: 'back',
-        },
-      ],
-    },
-  },
-];
 
 export const Section = {
   base: SectionBase,
