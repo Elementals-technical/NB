@@ -1,0 +1,44 @@
+.group {
+  margin: 20px 0;
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .box50 {
+      width: 50%;
+    }
+    .box {
+      width: 50%;
+      margin-left: 30px;
+    }
+  }
+}
+
+.hintGroup {
+  display: flex;
+  align-items: start;
+  margin-top: 12px;
+  & .text {
+    color: #495057;
+    font-family: 'Proxima Nova';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-right: 4px;
+  }
+}
+
+.lineProperty {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 13px;
+}

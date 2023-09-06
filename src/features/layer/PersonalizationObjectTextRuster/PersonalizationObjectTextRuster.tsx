@@ -1,23 +1,22 @@
-import React, { useEffect, useId, useState } from 'react';
-import s from './SettingsPersonaliztionCustomText.module.scss';
-
-import { ListColor } from '../../../shared/UI/ListColor/ListColor';
-import { listColor } from '../../../shared/data/structureUI';
-import { useConfigurator } from '@threekit-tools/treble/dist';
-import { cloneDeep } from 'lodash';
-import { Select } from '../../../shared/UI/Select/Select';
-import { setCurentLayer } from '../../../shared/providers/redax/action';
-import { useDispatch } from 'react-redux';
-import { Counter } from '../../../shared/UI/Counter/Counter';
-import { InputText } from '../../../shared/UI/BaseComponent/InputText/InputText';
-import { LinerWrap } from '../../../shared/UI/BaseComponent/GroupComponent/LinerWrap/LinerWrap';
+import React, { useEffect, useState } from 'react';
+import s from './PersonalizationObjectTextRuster.module.scss';
 import { TextEffect } from '../TextEffect/TextEffect';
+import { ListColor } from '../../../shared/UI/ListColor/ListColor';
+import { useConfigurator } from '@threekit-tools/treble/dist';
+import { useDispatch } from 'react-redux';
+import { cloneDeep } from 'lodash';
+import { setCurentLayer } from '../../../shared/providers/redax/action';
 import {
   getValueThreekit,
   setValueThreekit,
 } from '../../../shared/function/ThreekitAttributeText';
+import { Select } from '../../../shared/UI/Select/Select';
+import { LinerWrap } from '../../../shared/UI/BaseComponent/GroupComponent/LinerWrap/LinerWrap';
+import { InputText } from '../../../shared/UI/BaseComponent/InputText/InputText';
+import { Counter } from '../../../shared/UI/Counter/Counter';
+import { listColor } from '../../../shared/data/structureUI';
+import { useParams, useLocation } from 'react-router-dom';
 import { URLS } from '../../../shared/providers/router/AppRouter';
-import { useLocation } from 'react-router';
 
 const defaultObjText = {
   'Add Text back 2': '',
@@ -40,11 +39,11 @@ const defaultObjText = {
   'Text Bookend Effect Size back 2': 128,
 };
 
-export const SettingsPersonaliztionCustomText = () => {
+export const PersonalizationObjectTextRuster = () => {
   const [attributes, setConfiguration]: any = useConfigurator();
   const dispatch = useDispatch();
-
   const location = useLocation();
+
   const [zoneText, setZoneText]: any = useState(undefined);
 
   const options = [
@@ -134,8 +133,11 @@ export const SettingsPersonaliztionCustomText = () => {
 
   const getValueThreekitFunc = getValueThreekit(zoneText, attributes);
   const setValueThreekitFunc = setValueThreekit(zoneText, setConfiguration);
-  if (location.pathname.includes(URLS.CUSTOM)) {
-    setText('');
+  if (location.pathname.includes(URLS.PLAYER_NAME)) {
+    setText('PLAYER NAME');
+  }
+  if (location.pathname.includes(URLS.PLAYER_NUMBER)) {
+    setText('00');
   }
   return (
     <div>
@@ -160,7 +162,7 @@ export const SettingsPersonaliztionCustomText = () => {
           }}
         />
       </div>
-      <div className={s.wrap}>
+      {/* <div className={s.wrap}>
         <LinerWrap name={'Enter text'}>
           <InputText
             placeholder={'Enter custom text'}
@@ -174,7 +176,7 @@ export const SettingsPersonaliztionCustomText = () => {
             }}
           />
         </LinerWrap>
-      </div>
+      </div> */}
       <div className={s.wrap}>
         <div className={s.line}>
           <div className={s.boxFont}>
