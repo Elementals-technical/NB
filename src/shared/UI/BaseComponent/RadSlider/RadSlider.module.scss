@@ -1,0 +1,141 @@
+// @import url('https://fonts.googleapis.com/css?family=BenchNine');
+
+// :root {
+//   --a: 0deg;
+//   --color1: #d41459;
+//   --color2: #f26191;
+// }
+
+// // add these as needed
+// .rotate-a {
+//   transform: rotate(var(--a));
+// }
+// .rotate-a--reverse {
+//   transform: rotate(calc(0deg - var(--a)));
+// }
+
+// // slider
+// .rad_slider {
+//   --degree: 0deg;
+//   --degree-reverse: calc(0deg - var(--degree));
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 25vmin;
+//   height: 25vmin;
+//   color: #fff;
+//   border: 0.2em solid;
+//   border-radius: 50%;
+//   transition: box-shadow 300ms linear;
+//   transform: rotate(var(--degree));
+//   background-color: #363638;
+//   .label {
+//     user-select: none;
+//     pointer-events: none;
+//     transform: rotate(var(--degree-reverse));
+//   }
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: 5%;
+//     bottom: 70%;
+//     left: 50%;
+//     transform: translate(-50%, 0%);
+//     width: 0.2em;
+//     max-height: 2em;
+//     border-radius: 1em;
+//     background: #fff;
+//   }
+//   &:hover {
+//     cursor: -webkit-grab;
+//     box-shadow: 0 0 3em -1em var(--color1);
+//   }
+//   &.moving {
+//     cursor: -webkit-grabbing;
+//     box-shadow: 0 0 3em -0.5em var(--color1);
+//   }
+// }
+
+// // some style opinions
+// .rad_slider {
+//   &:not(.dirty) .label {
+//     opacity: 1;
+//   }
+//   .label {
+//     position: absolute;
+//     left: 50%;
+//     top: 5%;
+//     width: 3em;
+//     height: 3em;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     transition: opacity 2000ms linear 2000ms;
+//     opacity: 0.5;
+//   }
+//   &:hover .label {
+//     transition-duration: 600ms;
+//     transition-delay: 0ms;
+//     opacity: 1;
+//   }
+// }
+
+// .thing {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 35vmin;
+//   height: 35vmin;
+//   font-size: 1.3em;
+//   border-radius: 0.3em;
+//   color: var(--color2);
+//   background: #fff;
+//   box-shadow: 0 0 2em -0.5em;
+// }
+
+// // boring layout demo structure
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
+
+// body {
+//   margin: 0;
+//   height: 100vh;
+//   display: flex;
+//   font-family: BenchNine, sans-serif;
+//   font-size: 2.5vmin;
+//   overflow: hidden;
+// }
+// main {
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+//   background: linear-gradient(130deg, #333 65%, var(--color2) 65%);
+//   > div {
+//     flex: 1;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     &:first-of-type {
+//       flex: 1.5;
+//       margin-right: 35%;
+//     }
+//     &:last-of-type {
+//       margin-left: 65%;
+//     }
+//   }
+// }
+// footer {
+//   background: #fff;
+//   color: #363638;
+//   display: flex;
+//   > * {
+//     flex: 1;
+//     padding: 1em;
+//     text-align: center;
+//   }
+// }

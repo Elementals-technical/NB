@@ -6,11 +6,14 @@ import { ConfiguraionScreen } from '../../../page/ConfiguraionScreen/Configuraio
 import { ColorGroup } from '../../../wigetch/ColorGroup/ColorGroup';
 import { PersonalizeGroup } from '../../../wigetch/PersonalizeGroup/PersonalizeGroup';
 import { PersonalizationSetting } from '../../../wigetch/PersonalizationSetting/PersonalizationSetting';
-import { PersonalizationObjectText } from '../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
-import { SettingsPersonaliztionText } from '../../UI/Control/SettingsPersonaliztionText.tsx/SettingsPersonaliztionText';
+import { PersonalizationObjectTextRuster } from '../../../features/layer/PersonalizationObjectTextRuster/PersonalizationObjectTextRuster';
 import { SettingsPersonaliztionCustomText } from '../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { PersonalizationObjectGraphics } from '../../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
+<<<<<<< HEAD
 import { SettingsPersonaliztionRosterList } from '../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
+=======
+import { PersonalizationObjectText } from '../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
+>>>>>>> 0336c7eb8ff497757bda283f46467a3efb595cee
 
 export const URLS = {
   ROOT: '/',
@@ -61,7 +64,7 @@ const router = createHashRouter([
                 children: [
                   {
                     index: true,
-                    element: <SettingsPersonaliztionText />,
+                    element: <SettingsPersonaliztionCustomText />,
                   },
                   {
                     path: URLS.CUSTOM,
@@ -69,11 +72,11 @@ const router = createHashRouter([
                   },
                   {
                     path: URLS.PLAYER_NAME,
-                    element: <SettingsPersonaliztionText />,
+                    element: <PersonalizationObjectTextRuster />,
                   },
                   {
                     path: URLS.PLAYER_NUMBER,
-                    element: <SettingsPersonaliztionText />,
+                    element: <PersonalizationObjectTextRuster />,
                   },
                 ],
               },
