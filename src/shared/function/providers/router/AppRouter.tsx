@@ -32,7 +32,7 @@ export const URL_PAGE = {
 
 // createHashRouter
 // createBrowserRouter
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: URLS.ROOT,
     element: <StartingScreen />,
