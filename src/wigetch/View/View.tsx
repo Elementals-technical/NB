@@ -14,6 +14,7 @@ import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
 import { LoaderWrap } from '../../shared/UI/LoaderWrap.tsx/LoaderWrap';
 import { Navigation } from '../../shared/UI/View/Navigation/Navigation';
 import { URLS } from '../../shared/function/providers/router/AppRouter';
+import { ZoomInOutPinch } from '../../shared/assets/svg/ZoomInOutPinch';
 export const View = () => {
   const navigate = useNavigate();
   return (
@@ -23,6 +24,7 @@ export const View = () => {
           icon={<BackIcon />}
           name={'Close personalization'}
           onClick={() => navigate(URLS.ROOT)}
+          addClassName={s.back}
         />
       </div>
 
@@ -38,7 +40,9 @@ export const View = () => {
           <LabelWrap svg={<View360 />} name="360° Preview" />
           <LabelWrap
             svg={<ZoomInOut />}
+            mobileSvg={<ZoomInOutPinch />}
             name="Use mouse wheel to zoom in/out"
+            mobileName="Pinch gesture to zoom in/out"
           />
         </div>
       </div>

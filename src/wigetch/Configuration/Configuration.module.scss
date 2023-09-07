@@ -45,3 +45,50 @@
     max-width: 25%;
   }
 }
+
+@media (max-width: 1024px) {
+  .configurator {
+    padding: 12px 20px;
+  }
+  .workspace {
+    max-width: unset;
+    width: 100%;
+    height: auto;
+  }
+  .control {
+    max-width: unset;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 48px;
+    left: 0;
+    flex-direction: row;
+    border-top: 1px solid #ced4da;
+    background: #fff;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0px 0px 40px 0px rgba(22, 21, 22, 0.08);
+    padding: 0px 20px;
+    justify-content: center;
+  }
+  .logo {
+    position: absolute;
+    margin: 0;
+    width: 48px;
+    left: 20px;
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .control {
+    padding: 0px 10px;
+    justify-content: space-between;
+  }
+  .logo {
+    position: relative;
+    left: unset;
+  }
+}

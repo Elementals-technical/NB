@@ -21,3 +21,15 @@
   box-sizing: border-box;
 }
 /*  */
+
+@media (max-width: 1024px) {
+  .tk-treble-player {
+    height: 100%;
+  }
+  .threekit-react.tk-player {
+    min-height: 100px;
+  }
+  .threekit-react.tk-player > div:nth-child(1) {
+    min-height: 100px;
+  }
+}

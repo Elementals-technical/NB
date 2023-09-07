@@ -3,8 +3,13 @@
   width: 100%;
   & .logo {
     position: absolute;
+    width: 180px;
     left: 50%;
     top: 40px;
+    z-index: 9;
+    img {
+      width: 100%;
+    }
   }
   .wrap_icon {
     display: flex;
@@ -28,4 +33,22 @@
   left: 3.5%;
   top: 7.7%;
   z-index: 100;
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 80px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+  .viewPlayer {
+    height: 100%;
+  }
+
+  .back div[data-icon='icon'] {
+    background: #fff;
+    * {
+      fill: #161516;
+    }
+  }
 }

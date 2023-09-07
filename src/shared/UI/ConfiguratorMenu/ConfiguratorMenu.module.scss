@@ -33,3 +33,25 @@
     padding: 0 2px;
   }
 }
+
+@media (max-width: 1024px) {
+  .menu {
+    position: relative;
+    bottom: -3px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .item {
+    height: 100%;
+  }
+}

@@ -14,3 +14,33 @@
     margin-right: 4px;
   }
 }
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .label {
+    margin: 0px 15px;
+    .icon {
+      width: 20px;
+
+      svg {
+        width: 100%;
+      }
+    }
+    .text {
+      font-size: 10px;
+    }
+    &.multiValues {
+      .text,
+      .icon {
+        display: none;
+      }
+
+      .mobile {
+        display: initial;
+      }
+    }
+  }
+}

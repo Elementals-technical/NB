@@ -28,3 +28,25 @@
     width: 100%;
   }
 }
+
+@media (max-width: 1024px) {
+  .page {
+    flex-direction: column;
+  }
+  .view {
+    max-width: 100%;
+    height: calc(var(--vh, 1vh) * 60);
+    min-height: calc(var(--vh, 1vh) * 60);
+    &Player {
+      height: 100%;
+    }
+  }
+  .wrap_configurator {
+    position: relative;
+    top: -48px;
+    max-width: unset;
+    width: 100%;
+    height: calc((var(--vh, 1vh) * 40) - 48px);
+    overflow-y: auto;
+  }
+}

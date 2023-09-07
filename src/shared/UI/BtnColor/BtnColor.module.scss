@@ -61,3 +61,26 @@
     cursor: default;
   }
 }
+
+@media (max-width: 1024px) {
+  .wrap {
+    justify-content: left;
+    flex-direction: row;
+    padding: 8px 4px;
+    cursor: pointer;
+    .colorBorder {
+      min-height: 40px;
+      min-width: 40px;
+      max-height: 40px;
+      max-width: 40px;
+      height: 40px;
+      width: 40px;
+    }
+
+    .name {
+      margin-left: 6px;
+      margin-top: 3px;
+      font-size: 12px;
+    }
+  }
+}
