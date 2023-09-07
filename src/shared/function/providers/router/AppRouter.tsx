@@ -29,10 +29,11 @@ export const URLS = {
 export const URL_PAGE = {
   personalizePage: (configID: string) => `/${configID}/${URLS.PERSONALIZE}`,
 };
+console.log('test');
 
 // createHashRouter
 // createBrowserRouter
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: URLS.ROOT,
     element: <StartingScreen />,
