@@ -75,6 +75,12 @@
 }
 
 @media (max-width: 1024px) {
+  .wrap {
+    position: relative;
+    .header {
+      margin-bottom: 15px;
+    }
+  }
   .title {
     font-size: 14px !important;
   }
@@ -84,5 +90,9 @@
     svg {
       margin-right: 4px !important;
     }
+  }
+  footer {
+    position: fixed;
+    bottom: 48px;
   }
 }

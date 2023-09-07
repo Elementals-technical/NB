@@ -36,4 +36,8 @@
     padding-top: 13px !important;
     padding-bottom: 13px !important;
   }
+  .counter {
+    padding: 4px;
+    height: 40px;
+  }
 }

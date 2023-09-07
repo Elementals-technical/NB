@@ -48,7 +48,7 @@ export const Counter: React.FC<CounterI> = (props) => {
           type="string"
           value={count}
           onChange={(e) => onChangeInput(e.target.value)}
-          className="block w-full px-5 py-5 leading-tight text-center text-base rounded-lg border border-gray-300 appearance-none focus:outline-none focus:border-gray-500"
+          className="counter block w-full px-5 py-5 leading-tight text-center text-base rounded-lg border border-gray-300 appearance-none focus:outline-none focus:border-gray-500"
           style={{
             border: '1px solid #CED4DA',
           }}
