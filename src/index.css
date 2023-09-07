@@ -32,4 +32,8 @@
   .threekit-react.tk-player > div:nth-child(1) {
     min-height: 100px;
   }
+  .text-base .relative .block {
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+  }
 }

@@ -73,3 +73,16 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 14px !important;
+  }
+  .label {
+    font-size: 12px !important;
+
+    svg {
+      margin-right: 4px !important;
+    }
+  }
+}

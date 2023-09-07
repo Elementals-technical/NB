@@ -53,3 +53,12 @@ main {
     opacity: 0.8;
   }
 }
+
+@media (max-width: 1024px) {
+  .title {
+    padding-top: 0;
+    padding-bottom: 8px;
+    font-size: 12px;
+    width: auto;
+  }
+}

@@ -19,3 +19,9 @@
   position: absolute;
   right: 47vw;
 }
+
+@media (max-width: 1024px) {
+  .wrap {
+    margin-top: 20px;
+  }
+}

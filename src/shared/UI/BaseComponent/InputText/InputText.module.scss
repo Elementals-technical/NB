@@ -13,3 +13,9 @@
   width: 100%;
   outline: none;
 }
+
+@media (max-width: 1024px) {
+  .input {
+    padding: 13px 18px;
+  }
+}

@@ -24,3 +24,11 @@
     width: 24px;
   }
 }
+
+@media (max-width: 1024px) {
+  .wrap {
+    .text {
+      font-size: 10px;
+    }
+  }
+}
