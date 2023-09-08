@@ -10,7 +10,10 @@ import {
   listDefaultGraphicsImg,
 } from '../../shared/UI/Modals/DefaultGraphics/DefaultGraphics';
 import { useDispatch } from 'react-redux';
-import { setThreekitAttribute } from '../../shared/function/providers/redax/action';
+import {
+  setCurentLayer,
+  setThreekitAttribute,
+} from '../../shared/function/providers/redax/action';
 import { useSelector } from 'react-redux';
 import { getLoadersName } from '../../shared/function/providers/redax/selectore';
 import { useConfigurator } from '@threekit-tools/treble/dist';
@@ -24,6 +27,7 @@ export const LoadingDefaultLogo = ({ zoneLogo }: any) => {
   const [selectedDefaultGrafic, setSelectedDefaultGrafic] = useState(undefined);
   const [confirmDefaultGrafic, setConfirmDefaultGrafic] = useState(undefined);
 
+  const loadCustomImg = useSelector(getLoadersName('loadCustomImg'));
   const loadChangeThreekit = useSelector(getLoadersName('loadChangeThreekit'));
 
   const [attributes, setConfiguration]: any = useConfigurator();
@@ -36,8 +40,21 @@ export const LoadingDefaultLogo = ({ zoneLogo }: any) => {
     setSelectedDefaultGrafic(undefined);
   };
 
-  const setDefaultLogogThreekit = async (nameThreekit: string) => {
+  const RemoteDefaultLogogThreekit = async () => {
     dispatch(setThreekitAttribute(true));
+    dispatch(
+      setCurentLayer({
+        type: 'default-graphic',
+      })
+    );
+    setConfirmDefaultGrafic(undefined);
+    const nameAttr = `Add Logo ${zoneLogo}`;
+    await setConfiguration({ [nameAttr]: { assetId: '' } });
+    //@ts-ignore
+    await window.threekit.player.evaluate();
+    await dispatch(setThreekitAttribute(false));
+  };
+  const setDefaultLogogThreekit = async (nameThreekit: string) => {
     console.log('attributes', attributes);
 
     let attr = Object.values(attributes).find((attr: any) =>
@@ -55,22 +72,13 @@ export const LoadingDefaultLogo = ({ zoneLogo }: any) => {
     await setConfiguration({ [nameAttr]: value });
     //@ts-ignore
     await window.threekit.player.evaluate();
-    await dispatch(setThreekitAttribute(false));
-  };
-
-  const RemoteDefaultLogogThreekit = async () => {
-    dispatch(setThreekitAttribute(true));
-    setConfirmDefaultGrafic(undefined);
-    const nameAttr = `Add Logo ${zoneLogo}`;
-    await setConfiguration({ [nameAttr]: { assetId: '' } });
-    //@ts-ignore
-    await window.threekit.player.evaluate();
-    await dispatch(setThreekitAttribute(false));
   };
 
   const IconInfo = confirmDefaultGrafic
     ? getDefaultIcon(confirmDefaultGrafic)
     : undefined;
+
+  if (loadCustomImg) return <></>;
 
   return (
     <>

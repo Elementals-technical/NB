@@ -93,7 +93,19 @@ export const PersonalizationList = ({ layers }: any) => {
                   </div>
                 </div>
               </div>
-              <div className={s.main}></div>
+              <div className={s.main}>
+                {item['type'] === 'upload-graphic' && (
+                  <img
+                    //@ts-ignore
+                    src={URL.createObjectURL(
+                      //@ts-ignore
+                      window['loadFile'][
+                        `Upload logo ${item['nameThreekit']}`
+                      ][0]
+                    )}
+                  />
+                )}
+              </div>
               <div className={s.footer}></div>
             </div>
           );

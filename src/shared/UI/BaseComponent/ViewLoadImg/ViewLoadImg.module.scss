@@ -44,8 +44,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    cursor: pointer;
     padding: 4px;
+    transition: 0.3s;
+    &:hover {
+      opacity: 0.8;
+    }
     & .icon {
       margin-right: 4px;
       display: flex;
@@ -79,7 +83,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 25px 0 15px;
   border: 2px dotted lightgray;
   padding: 35px 20px;
   border-radius: 6px;

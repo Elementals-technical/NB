@@ -6,6 +6,7 @@ export type selectedLayer = {
   typeArea: typeZone;
   type: string;
   nameThreekit: string;
+  file?: any;
 };
 export type stateT = {
   curentLayer: selectedLayer;
@@ -28,11 +29,24 @@ const initialState: stateT = {
   loaders: {
     loadChangeThreekit: false,
     loadGrapic: false,
+    loadCustomImg: false,
   },
 };
 
 const Settings = (state = initialState, action: any) => {
   switch (action.type) {
+    case TYPE_REDUCER.SET_LOAD_CUSTOM_IMG: {
+      const changeThreekit = action.payload;
+
+      return {
+        ...state,
+        loaders: {
+          ...state.loaders,
+          loadCustomImg: changeThreekit,
+        },
+      };
+      break;
+    }
     case TYPE_REDUCER.SET_TREKIT_ATTR: {
       const changeThreekit = action.payload;
 
