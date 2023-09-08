@@ -9,6 +9,12 @@ import {
   resetShowProperty,
   updateObjectById,
 } from '../../utils/functions';
+import { useSelector } from 'react-redux';
+import {
+  getSelectedNameRuster,
+  getSelectedNumberRuster,
+} from '../../../../../shared/function/providers/redax/selectore';
+import { useConfigurator } from '@threekit-tools/treble/dist';
 
 export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
   const {
@@ -25,6 +31,9 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
   const numberId = useId();
   const [nameValue, setNameValue] = useState(currentValue.name);
   const [numberValue, setNumberValue] = useState(currentValue.number);
+  const [attributes, setConfiguration]: any = useConfigurator();
+  const layautNameForRuster = useSelector(getSelectedNameRuster);
+  const layautNumberForRuster = useSelector(getSelectedNumberRuster);
 
   useEffect(() => {
     if (
@@ -56,11 +65,54 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
     const updatedItems = updateObjectById(resetShowItems, currentId, {
       show: !currentValue.show,
     });
+    debugger;
+    let obj = {};
+    if (layautNumberForRuster) {
+      obj = {
+        ...obj,
+        [`Add Text ${layautNumberForRuster['nameThreekit']}`]:
+          !currentValue.show ? currentValue.name : '',
+      };
+    }
+
+    if (layautNameForRuster) {
+      obj = {
+        ...obj,
+        [`Add Text ${layautNameForRuster['nameThreekit']}`]: !currentValue.show
+          ? currentValue.name
+          : '',
+      };
+    }
+
+    const setText = (valueText: string) => {};
+    if (!currentValue.show) {
+      setConfiguration({ ...obj });
+    }
     setInputData(updatedItems);
   }
   function deleteValue() {
     const newArray = inputData;
     const currentId = currentValue.id;
+
+    let obj = {};
+    if (layautNumberForRuster) {
+      obj = {
+        ...obj,
+        [`Add Text ${layautNumberForRuster['nameThreekit']}`]: '',
+      };
+    }
+
+    if (layautNameForRuster) {
+      obj = {
+        ...obj,
+        [`Add Text ${layautNameForRuster['nameThreekit']}`]: '',
+      };
+    }
+
+    if (currentValue.show) {
+      setConfiguration({ ...obj });
+    }
+
     const updatedArray = removeObjectById(newArray, currentId);
     setInputData(updatedArray);
   }
@@ -69,16 +121,19 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
       <div className={s.show} onClick={() => showOrHideValue()}>
         {currentValue.show ? <ShowIcon /> : <HideIcon />}
       </div>
-      <label htmlFor={nameId} className={s.name}>
-        <input
-          id={nameId}
-          type="text"
-          placeholder="Enter the player’s name"
-          value={nameValue}
-          onChange={(e: any) => setNameValue(e.target.value)}
-        />
-      </label>
-      {showNumber && (
+      {layautNameForRuster && (
+        <label htmlFor={nameId} className={s.name}>
+          <input
+            id={nameId}
+            type="text"
+            placeholder="Enter the player’s name"
+            value={nameValue}
+            onChange={(e: any) => setNameValue(e.target.value)}
+          />
+        </label>
+      )}
+
+      {layautNumberForRuster && (
         <label className={s.number} htmlFor={numberId}>
           <input
             id={numberId}

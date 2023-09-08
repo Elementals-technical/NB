@@ -1,6 +1,9 @@
 import { options } from '../../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { getAreasByType } from '../../../data/areasObjects';
 
+export const getRosterText = ({ ...state }) => {
+  return state['Configuration']['rosterText'];
+};
 export const getLoaders = ({ ...state }) => {
   return state['Configuration']['loaders'];
 };
@@ -34,6 +37,21 @@ export const getSelectedLayers = ({ ...state }) => {
 export const getSelectedTextLayers = ({ ...state }) => {
   return state['Configuration']['selectedLayers'].map(
     (layer: any) => layer['nameThreekit']
+  );
+};
+export const getSelectedIsNumberRuster = ({ ...state }) => {
+  return state['Configuration']['selectedLayers']
+    .map((layer: any) => layer['type'])
+    .includes('player-number');
+};
+export const getSelectedNameRuster = ({ ...state }) => {
+  return state['Configuration']['selectedLayers'].find(
+    (layer: any) => layer['type'] === 'player-name'
+  );
+};
+export const getSelectedNumberRuster = ({ ...state }) => {
+  return state['Configuration']['selectedLayers'].find(
+    (layer: any) => layer['type'] === 'player-number'
   );
 };
 export const getVisibleLayers =
