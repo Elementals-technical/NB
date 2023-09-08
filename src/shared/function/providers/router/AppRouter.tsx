@@ -11,6 +11,7 @@ import { SettingsPersonaliztionCustomText } from '../../../../features/layer/Set
 import { PersonalizationObjectGraphics } from '../../../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
 import { PersonalizationObjectText } from '../../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
 import { SettingsPersonaliztionRosterList } from '../../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
+import { PreviewGroup } from '../../../../wigetch/PreviewGroup/PreviewGroup';
 
 export const URLS = {
   ROOT: '/',
@@ -94,7 +95,7 @@ const router = createHashRouter([
       },
       {
         path: URLS.REVIEW,
-        element: <>e</>,
+        element: <PreviewGroup />,
       },
     ],
   },

@@ -53,7 +53,7 @@ export const ConfiguraionScreen = () => {
         threekitEnv={threekitEnv}
         playerConfig={playerConfig}
       >
-        <LoaderPage />
+        {/* <LoaderPage /> */}
 
         <div className={s.page}>
           <div className={s.view}>
