@@ -36,7 +36,7 @@ console.log('test');
 
 // createHashRouter
 // createBrowserRouter
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: URLS.ROOT,
     element: <StartingScreen />,
