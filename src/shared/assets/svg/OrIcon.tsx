@@ -1,7 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getLoadersName } from '../../function/providers/redax/selectore';
 
 export const OrIcon = () => {
-  return (
+  const loadChangeThreekit = useSelector(getLoadersName('loadChangeThreekit'));
+
+  return !loadChangeThreekit ? (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="464"
@@ -30,5 +34,7 @@ export const OrIcon = () => {
         strokeLinecap="round"
       />
     </svg>
+  ) : (
+    <></>
   );
 };

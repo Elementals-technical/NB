@@ -12,33 +12,16 @@ export const FormField = styled.input`
   right: 0;
   bottom: 0;
   opacity: 0;
-
+  cursor: pointer;
   &:focus {
     outline: none;
   }
 `;
 
-export const InputLabel = styled.label`
-  color: #7d7d8a;
-  text-align: center;
-  font-family: Proxima Nova;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`;
-
-export const DragDropText = styled.div`
-  display: flex;
-  align-items: center;
-  color: #161516;
-  text-align: center;
-  font-family: 'Proxima Nova';
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 15px 0;
+export const ImagePreview = styled.img`
+  border-radius: 6px;
+  width: auto;
+  height: 100%;
 `;
 
 export const UploadFileBtn = styled.button`
@@ -77,17 +60,4 @@ export const UploadFileBtn = styled.button`
     filter: grayscale(100%);
     pointer-events: none;
   }
-`;
-
-export const PreviewContainer = styled.section`
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ImagePreview = styled.img`
-  border-radius: 6px;
-  width: auto;
-  height: 100%;
 `;

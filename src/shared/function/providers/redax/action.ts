@@ -4,6 +4,7 @@ export const TYPE_REDUCER = {
   SET_LAYER_AREA: 'setLayerArea',
   SET_CURENT_AREA: 'setCurentArea',
   SET_TREKIT_ATTR: 'setThreekitAttribute',
+  SET_LOAD_CUSTOM_IMG: 'seLoadCustomImg',
 };
 
 export const setLayerArea = (data: selectedLayer) => ({
@@ -16,5 +17,9 @@ export const setCurentLayer = (data: { [key: string]: string }) => ({
 });
 export const setThreekitAttribute = (data: boolean) => ({
   type: TYPE_REDUCER.SET_TREKIT_ATTR,
+  payload: data,
+});
+export const seLoadCustomImg = (data: boolean) => ({
+  type: TYPE_REDUCER.SET_LOAD_CUSTOM_IMG,
   payload: data,
 });

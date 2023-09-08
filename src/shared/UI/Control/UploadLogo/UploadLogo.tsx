@@ -3,8 +3,20 @@ import { LoadingCustomLogo } from '../../../../wigetch/LoadingCustomLogo/Loading
 import axios from 'axios';
 import { OrIcon } from '../../../assets/svg/OrIcon';
 import { LoadingDefaultLogo } from '../../../../wigetch/LoadingDefaultLogo/LoadingDefaultLogo';
+import { useConfigurator } from '@threekit-tools/treble/dist';
+import { useDispatch } from 'react-redux';
+import {
+  seLoadCustomImg,
+  setCurentLayer,
+  setThreekitAttribute,
+} from '../../../function/providers/redax/action';
 
-export const UploadLogo = ({ zoneText }: any) => {
+import { Upload } from '@threekit-tools/treble';
+
+export const UploadLogo = ({ zoneLogo }: any) => {
+  const [attributes, setConfiguration]: any = useConfigurator();
+  const dispatch = useDispatch();
+
   async function uploadFile(file: any) {
     const fileName = file.name;
     const formData = new FormData();
@@ -13,7 +25,7 @@ export const UploadLogo = ({ zoneText }: any) => {
     const requestOptions = {
       method: 'POST',
       data: formData,
-      url: '/api/loadFile', // Replace with your actual API endpoint
+      url: 'http://localhost:3001/api/loadFile', // Replace with your actual API endpoint
     };
 
     return await axios(requestOptions);
@@ -25,37 +37,80 @@ export const UploadLogo = ({ zoneText }: any) => {
     return response.data.result.output.texture[0].assetId;
   }
 
+  const removeThreekit = async () => {
+    dispatch(setThreekitAttribute(true));
+    dispatch(
+      setCurentLayer({
+        type: 'upload-graphic',
+      })
+    );
+
+    const nameAttr = `Upload logo ${zoneLogo}`;
+    await setConfiguration({ [nameAttr]: { assetId: '' } });
+    //@ts-ignore
+    await window.threekit.player.evaluate();
+    await dispatch(setThreekitAttribute(false));
+  };
+
+  const isLoadCustomLogog =
+    attributes[`Upload logo ${zoneLogo}`] &&
+    attributes[`Upload logo ${zoneLogo}`]['value'] &&
+    attributes[`Upload logo ${zoneLogo}`]['value']['assetId'] !== '' &&
+    attributes[`Upload logo ${zoneLogo}`]['value']['assetId'] !== undefined;
+  const isLoadDefaultLogog =
+    attributes[`Add Logo ${zoneLogo}`] &&
+    attributes[`Add Logo ${zoneLogo}`]['value'] &&
+    attributes[`Add Logo ${zoneLogo}`]['value']['assetId'] !== '' &&
+    attributes[`Add Logo ${zoneLogo}`]['value']['assetId'] !== undefined;
+
+  if (!zoneLogo) return <></>;
   return (
     <>
-      <div className={s.customLogo}>
-        <LoadingCustomLogo
-          updateFilesCb={async (files: any) => {
-            const formFile = files[0];
+      {!isLoadDefaultLogog && (
+        <div className={s.customLogo}>
+          <LoadingCustomLogo
+            removeThreekit={removeThreekit}
+            updateFilesCb={async (files: any) => {
+              const formFile = files[0];
 
-            if (!formFile) {
-              console.error('No file selected.');
-              return;
-            }
+              if (!formFile) {
+                console.error('No file selected.');
+                return;
+              }
 
-            const response = await uploadFile(formFile);
-            const assetId = extractAssetId(response);
+              const response = await uploadFile(formFile);
+              const assetId = extractAssetId(response);
 
-            window.threekit.configurator.setConfiguration({
-              [`Upload logo ${zoneText}`]: {
-                assetId: assetId,
-              },
-            });
-          }}
-        />
-      </div>
-      <div className={s.box}>
-        <div className={s.iconOr}>
-          <OrIcon />
+              await setConfiguration({
+                [`Upload logo ${zoneLogo}`]: {
+                  assetId: assetId,
+                },
+              });
+              //@ts-ignore
+              window.loadFile = {
+                [`Upload logo ${zoneLogo}`]: files,
+              };
+
+              //@ts-ignore
+              await window.threekit.player.evaluate();
+              await dispatch(setThreekitAttribute(false));
+              await dispatch(seLoadCustomImg(false));
+            }}
+          />
         </div>
-      </div>
-      <div className={s.box}>
-        <LoadingDefaultLogo zoneLogo={zoneText} />
-      </div>
+      )}
+      {!isLoadCustomLogog && !isLoadDefaultLogog && (
+        <div className={s.box}>
+          <div className={s.iconOr}>
+            <OrIcon />
+          </div>
+        </div>
+      )}
+      {!isLoadCustomLogog && (
+        <div className={s.box}>
+          <LoadingDefaultLogo zoneLogo={zoneLogo} />
+        </div>
+      )}
     </>
   );
 };
