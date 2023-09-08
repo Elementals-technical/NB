@@ -39,10 +39,9 @@ export const PersonalizationSetting = () => {
         {Object.keys(attributes).length > 1 && (
           <>
             <PersonalizationTypeAria />
-
-            <Outlet />
           </>
         )}
+        <Outlet />
       </div>
       <footer>
         <div className="reset"></div>

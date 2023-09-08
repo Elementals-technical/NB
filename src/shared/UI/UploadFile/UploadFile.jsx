@@ -1,7 +1,10 @@
 import { useRef, useState } from 'react';
 import s from './UploadFile.module.scss';
 import { FormField, ImagePreview, UploadFileBtn } from './file-upload.styles';
-import { Trash } from '../../assets/svg/trash';
+import { ViewLoadImg } from '../BaseComponent/ViewLoadImg/ViewLoadImg';
+import { OverlayingPopup } from '../BaseComponent/OverlayingPopup/OverlayingPopup';
+import { ModalsWrap } from '../BaseComponent/ModalsWrap/ModalsWrap';
+import { DefaultGraphics } from '../Modals/DefaultGraphics/DefaultGraphics';
 
 const DEFAULT_MAX_FILE_SIZE_IN_BYTES = 500000;
 
@@ -53,56 +56,60 @@ export const UploadFile = ({
   return (
     <>
       <div className={s.wrap}>
-        <div className={s.header}>
-          <div className={s.title}>
-            <div className={s.name}>Upload graphic</div>
-            {files !== undefined && (
-              <div className={s.fileName}>{files.name}</div>
-            )}
-          </div>
-          {files !== undefined && (
-            <div onClick={() => removeFile()} className={s.remove}>
-              <div className={s.icon}>
-                <Trash />
+        {files === undefined && (
+          <>
+            <div className={s.header}>
+              <div className={s.title}>
+                <div className={s.name}>Upload graphic</div>
               </div>
-              <div className={s.text}>Delete</div>
             </div>
-          )}
-        </div>
-        <div className={s.main}>
-          <div className={s.fileUploadContainer}>
-            {files === undefined && (
-              <div className={s.uploadContaiter}>
-                <img src="images/loadFile.svg" alt="" />
-                <div className={s.nameBtn}>
-                  Drag & Drop or
-                  <UploadFileBtn type="button" onClick={handleUploadBtnClick}>
-                    Choose graphic
-                  </UploadFileBtn>
-                  to upload
+            <div className={s.main}>
+              <div className={s.fileUploadContainer}>
+                <div className={s.uploadContaiter}>
+                  <img src="images/loadFile.svg" alt="" />
+                  <div className={s.nameBtn}>
+                    Drag & Drop or
+                    <UploadFileBtn type="button" onClick={handleUploadBtnClick}>
+                      Choose graphic
+                    </UploadFileBtn>
+                    to upload
+                  </div>
+
+                  <div className={s.labelText}>JPG, PNG, SVG, EPS, PDF</div>
+
+                  <FormField
+                    type="file"
+                    ref={fileInputField}
+                    onChange={handleNewFileUpload}
+                    value=""
+                  />
                 </div>
-
-                <div className={s.labelText}>JPG, PNG, SVG, EPS, PDF</div>
-
-                <FormField
-                  type="file"
-                  ref={fileInputField}
-                  onChange={handleNewFileUpload}
-                  value=""
-                />
               </div>
-            )}
-            {files &&
-              files['file'] !== undefined &&
-              files['file'].type.split('/')[0] === 'image' && (
+            </div>
+          </>
+        )}
+
+        {files &&
+          files['file'] !== undefined &&
+          files['file'].type.split('/')[0] === 'image' && (
+            <ViewLoadImg
+              typeLoad={'Upload graphic'}
+              name={files.name}
+              removeFile={removeFile()}
+              content={
                 <ImagePreview
                   src={URL.createObjectURL(files['file'])}
                   alt="logo"
                 />
-              )}
-          </div>
-        </div>
+              }
+            ></ViewLoadImg>
+          )}
       </div>
+      <OverlayingPopup isOpened={true} onClose={() => {}}>
+        <ModalsWrap name={'Default graphics library'}>
+          <DefaultGraphics />
+        </ModalsWrap>
+      </OverlayingPopup>
     </>
   );
 };

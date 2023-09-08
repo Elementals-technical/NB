@@ -17,6 +17,8 @@ import { URLS } from '../../shared/function/providers/router/AppRouter';
 import { ZoomInOutPinch } from '../../shared/assets/svg/ZoomInOutPinch';
 export const View = () => {
   const navigate = useNavigate();
+  console.log('test_1');
+
   return (
     <>
       <div className={s.back_bottom}>
@@ -34,8 +36,8 @@ export const View = () => {
         <div className={s.logo}>
           <img src="images/logo.svg" alt="" />
         </div>
-
-        <PlayerElem />
+        {/* 
+        <PlayerElem /> */}
         <div className={s.wrap_icon}>
           <LabelWrap svg={<View360 />} name="360° Preview" />
           <LabelWrap

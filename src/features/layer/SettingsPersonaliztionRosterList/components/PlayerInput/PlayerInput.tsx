@@ -1,6 +1,6 @@
 import { FC, useEffect, useId, useState } from 'react';
 import s from './PlayerInput.module.scss';
-import { Trash } from '../../../../../shared/assets/svg/trash';
+import { Trash } from '../../../../../shared/assets/svg/Trash';
 import { ShowIcon } from '../../../../../shared/assets/svg/ShowIcon';
 import { HideIcon } from '../../../../../shared/assets/svg/HideIcon';
 import { PlayerInputT } from '../../utils/types';
