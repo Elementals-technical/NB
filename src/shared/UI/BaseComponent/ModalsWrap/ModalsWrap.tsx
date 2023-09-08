@@ -1,14 +1,23 @@
 import { CloseIcon } from '../../../assets/svg/CloseIcon';
 import s from './ModalsWrap.module.scss';
 
-export const ModalsWrap = ({ children, name, onCancel, onConfirm }: any) => {
+export const ModalsWrap = ({
+  children,
+  name,
+  onCancel,
+  onConfirm,
+  isShowConfirm,
+}: any) => {
+  let classBtnCofirm = `${s.btn}`;
+  if (isShowConfirm === false)
+    classBtnCofirm = classBtnCofirm + ` ${s.disabled}`;
   return (
     <div className={s.wrap}>
       <header>
         <div className={s.title}>
           <div className={s.name}>{name}</div>
         </div>
-        <div className={s.close}>
+        <div className={s.close} onClick={onCancel}>
           <CloseIcon />
         </div>
       </header>
@@ -20,7 +29,7 @@ export const ModalsWrap = ({ children, name, onCancel, onConfirm }: any) => {
           <button className={s.btn_trancperent} onClick={onCancel}>
             Cancel
           </button>
-          <button className={s.btn} onClick={onConfirm}>
+          <button className={classBtnCofirm} onClick={onConfirm}>
             Confirm
           </button>
         </div>

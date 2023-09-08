@@ -1,5 +1,4 @@
 import s from './PersonalizationObjectGraphics.module.scss';
-import { UploadFile } from '../../../shared/UI/UploadFile/UploadFile';
 import axios from 'axios';
 import { useLocation, useParams } from 'react-router';
 import { useSelector } from 'react-redux';

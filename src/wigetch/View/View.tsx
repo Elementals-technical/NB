@@ -1,23 +1,18 @@
 import React from 'react';
 import s from './View.module.scss';
 import { LabelWrap } from '../../shared/UI/LabelWrap/LabelWrap';
-import { BtnNavigate } from '../../shared/UI/BtnNavigate/BtnNavigate';
 
 import { PlayerElem } from '../Player/PlayerElem';
 import { View360 } from '../../shared/assets/svg/View360';
 import { ZoomInOut } from '../../shared/assets/svg/ZoomInOut';
-import { SaveDesign } from '../../shared/assets/svg/SaveDesign';
-import { TransferIcon } from '../../shared/assets/svg/TransferIcon';
 import { BackIcon } from '../../shared/assets/svg/BackIcon';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
-import { LoaderWrap } from '../../shared/UI/LoaderWrap.tsx/LoaderWrap';
 import { Navigation } from '../../shared/UI/View/Navigation/Navigation';
 import { URLS } from '../../shared/function/providers/router/AppRouter';
 import { ZoomInOutPinch } from '../../shared/assets/svg/ZoomInOutPinch';
 export const View = () => {
   const navigate = useNavigate();
-  console.log('test_1');
 
   return (
     <>
@@ -36,8 +31,7 @@ export const View = () => {
         <div className={s.logo}>
           <img src="images/logo.svg" alt="" />
         </div>
-        {/* 
-        <PlayerElem /> */}
+        {<PlayerElem />}
         <div className={s.wrap_icon}>
           <LabelWrap svg={<View360 />} name="360° Preview" />
           <LabelWrap

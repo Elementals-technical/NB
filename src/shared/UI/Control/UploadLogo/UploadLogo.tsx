@@ -1,11 +1,8 @@
 import s from './UploadLogo.module.scss';
-import { UploadFile } from '../../UploadFile/UploadFile';
+import { LoadingCustomLogo } from '../../../../wigetch/LoadingCustomLogo/LoadingCustomLogo';
 import axios from 'axios';
-import { IconPlus } from '../../../assets/svg/IconPlus';
 import { OrIcon } from '../../../assets/svg/OrIcon';
-import { ViewLoadImg } from '../../BaseComponent/ViewLoadImg/ViewLoadImg';
-
-import bearIcon from './../../../../shared/assets/images/defaultLogo/bear.png';
+import { LoadingDefaultLogo } from '../../../../wigetch/LoadingDefaultLogo/LoadingDefaultLogo';
 
 export const UploadLogo = ({ zoneText }: any) => {
   async function uploadFile(file: any) {
@@ -29,9 +26,9 @@ export const UploadLogo = ({ zoneText }: any) => {
   }
 
   return (
-    <div>
+    <>
       <div className={s.customLogo}>
-        <UploadFile
+        <LoadingCustomLogo
           updateFilesCb={async (files: any) => {
             const formFile = files[0];
 
@@ -56,23 +53,9 @@ export const UploadLogo = ({ zoneText }: any) => {
           <OrIcon />
         </div>
       </div>
-      <div className={`${s.box} `}>
-        <button className={s.btn_default}>
-          <span>
-            <IconPlus />
-          </span>
-          Add default graphics
-        </button>
-      </div>
-
       <div className={s.box}>
-        <ViewLoadImg
-          name={'test'}
-          typeLoad={'Default graphic'}
-          removeFile={() => {}}
-          content={<>{/* <img src=""></img> */}</>}
-        />
+        <LoadingDefaultLogo zoneLogo={zoneText} />
       </div>
-    </div>
+    </>
   );
 };

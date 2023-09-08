@@ -1,17 +1,14 @@
 import { useRef, useState } from 'react';
-import s from './UploadFile.module.scss';
+import s from './LoadingCustomLogo.module.scss';
 import { FormField, ImagePreview, UploadFileBtn } from './file-upload.styles';
-import { ViewLoadImg } from '../BaseComponent/ViewLoadImg/ViewLoadImg';
-import { OverlayingPopup } from '../BaseComponent/OverlayingPopup/OverlayingPopup';
-import { ModalsWrap } from '../BaseComponent/ModalsWrap/ModalsWrap';
-import { DefaultGraphics } from '../Modals/DefaultGraphics/DefaultGraphics';
+import { ViewLoadImg } from '../../shared/UI/BaseComponent/ViewLoadImg/ViewLoadImg';
 
 const DEFAULT_MAX_FILE_SIZE_IN_BYTES = 500000;
 
 const convertNestedObjectToArray = (nestedObj) =>
   Object.keys(nestedObj).map((key) => nestedObj[key]);
 
-export const UploadFile = ({
+export const LoadingCustomLogo = ({
   updateFilesCb,
   maxFileSizeInBytes = DEFAULT_MAX_FILE_SIZE_IN_BYTES,
 }) => {
@@ -105,11 +102,6 @@ export const UploadFile = ({
             ></ViewLoadImg>
           )}
       </div>
-      <OverlayingPopup isOpened={true} onClose={() => {}}>
-        <ModalsWrap name={'Default graphics library'}>
-          <DefaultGraphics />
-        </ModalsWrap>
-      </OverlayingPopup>
     </>
   );
 };

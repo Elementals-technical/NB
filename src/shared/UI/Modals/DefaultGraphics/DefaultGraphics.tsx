@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import s from './DefaultGraphics.module.scss';
 
-const listGrapic = [
+export const listDefaultGraphicsImg = [
   {
     nameThreekit: 'trace',
     label: 'Bear Paw',
@@ -24,11 +24,17 @@ const listGrapic = [
   },
 ];
 
-export const DefaultGraphics = () => {
+export const DefaultGraphics = ({ onChange }: any) => {
   const [ActiveItem, setActiveItem] = useState('');
+
+  const onSelectedItem = (value: string) => {
+    setActiveItem(value);
+    onChange(value);
+  };
+
   return (
     <div className={s.list}>
-      {listGrapic.map((icon) => {
+      {listDefaultGraphicsImg.map((icon) => {
         let item = `${s.item} `;
 
         if (ActiveItem === icon['nameThreekit']) item = item + ` ${s.active}`;
@@ -36,7 +42,7 @@ export const DefaultGraphics = () => {
         return (
           <div
             className={item}
-            onClick={() => setActiveItem(icon['nameThreekit'])}
+            onClick={() => onSelectedItem(icon['nameThreekit'])}
           >
             <div className={s.imgWrap}>
               <img src={icon['img']} />

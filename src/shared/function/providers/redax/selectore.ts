@@ -1,6 +1,27 @@
 import { options } from '../../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { getAreasByType } from '../../../data/areasObjects';
 
+export const getLoaders = ({ ...state }) => {
+  return state['Configuration']['loaders'];
+};
+export const getLoadersName =
+  (name: string) =>
+  ({ ...state }) => {
+    const modalObj = getLoaders(state);
+    if (!modalObj[name]) return false;
+    return getLoaders(state)[name];
+  };
+export const getModalInfo = ({ ...state }) => {
+  return state['Configuration']['modalInfo'];
+};
+export const getModalInfoName =
+  (name: string) =>
+  ({ ...state }) => {
+    const modalObj = getModalInfo(state);
+    if (!modalObj[name]) return false;
+    return getModalInfo(state)[name];
+  };
+
 export const getNameThreekitCurentLayer = ({ ...state }) => {
   return state['Configuration']['curentLayer']['nameThreekit'];
 };
