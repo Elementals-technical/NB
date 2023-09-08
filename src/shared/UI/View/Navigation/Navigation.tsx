@@ -3,11 +3,8 @@ import { SaveDesign } from '../../../assets/svg/SaveDesign';
 import { BtnNavigate } from '../../BtnNavigate/BtnNavigate';
 import s from './Navigation.module.scss';
 import { getProductByKey } from '../../../data/productInformation';
-import { useWindowWidth } from '../../../function/useWindowWidth';
-
+import { SaveConfiguration } from '../../SaveConfiguration/SaveConfiguration';
 export const Navigation = () => {
-  const windowWidth: any = useWindowWidth();
-
   let { configID } = useParams();
   if (!configID) return <></>;
 
@@ -21,10 +18,7 @@ export const Navigation = () => {
         <div className={s.subTitle}>{product['category']}</div>
       </div>
       <div className={s.navigate_box}>
-        <BtnNavigate
-          svg={<SaveDesign />}
-          name={<>{windowWidth >= 992 ? 'Save design' : 'Save'}</>}
-        />
+        <SaveConfiguration />
         {/* <BtnNavigate
           svg={<TransferIcon />}
           name={
