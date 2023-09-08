@@ -1,0 +1,12 @@
+.wrapper {
+  max-width: 620px;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    footer {
+      position: relative !important;
+      bottom: 0 !important;
+    }
+  }
+}

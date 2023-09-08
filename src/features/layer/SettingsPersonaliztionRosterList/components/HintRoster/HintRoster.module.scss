@@ -20,3 +20,12 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 1024px) {
+  .hint {
+    padding: 10px 16px;
+    span {
+      font-size: 10px;
+    }
+  }
+}
