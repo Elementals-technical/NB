@@ -8,7 +8,7 @@ const fs = require('fs');
 const FormData = require('form-data');
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const POSTMARK_TOKEN = process.env.POSTMARK_TOKEN;
 
 const threeAdminToken = '2e113be6-bbfb-48c6-998a-7efa10593f29';
