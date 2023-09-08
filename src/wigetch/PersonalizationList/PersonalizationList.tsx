@@ -35,7 +35,7 @@ export const PersonalizationList = ({ layers }: any) => {
                     <div className={s.icon}>
                       <EditIcon />
                     </div>
-                    <div className={`${s.name}`}>Edit</div>
+                    {/* <div className={`${s.name}`}>Edit</div> */}
                   </div>
                   <div className={`${s.btn} ${s.delete}`}>
                     <div className={s.icon}>
@@ -89,7 +89,7 @@ export const PersonalizationList = ({ layers }: any) => {
                     <div className={s.icon}>
                       <EditIcon />
                     </div>
-                    <div className={`${s.name}`}>Edit</div>
+                    {/* <div className={`${s.name}`}>Edit</div> */}
                   </div>
                   <div className={`${s.btn} ${s.delete}`}>
                     <div className={s.icon}>
