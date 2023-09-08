@@ -20,7 +20,7 @@
 .radSlider {
   /* Стили для .rad-slider элемента */
   --degree: 0deg;
-  --degree-reverse: calc(0deg - var(--degree));
+  --degree-reverse: calc(0deg - var(--degree) - 90deg);
   position: relative;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@
   border: 0.2em solid;
   border-radius: 50%;
   transition: box-shadow 300ms linear;
-  transform: rotate(var(--degree));
+  transform: rotate(calc(var(--degree) + 90deg));
 
   .label {
     color: #495057;

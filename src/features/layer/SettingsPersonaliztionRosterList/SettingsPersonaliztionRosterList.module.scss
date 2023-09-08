@@ -112,3 +112,34 @@
   max-height: 500px;
   overflow: auto;
 }
+
+@media (max-width: 1024px) {
+  .wrap {
+    padding-bottom: 80px;
+  }
+  .add {
+    span {
+      font-size: 12px;
+    }
+  }
+  .scrollContainer {
+    max-height: unset;
+    overflow: unset;
+  }
+  .header {
+    padding-top: 0;
+  }
+  .main {
+    padding: 0;
+    padding-top: 20px;
+  }
+  .note {
+    font-size: 12px;
+    span {
+      font-size: 12px;
+    }
+  }
+  .valueTitle {
+    font-size: 14px;
+  }
+}

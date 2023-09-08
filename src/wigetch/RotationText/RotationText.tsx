@@ -53,7 +53,9 @@ export const RotationText: React.FC<RadSliderProps> = ({
   };
 
   const processDegree = (value: number) => {
+    console.log('value: ', value);
     const newDegree = keepValueInRange(value, minDegree, maxDegree);
+    console.log('newDegree: ', newDegree);
     setCurrentDegree(newDegree);
     //@ts-ignore
     wrapperRef.current.style.setProperty(`--degree`, newDegree + 'deg');
