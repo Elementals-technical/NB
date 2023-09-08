@@ -1,0 +1,139 @@
+.wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  background: #fff;
+}
+/* RotationText.module.scss */
+
+.label {
+  user-select: none;
+  pointer-events: none;
+  /* ... остальные стили ... */
+}
+
+.radSlider {
+  /* Стили для .rad-slider элемента */
+  --degree: 0deg;
+  --degree-reverse: calc(0deg - var(--degree));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  color: #161516;
+  border: 0.2em solid;
+  border-radius: 50%;
+  transition: box-shadow 300ms linear;
+  transform: rotate(var(--degree));
+
+  .label {
+    color: #495057;
+    text-align: center;
+    font-family: 'Proxima Nova';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 18.2px */
+    user-select: none;
+    pointer-events: none;
+    transform: rotate(var(--degree-reverse));
+    position: absolute;
+    top: 12px;
+    right: 55px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    bottom: 70%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 3px;
+    max-height: 34px;
+    height: 34px;
+    border-radius: 1em;
+    background: #161516;
+  }
+
+  &:hover {
+    cursor: -webkit-grab;
+    box-shadow: 0 0 3em -1em var(--color1);
+  }
+
+  &.moving {
+    cursor: -webkit-grabbing;
+    box-shadow: 0 0 3em -0.5em var(--color1);
+  }
+}
+
+.info {
+  margin-top: 10px;
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+}
+.title {
+  color: #161516;
+  text-align: center;
+  font-family: 'Proxima Nova';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 20.8px */
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #161516;
+  font-family: 'Proxima Nova';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    overflow: hidden;
+    right: 0;
+    border-radius: 8px 0px 0px 8px;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .radSlider {
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+
+    &::before {
+      width: 1px;
+      max-height: 18px;
+      height: 12px;
+      border-radius: 1em;
+      background: #161516;
+    }
+    .label {
+      font-size: 10px;
+      top: unset;
+      right: unset;
+    }
+  }
+  .title {
+    font-size: 10px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+  }
+}
