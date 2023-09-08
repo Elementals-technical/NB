@@ -24,6 +24,8 @@ export const URLS = {
   PLAYER_NUMBER: 'player-number',
   GRAPHIC: 'graphic',
   REVIEW: 'review',
+  roster_ID: ':rosterID',
+  roster: 'roster-list',
 };
 
 export const URL_PAGE = {
@@ -85,7 +87,7 @@ const router = createHashRouter([
             ],
           },
           {
-            path: 'roster-list',
+            path: URLS.roster_ID,
             element: <SettingsPersonaliztionRosterList />,
           },
         ],

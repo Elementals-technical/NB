@@ -3,8 +3,11 @@ import s from './PersonalizationList.module.scss';
 import { DeleteIcon } from '../../shared/assets/svg/DeleteIcon';
 import { options } from '../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { listType } from '../../shared/UI/Control/ObjectTypeText/ObjectTypeText';
+import { useNavigate } from 'react-router-dom';
+import { URL_PAGE } from '../../shared/function/providers/router/AppRouter';
 
 export const PersonalizationList = ({ layers }: any) => {
+  const navigate = useNavigate();
   return (
     <div className={s.personalizationList}>
       {layers.map((item: any) => {
@@ -54,7 +57,10 @@ export const PersonalizationList = ({ layers }: any) => {
                 )}
               </div>
               {['player-name', 'player-number'].includes(typeObj['value']) && (
-                <div className={s.footer}>
+                <div
+                  className={s.footer}
+                  onClick={() => navigate(item['nameThreekit'])}
+                >
                   <div className={s.btn_roster}>
                     <span>+</span> <span>Enter Roster List</span>
                   </div>
