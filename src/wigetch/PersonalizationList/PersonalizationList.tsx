@@ -47,13 +47,13 @@ export const PersonalizationList = ({ layers }: any) => {
               </div>
               <div className={s.main}>
                 {typeObj['value'] === 'custom' && (
-                  <img src="images/custom-text.png" />
+                  <img src="/images/custom-text.png" />
                 )}
                 {typeObj['value'] === 'player-name' && (
-                  <img src="images/player_name.png" />
+                  <img src="/images/player_name.png" />
                 )}
                 {typeObj['value'] === 'player-number' && (
-                  <img src="images/player_number.png" />
+                  <img src="/images/player_number.png" />
                 )}
               </div>
               {['player-name', 'player-number'].includes(typeObj['value']) && (

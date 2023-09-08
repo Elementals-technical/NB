@@ -1,4 +1,10 @@
-import { Link, NavLink, redirect, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  redirect,
+  useNavigate,
+  useHistory,
+} from 'react-router-dom';
 import s from './StartingScreen.module.scss';
 import { useId } from 'react';
 
@@ -43,12 +49,17 @@ const groupsProducts = [
 
 export const StartingScreen = () => {
   const navigate = useNavigate();
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.replace('/new-page');
+  };
 
   return (
     <div className={s.page_wrap}>
       <div className={s.page}>
         <div className={s.header}>
-          <img src="images/logo.svg" alt="logo" />
+          <img src="/images/logo.svg" alt="logo" />
         </div>
         <div className={s.main}>
           {groupsProducts.map((group) => {
@@ -57,7 +68,7 @@ export const StartingScreen = () => {
                 <div className={s.title}>{group.title}</div>
                 <div className={s.wrap}>
                   <div className={s.wrapBg}>
-                    <img src={`images/${group.img}`} alt={group.title} />
+                    <img src={`/images/${group.img}`} alt={group.title} />
                   </div>
                   {group.poducts.map((product) => (
                     <>
@@ -67,7 +78,7 @@ export const StartingScreen = () => {
                         className={s.product}
                       >
                         <div className={s.img}>
-                          <img src={`images/${product.link}`} alt="Jersey" />
+                          <img src={`/images/${product.link}`} alt="Jersey" />
                         </div>
                         <div className={s.name}>{product.name}</div>
                         <div className={s.btn}>{product.name_btn}</div>
@@ -79,7 +90,7 @@ export const StartingScreen = () => {
             );
           })}
           <div className={s.footer}>
-            <img src="images/moto.svg" />
+            <img src="/images/moto.svg" />
           </div>
         </div>
       </div>

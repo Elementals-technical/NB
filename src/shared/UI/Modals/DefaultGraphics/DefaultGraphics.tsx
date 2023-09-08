@@ -5,22 +5,22 @@ export const listDefaultGraphicsImg = [
   {
     nameThreekit: 'trace',
     label: 'Bear Paw',
-    img: 'images/defaultLogo/bear_paw.png',
+    img: '/images/defaultLogo/bear_paw.png',
   },
   {
     nameThreekit: 'bear',
     label: 'Bear Head',
-    img: 'images/defaultLogo/bear.png',
+    img: '/images/defaultLogo/bear.png',
   },
   {
     nameThreekit: 'NB_01',
     label: 'NB 01',
-    img: 'images/defaultLogo/bear.png',
+    img: '/images/defaultLogo/bear.png',
   },
   {
     nameThreekit: 'NB_02',
     label: 'NB 02',
-    img: 'images/defaultLogo/bear.png',
+    img: '/images/defaultLogo/bear.png',
   },
 ];
 

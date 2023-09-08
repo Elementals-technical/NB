@@ -5,9 +5,9 @@ import {
   StartTutorial,
   tutorialItemT,
 } from '../../shared/UI/StartTutorial/StartTutorial';
-import tutorial_1 from '../../shared/assets/images/tutorial/tutorial_1.png';
-import tutorial_2 from '../../shared/assets/images/tutorial/tutorial_2.png';
-import tutorial_3 from '../../shared/assets/images/tutorial/tutorial_3.png';
+import tutorial_1 from '../../shared/assets//images/tutorial/tutorial_1.png';
+import tutorial_2 from '../../shared/assets//images/tutorial/tutorial_2.png';
+import tutorial_3 from '../../shared/assets//images/tutorial/tutorial_3.png';
 
 const tutorialItem: tutorialItemT[] = [
   {

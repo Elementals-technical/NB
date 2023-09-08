@@ -91,7 +91,7 @@ export const LoadingCustomLogo = ({
                 onClick={() => handleUploadBtnClick}
               >
                 <div className={s.uploadContaiter}>
-                  <img src="images/loadFile.svg" alt="" />
+                  <img src="/images/loadFile.svg" alt="" />
                   <div className={s.nameBtn}>
                     Drag & Drop or
                     <UploadFileBtn>Choose graphic</UploadFileBtn>

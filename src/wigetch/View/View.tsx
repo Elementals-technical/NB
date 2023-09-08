@@ -16,11 +16,11 @@ import { useSelector } from 'react-redux';
 import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
 export const View = () => {
   const navigate = useNavigate();
- 
+
   const curentLayer = useSelector(getCurentLayer);
   const checkIfTextPanelActive =
     curentLayer.type === 'custom' && curentLayer.typeArea === 'text';
- 
+
   return (
     <>
       <div className={s.back_bottom}>
@@ -36,14 +36,14 @@ export const View = () => {
 
       <div className={s.viewPlayer}>
         <div className={s.logo}>
-          <img src="images/logo.svg" alt="" />
+          <img src="/images/logo.svg" alt="" />
         </div>
- 
+
         {checkIfTextPanelActive && (
           <RotationText name="rotationText" degree={0} />
         )}
         <PlayerElem />
- 
+
         <div className={s.wrap_icon}>
           <LabelWrap svg={<View360 />} name="360° Preview" />
           <LabelWrap
