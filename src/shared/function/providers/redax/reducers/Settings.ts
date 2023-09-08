@@ -8,9 +8,19 @@ export type selectedLayer = {
   nameThreekit: string;
   file?: any;
 };
+type roster = [
+  {
+    id: number;
+    show: boolean;
+    name: string;
+    number: string;
+  },
+];
+
 export type stateT = {
   curentLayer: selectedLayer;
   selectedLayers: selectedLayer[];
+  rosterText: roster[];
   modalInfo: Record<string, boolean>;
   loaders: Record<string, boolean>;
 };
@@ -21,6 +31,7 @@ const initialState: stateT = {
     nameThreekit: '',
   },
   selectedLayers: [],
+  rosterText: [],
   modalInfo: {
     visibleDefaultGrafic: false,
     visibleSaveConfig: false,
@@ -35,6 +46,15 @@ const initialState: stateT = {
 
 const Settings = (state = initialState, action: any) => {
   switch (action.type) {
+    case TYPE_REDUCER.SET_RUSTER: {
+      const listRoster = action.payload;
+
+      return {
+        ...state,
+        rosterText: listRoster,
+      };
+      break;
+    }
     case TYPE_REDUCER.SET_LOAD_CUSTOM_IMG: {
       const changeThreekit = action.payload;
 

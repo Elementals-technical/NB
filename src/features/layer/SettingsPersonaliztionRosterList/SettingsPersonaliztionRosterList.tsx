@@ -10,17 +10,46 @@ import { HintRoster } from './components/HintRoster/HintRoster';
 import { PlusIcon } from '../../../shared/assets/svg/PlusIcon';
 import { addObjectWithAutoId, genEmptyValues } from './utils/functions';
 import { inputT } from './utils/types';
+import { useSelector } from 'react-redux';
+import {
+  getRosterText,
+  getSelectedIsNumberRuster,
+} from '../../../shared/function/providers/redax/selectore';
+import { useDispatch } from 'react-redux';
+import { saveRoster } from '../../../shared/function/providers/redax/action';
 
 export const SettingsPersonaliztionRosterList = () => {
   const [attributes, setConfiguration]: any = useConfigurator();
   const navigate = useNavigate();
   const [inputData, setInputData] = useState<inputT[]>([]);
   const showNumber = true;
-
+  const dispatch = useDispatch();
+  const isShowNumber = useSelector(getSelectedIsNumberRuster);
+  const listgetRosterText = useSelector(getRosterText);
   useEffect(() => {
     const values = genEmptyValues(6);
-    setInputData(values);
+    if (listgetRosterText.length > 0) {
+      setInputData(listgetRosterText);
+    } else {
+      setInputData(values);
+    }
   }, []);
+
+  const saveRosterBtn = () => {
+    // navigate(-1)
+    console.log('inputData', inputData);
+    debugger;
+
+    const dataRuster = inputData
+      .filter((item) => item['name'] !== '' || item['number'] !== '')
+      .map((item) => {
+        item['show'] = false;
+        return item;
+      });
+    dispatch(saveRoster(dataRuster));
+    navigate(-1);
+  };
+
   return (
     <div className={s.wrap}>
       <div className={s.header}>
@@ -44,7 +73,7 @@ export const SettingsPersonaliztionRosterList = () => {
                 return (
                   <PlayerInput
                     addClassName={s.value}
-                    showNumber={showNumber}
+                    showNumber={isShowNumber}
                     key={`roster_input_${index}`}
                     inputData={inputData}
                     setInputData={setInputData}
@@ -73,7 +102,7 @@ export const SettingsPersonaliztionRosterList = () => {
         </div>
         <div
           className={`${s.save} ${inputData.length < 6 && s.disable}`}
-          onClick={() => navigate(-1)}
+          onClick={() => saveRosterBtn()}
         >
           Save roster list
         </div>
