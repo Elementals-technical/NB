@@ -1,17 +1,13 @@
 import React from 'react';
 import s from './View.module.scss';
 import { LabelWrap } from '../../shared/UI/LabelWrap/LabelWrap';
-import { BtnNavigate } from '../../shared/UI/BtnNavigate/BtnNavigate';
 
 import { PlayerElem } from '../Player/PlayerElem';
 import { View360 } from '../../shared/assets/svg/View360';
 import { ZoomInOut } from '../../shared/assets/svg/ZoomInOut';
-import { SaveDesign } from '../../shared/assets/svg/SaveDesign';
-import { TransferIcon } from '../../shared/assets/svg/TransferIcon';
 import { BackIcon } from '../../shared/assets/svg/BackIcon';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BtnBack } from '../../shared/UI/BtnBack/BtnBack';
-import { LoaderWrap } from '../../shared/UI/LoaderWrap.tsx/LoaderWrap';
 import { Navigation } from '../../shared/UI/View/Navigation/Navigation';
 import { URLS } from '../../shared/function/providers/router/AppRouter';
 import { ZoomInOutPinch } from '../../shared/assets/svg/ZoomInOutPinch';
@@ -20,9 +16,11 @@ import { useSelector } from 'react-redux';
 import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
 export const View = () => {
   const navigate = useNavigate();
+ 
   const curentLayer = useSelector(getCurentLayer);
   const checkIfTextPanelActive =
     curentLayer.type === 'custom' && curentLayer.typeArea === 'text';
+ 
   return (
     <>
       <div className={s.back_bottom}>
@@ -40,10 +38,12 @@ export const View = () => {
         <div className={s.logo}>
           <img src="images/logo.svg" alt="" />
         </div>
+ 
         {checkIfTextPanelActive && (
           <RotationText name="rotationText" degree={0} />
         )}
         <PlayerElem />
+ 
         <div className={s.wrap_icon}>
           <LabelWrap svg={<View360 />} name="360° Preview" />
           <LabelWrap

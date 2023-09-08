@@ -1,5 +1,4 @@
 import s from './PersonalizationObjectGraphics.module.scss';
-import { UploadFile } from '../../../shared/UI/UploadFile/UploadFile';
 import axios from 'axios';
 import { useLocation, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
@@ -17,6 +16,7 @@ import {
   getValueThreekit,
   setValueThreekit,
 } from '../../../shared/function/ThreekitAttributeText';
+import { UploadLogo } from '../../../shared/UI/Control/UploadLogo/UploadLogo';
 
 const defaultObjText = {
   'Add Logo back 2': {
@@ -109,68 +109,31 @@ export const PersonalizationObjectGraphics = () => {
     }
   };
 
-  useEffect(() => {
-    if (Object.keys(attributes).length > 0) {
-      if (layer) {
-        selectedZoneText(layer);
-        dispatch(
-          setCurentLayer({
-            nameThreekit: layer['nameThreekit'],
-          })
-        );
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (Object.keys(attributes).length > 0) {
+  //     if (layer) {
+  //       selectedZoneText(layer);
+  //       dispatch(
+  //         setCurentLayer({
+  //           nameThreekit: layer['nameThreekit'],
+  //         })
+  //       );
+  //     }
+  //   }
+  // }, []);
 
   const getValueThreekitFunc = getValueThreekit(zoneText, attributes);
   const setValueThreekitFunc = setValueThreekit(zoneText, setConfiguration);
 
-  async function uploadFile(file: any) {
-    const fileName = file.name;
-    const formData = new FormData();
-    formData.append('files', file, fileName);
-
-    const requestOptions = {
-      method: 'POST',
-      data: formData,
-      url: '/api/loadFile', // Replace with your actual API endpoint
-    };
-
-    return await axios(requestOptions);
-  }
-
-  function extractAssetId(response: any) {
-    console.log('response', response);
-
-    return response.data.result.output.texture[0].assetId;
-  }
   debugger;
-  if (Object.keys(attributes).length < 1) return <></>;
-  if (!zoneText) return <></>;
-  if (!layer) return <></>;
-  if (!configID) return <></>;
+  // if (Object.keys(attributes).length < 1) return <></>;
+  // if (!zoneText) return <></>;
+  // if (!layer) return <></>;
+  // if (!configID) return <></>;
   return (
     <>
-      <UploadFile
-        updateFilesCb={async (files: any) => {
-          const formFile = files[0];
-
-          if (!formFile) {
-            console.error('No file selected.');
-            return;
-          }
-
-          const response = await uploadFile(formFile);
-          const assetId = extractAssetId(response);
-
-          window.threekit.configurator.setConfiguration({
-            [`Upload logo ${zoneText}`]: {
-              assetId: assetId,
-            },
-          });
-        }}
-      />
-      <div className={s.wrap}>
+      <UploadLogo zoneText={zoneText} />
+      {/* <div className={s.wrap}>
         <div className={s.line}>
           <div className={s.boxFont}>
             <Select
@@ -210,8 +173,7 @@ export const PersonalizationObjectGraphics = () => {
             </LinerWrap>
           </div>
         </div>
-        <div className={s.wrap}>
-          {/* Text shadow Offset X back 1 */}
+        <div className={s.wrap}> 
           <div className={s.box25}>
             <LinerWrap name={'Horizontal shift'}>
               <InputText
@@ -228,8 +190,7 @@ export const PersonalizationObjectGraphics = () => {
               />
             </LinerWrap>
           </div>
-          <div className={s.box25}>
-            {/* Text shadow Offset Y back 1 */}
+          <div className={s.box25}> 
             <LinerWrap name={'Vertical shift'}>
               <InputText
                 step={0.01}
@@ -246,7 +207,7 @@ export const PersonalizationObjectGraphics = () => {
             </LinerWrap>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
