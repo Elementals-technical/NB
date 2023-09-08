@@ -1,10 +1,4 @@
-import {
-  Link,
-  NavLink,
-  redirect,
-  useNavigate,
-  useHistory,
-} from 'react-router-dom';
+import { Link, NavLink, redirect, useNavigate } from 'react-router-dom';
 import s from './StartingScreen.module.scss';
 import { useId } from 'react';
 
@@ -49,11 +43,6 @@ const groupsProducts = [
 
 export const StartingScreen = () => {
   const navigate = useNavigate();
-  const history = useHistory();
-
-  const handleClick = () => {
-    history.replace('/new-page');
-  };
 
   return (
     <div className={s.page_wrap}>
