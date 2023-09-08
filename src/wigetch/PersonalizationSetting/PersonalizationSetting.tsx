@@ -35,6 +35,7 @@ export const PersonalizationSetting = () => {
           onClick={() => navigate(URL_PAGE.personalizePage(configID))}
         />
       </div>
+
       <div className={s.main}>
         {Object.keys(attributes).length > 1 && (
           <>
