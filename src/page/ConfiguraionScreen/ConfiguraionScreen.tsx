@@ -7,6 +7,9 @@ import { ThreekitProvider } from '@threekit-tools/treble/dist';
 import { useParams } from 'react-router';
 export const ConfiguraionScreen = () => {
   const { configID } = useParams();
+  useEffect(() => {
+    console.log('ConfiguraionScreen test2');
+  }, [configID]);
   if (!configID) return <></>;
   const saveConfig: Record<string, string> = {
     short: 'rL7-gjOig',
@@ -40,7 +43,7 @@ export const ConfiguraionScreen = () => {
   // useEffect(() => {
   //   console.log('ConfiguraionScreen test2');
   // }, [configID]);
-  useEffect(() => {}, []);
+
   console.log('ConfiguraionScreen ', configID);
 
   return (

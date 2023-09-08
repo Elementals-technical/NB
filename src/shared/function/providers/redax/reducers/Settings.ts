@@ -8,9 +8,14 @@ export type selectedLayer = {
   nameThreekit: string;
   file?: any;
 };
+
 export type stateT = {
   curentLayer: selectedLayer;
   selectedLayers: selectedLayer[];
+  rosterText: {
+    playerName: string[];
+    playerNumber: string[];
+  };
   modalInfo: Record<string, boolean>;
   loaders: Record<string, boolean>;
 };
@@ -21,6 +26,10 @@ const initialState: stateT = {
     nameThreekit: '',
   },
   selectedLayers: [],
+  rosterText: {
+    playerName: [],
+    playerNumber: [],
+  },
   modalInfo: {
     visibleDefaultGrafic: false,
     visibleSaveConfig: false,
