@@ -49,6 +49,8 @@ export const LoaderPage = () => {
 
   //   animateMask();
   // }, []);
+  console.log('hasLoadedPage', hasLoadedPage);
+
   return (
     <>
       {hasLoadedPage ? (
