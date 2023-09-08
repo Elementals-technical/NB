@@ -72,7 +72,7 @@ export const listColor: any = [
 ];
 
 export const SectionBase: any = {
-  short: [
+  Shorts: [
     {
       type: 'ListColor',
       data: {
@@ -90,7 +90,7 @@ export const SectionBase: any = {
       },
     },
   ],
-  jersey: [
+  Jersey: [
     {
       type: 'ListColor',
       data: {
@@ -108,7 +108,7 @@ export const SectionBase: any = {
       },
     },
   ],
-  w_hoodie: [
+  Hoodie: [
     {
       type: 'ListColor',
       data: {
@@ -126,7 +126,7 @@ export const SectionBase: any = {
       },
     },
   ],
-  w_pant: [
+  Pants: [
     {
       type: 'ListColor',
       data: {

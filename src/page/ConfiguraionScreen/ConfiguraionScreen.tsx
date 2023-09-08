@@ -5,17 +5,16 @@ import { Configuration } from '../../wigetch/Configuration/Configuration';
 import { LoaderPage } from '../LoaderPage/LoaderPage';
 import { ThreekitProvider } from '@threekit-tools/treble/dist';
 import { useParams } from 'react-router';
+import { ChangeProduc } from '../../features/Threekit/UI/ChangeProduc/ChangeProduc';
 export const ConfiguraionScreen = () => {
   const { configID } = useParams();
-  useEffect(() => {
-    console.log('ConfiguraionScreen test2');
-  }, [configID]);
+
   if (!configID) return <></>;
   const saveConfig: Record<string, string> = {
-    short: 'rL7-gjOig',
-    jersey: 'n0nAvYnGH',
-    w_hoodie: 'JOksyDpjv',
-    w_pant: 'tjic2RroK',
+    Shorts: 'rL7-gjOig',
+    Jersey: 'n0nAvYnGH',
+    Hoodie: 'JOksyDpjv',
+    Pants: 'tjic2RroK',
   };
 
   const projects = {
@@ -40,12 +39,6 @@ export const ConfiguraionScreen = () => {
     // },
   };
 
-  // useEffect(() => {
-  //   console.log('ConfiguraionScreen test2');
-  // }, [configID]);
-
-  console.log('ConfiguraionScreen ', configID);
-
   return (
     <>
       <ThreekitProvider
@@ -54,7 +47,7 @@ export const ConfiguraionScreen = () => {
         playerConfig={playerConfig}
       >
         <LoaderPage />
-
+        <ChangeProduc />
         <div className={s.page}>
           <div className={s.view}>
             <View />

@@ -4,7 +4,7 @@ import { listZoneT, typeZone } from '../../typing/ZoneType';
 type areasObjects = Record<string, listZoneT>;
 export type keyArea = string;
 export const areasObject: areasObjects = {
-  short: [
+  Shorts: [
     {
       label: 'Upper Front Right',
       value: 'Upper Front Right',
@@ -18,7 +18,7 @@ export const areasObject: areasObjects = {
       type: 'graphic',
     },
   ],
-  w_pant: [
+  Pants: [
     {
       label: 'Upper Front Left',
       value: 'Upper Front Left',
@@ -26,7 +26,7 @@ export const areasObject: areasObjects = {
       type: 'graphic',
     },
   ],
-  w_hoodie: [
+  Hoodie: [
     {
       label: 'Upper Front Left',
       value: 'Upper Front Left',
@@ -40,7 +40,7 @@ export const areasObject: areasObjects = {
       type: 'graphic',
     },
   ],
-  jersey: [
+  Jersey: [
     {
       label: 'Upper Front',
       value: 'Upper Front',

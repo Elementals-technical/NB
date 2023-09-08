@@ -9,16 +9,16 @@ type infoProduct = {
 };
 
 export const ProductInfo: infoProduct = {
-  short: {
+  Shorts: {
     name: 'Short',
     category: 'Custom Uniform',
   },
-  jersey: { name: 'Jersey', category: 'Custom Uniform' },
-  w_hoodie: {
+  Jersey: { name: 'Jersey', category: 'Custom Uniform' },
+  Hoodie: {
     name: 'W hoodie',
     category: 'Embellished Products',
   },
-  w_pant: { name: 'W pant', category: 'Embellished' },
+  Pants: { name: 'W pant', category: 'Embellished' },
 };
 
 const getAreaObjects = () => cloneDeep(ProductInfo);

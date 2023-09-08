@@ -10,13 +10,13 @@ const groupsProducts = [
       {
         link: '/product_Jersey.png',
         name: 'Jersey',
-        idConfig: 'jersey',
+        idConfig: 'Jersey',
         name_btn: 'Customize',
       },
       {
         link: '/product_Short.png',
         name: 'Short',
-        idConfig: 'short',
+        idConfig: 'Shorts',
         name_btn: 'Customize',
       },
     ],
@@ -28,13 +28,13 @@ const groupsProducts = [
       {
         link: '/product_W_hoodie.png',
         name: 'W hoodie',
-        idConfig: 'w_hoodie',
+        idConfig: 'Hoodie',
         name_btn: 'Customize',
       },
       {
         link: '/product_W_pant.png',
         name: 'W pant',
-        idConfig: 'w_pant',
+        idConfig: 'Pants',
         name_btn: 'Customize',
       },
     ],
