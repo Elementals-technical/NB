@@ -10,6 +10,8 @@ export type selectedLayer = {
 export type stateT = {
   curentLayer: selectedLayer;
   selectedLayers: selectedLayer[];
+  modalInfo: Record<string, boolean>;
+  loaders: Record<string, boolean>;
 };
 const initialState: stateT = {
   curentLayer: {
@@ -18,10 +20,31 @@ const initialState: stateT = {
     nameThreekit: '',
   },
   selectedLayers: [],
+  modalInfo: {
+    visibleDefaultGrafic: false,
+    visibleSaveConfig: false,
+    visibleTranfer: false,
+  },
+  loaders: {
+    loadChangeThreekit: false,
+    loadGrapic: false,
+  },
 };
 
 const Settings = (state = initialState, action: any) => {
   switch (action.type) {
+    case TYPE_REDUCER.SET_TREKIT_ATTR: {
+      const changeThreekit = action.payload;
+
+      return {
+        ...state,
+        loaders: {
+          ...state.loaders,
+          loadChangeThreekit: changeThreekit,
+        },
+      };
+      break;
+    }
     case TYPE_REDUCER.SET_LAYER_AREA: {
       const layer = action.payload;
 

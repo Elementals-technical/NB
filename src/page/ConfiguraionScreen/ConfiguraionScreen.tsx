@@ -37,12 +37,11 @@ export const ConfiguraionScreen = () => {
     // },
   };
 
-  useEffect(() => {
-    console.log('test2');
-  }, [configID]);
-  useEffect(() => {
-    console.log('test1');
-  }, []);
+  // useEffect(() => {
+  //   console.log('ConfiguraionScreen test2');
+  // }, [configID]);
+  useEffect(() => {}, []);
+  console.log('ConfiguraionScreen ', configID);
 
   return (
     <>
