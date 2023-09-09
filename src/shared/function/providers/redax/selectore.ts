@@ -43,10 +43,15 @@ export const getCurentLayer = ({ ...state }) => {
 export const getSelectedLayers = ({ ...state }) => {
   return state['Configuration']['selectedLayers'];
 };
+export const getSelectedGraphicLayers = ({ ...state }) => {
+  return state['Configuration']['selectedLayers']
+    .filter((layer: any) => layer['typeArea'] === 'graphic')
+    .map((layer: any) => layer['nameThreekit']);
+};
 export const getSelectedTextLayers = ({ ...state }) => {
-  return state['Configuration']['selectedLayers'].map(
-    (layer: any) => layer['nameThreekit']
-  );
+  return state['Configuration']['selectedLayers']
+    .filter((layer: any) => layer['typeArea'] === 'text')
+    .map((layer: any) => layer['nameThreekit']);
 };
 export const getSelectedIsNumberRuster = ({ ...state }) => {
   return state['Configuration']['selectedLayers']
@@ -67,18 +72,22 @@ export const getVisibleLayers =
   ({ objectId, typeZone }: any) =>
   ({ ...state }) => {
     const areasByType = getAreasByType(typeZone, objectId);
-    const selectedTextLayers = getSelectedTextLayers(state);
-    if (selectedTextLayers.lengtg < 1) {
+    const selectedLayers =
+      typeZone === 'text'
+        ? getSelectedTextLayers(state)
+        : getSelectedGraphicLayers(state);
+
+    if (selectedLayers.lengtg < 1) {
       return areasByType.map((option) => ({
         ...option,
         isShow: true,
       }));
     }
-
+    debugger;
     return areasByType.map((option) => {
       return {
         ...option,
-        isShow: !selectedTextLayers.includes(option['nameThreekit']),
+        isShow: !selectedLayers.includes(option['nameThreekit']),
       };
     });
   };

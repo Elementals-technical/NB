@@ -11,7 +11,7 @@
   width: 50%;
 }
 .boxheight {
-  width: 50%;
+  width: 45%;
   margin-left: 30px;
 }
 
@@ -21,7 +21,7 @@
 }
 .wrap3frame {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 0.5fr;
   gap: 30px;
 }
 
