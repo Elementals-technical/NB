@@ -48,7 +48,9 @@
 
 @media (max-width: 1024px) {
   .configurator {
-    padding: 12px 20px;
+    padding: 12px 0;
+    height: 100%;
+    align-items: baseline;
   }
   .workspace {
     max-width: unset;

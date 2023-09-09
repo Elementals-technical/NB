@@ -14,8 +14,9 @@ export const SaveConfiguration: FC = () => {
     <>
       <BtnNavigate
         svg={<SaveDesign />}
-        name={<>{windowWidth >= 992 ? 'Save design' : 'Save'}</>}
+        name={<>{windowWidth >= 992 ? 'Save design' : 'Save design'}</>}
         clickHandler={() => setOpenSaveModal(true)}
+        isBtn={'save'}
       />
       <OverlayingPopup
         isOpened={openSaveModal}

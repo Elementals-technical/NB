@@ -7,6 +7,13 @@ import { filterAvailableZones } from '../../../data/areasObjects';
 import { getProductByKey } from '../../../data/productInformation';
 import { useDispatch } from 'react-redux';
 import { setCurentLayer } from '../../../function/providers/redax/action';
+import { useSelector } from 'react-redux';
+import { getCurentLayer } from '../../../function/providers/redax/selectore';
+import { useConfigurator } from '@threekit-tools/treble/dist';
+import {
+  resetObjectGraphic,
+  resetObjectText,
+} from '../../../function/ThreekitAttributeText';
 export const PersonalizationTypeAria = () => {
   const [TypePersonalize, setTypePersonalize] = useState('text');
 
@@ -16,8 +23,14 @@ export const PersonalizationTypeAria = () => {
   let { configID } = useParams();
   if (!configID) return <></>;
 
+  const curentLayer = useSelector(getCurentLayer);
   const product = getProductByKey(configID);
   if (!product) return <></>;
+
+  const [attributes, setConfiguration]: any = useConfigurator();
+
+  if (!attributes) return <></>;
+  if (Object.keys(attributes).length < 1) return <></>;
 
   const listPersonalization = [
     {
@@ -48,6 +61,14 @@ export const PersonalizationTypeAria = () => {
   ];
 
   const setTypeArea = (typeArea: string) => {
+    if (curentLayer['typeArea'] === 'text') {
+      if (curentLayer && curentLayer['nameThreekit'])
+        resetObjectText(setConfiguration, curentLayer['nameThreekit']);
+    }
+    if (curentLayer['typeArea'] === 'graphic') {
+      if (curentLayer && curentLayer['nameThreekit'])
+        resetObjectGraphic(setConfiguration, curentLayer['nameThreekit']);
+    }
     setTypePersonalize(typeArea);
     navigate(typeArea);
     dispatch(

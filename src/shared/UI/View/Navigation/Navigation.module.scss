@@ -63,3 +63,9 @@
     font-size: 12px !important;
   }
 }
+@media (max-width: 992px) {
+  .navigate_box {
+    display: flex;
+    flex-direction: row;
+  }
+}

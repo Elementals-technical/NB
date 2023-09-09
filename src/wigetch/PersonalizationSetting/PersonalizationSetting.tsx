@@ -9,6 +9,15 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { setLayerArea } from '../../shared/function/providers/redax/action';
 import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
+import {
+  defaultObjText,
+  replaceKeywordInObject,
+} from '../../features/layer/PersonalizationObjectTextRuster/PersonalizationObjectTextRuster';
+import { defaultObjLogo } from '../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
+import {
+  resetObjectGraphic,
+  resetObjectText,
+} from '../../shared/function/ThreekitAttributeText';
 export const PersonalizationSetting = () => {
   const { configID } = useParams();
   if (!configID) return <></>;
@@ -23,6 +32,12 @@ export const PersonalizationSetting = () => {
     navigate(URL_PAGE.personalizePage(configID));
   };
   const onCancel = () => {
+    if (curentLayer['typeArea'] === 'text') {
+      resetObjectText(setConfiguration, curentLayer['nameThreekit']);
+    }
+    if (curentLayer['typeArea'] === 'graphic') {
+      resetObjectGraphic(setConfiguration, curentLayer['nameThreekit']);
+    }
     navigate(URL_PAGE.personalizePage(configID));
   };
 

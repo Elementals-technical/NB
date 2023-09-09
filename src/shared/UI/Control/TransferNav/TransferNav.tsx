@@ -103,6 +103,7 @@ export const TransferNav = () => {
   return (
     <BtnNavigate
       svg={<TransferIcon />}
+      isBtn={'transfer'}
       clickHandler={async () => {
         const listIconPosition = resultGraphic.map((icon: any) => {
           return icon['nameThreekit'];

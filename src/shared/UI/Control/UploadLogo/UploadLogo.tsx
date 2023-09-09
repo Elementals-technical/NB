@@ -26,7 +26,7 @@ export const UploadLogo = ({ zoneLogo }: any) => {
     const requestOptions = {
       method: 'POST',
       data: formData,
-      url: 'http://localhost:3001/api/loadFile', // Replace with your actual API endpoint
+      url: '/api/loadFile', // Replace with your actual API endpoint
     };
 
     return await axios(requestOptions);

@@ -19,6 +19,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { URLS } from '../../../shared/function/providers/router/AppRouter';
 import { useSelector } from 'react-redux';
 import { getVisibleLayers } from '../../../shared/function/providers/redax/selectore';
+import { setConfiguration } from '@threekit-tools/treble/dist/store/attributes';
 
 export const defaultObjText = {
   'Add Text back 2': '',
@@ -53,6 +54,17 @@ export const replaceKeywordInObject = (
     ])
   );
 };
+export const setText = (
+  valueText: string,
+  zoneText: any,
+  setConfiguration: any
+) => {
+  console.log('{ [`Add Text ${zoneText}`]: valueText }', {
+    [`Add Text ${zoneText}`]: valueText,
+  });
+
+  setConfiguration({ [`Add Text ${zoneText}`]: valueText });
+};
 
 export const PersonalizationObjectTextRuster = () => {
   const [attributes, setConfiguration]: any = useConfigurator();
@@ -74,10 +86,6 @@ export const PersonalizationObjectTextRuster = () => {
     { value: 'Times', label: 'Times' },
     { value: 'Running led', label: 'Running led' },
   ];
-
-  const setText = (valueText: string) => {
-    setConfiguration({ [`Add Text ${zoneText}`]: valueText });
-  };
 
   const selectedFoneText = (value: any) => {
     const font = value['value'];
@@ -132,22 +140,8 @@ export const PersonalizationObjectTextRuster = () => {
         );
       }
     }
-    if (location.pathname.includes(URLS.PLAYER_NAME)) {
-      setText('PLAYER NAME');
-    }
-    if (location.pathname.includes(URLS.PLAYER_NUMBER)) {
-      setText('00');
-    }
   }, []);
 
-  useEffect(() => {
-    if (location.pathname.includes(URLS.PLAYER_NAME)) {
-      setText('PLAYER NAME');
-    }
-    if (location.pathname.includes(URLS.PLAYER_NUMBER)) {
-      setText('00');
-    }
-  }, [location.pathname]);
   if (Object.keys(attributes).length < 1) return <></>;
   if (!zoneText) return <></>;
   if (!layer) return <></>;

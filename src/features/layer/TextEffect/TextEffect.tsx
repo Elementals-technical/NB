@@ -142,7 +142,7 @@ export const TextEffect = ({ nameText }: any) => {
                     step={0.1}
                     min={-1}
                     max={1}
-                    inputmode="decimal"
+                    inputMode="decimal"
                     type="number"
                     lang="nl"
                     defaultValue={getValueThreekitFunc('Text curve Amount ')}
@@ -190,7 +190,7 @@ export const TextEffect = ({ nameText }: any) => {
                     step={1}
                     min={10}
                     max={250}
-                    inputmode="decimal"
+                    inputMode="decimal"
                     type="number"
                     lang="nl"
                     defaultValue={getValueThreekitFunc(
@@ -245,7 +245,7 @@ export const TextEffect = ({ nameText }: any) => {
                     step={0.1}
                     min={0}
                     max={1}
-                    inputmode="decimal"
+                    inputMode="decimal"
                     type="number"
                     lang="nl"
                     defaultValue={getValueThreekitFunc('Text shadow opacity ')}
@@ -262,7 +262,7 @@ export const TextEffect = ({ nameText }: any) => {
                     step={1}
                     min={0}
                     max={50}
-                    inputmode="decimal"
+                    inputMode="decimal"
                     type="number"
                     lang="nl"
                     defaultValue={getValueThreekitFunc(
@@ -281,7 +281,7 @@ export const TextEffect = ({ nameText }: any) => {
                     step={1}
                     min={-100}
                     max={100}
-                    inputmode="decimal"
+                    inputMode="decimal"
                     type="number"
                     lang="nl"
                     defaultValue={getValueThreekitFunc('Text shadow Offset X ')}
@@ -298,7 +298,7 @@ export const TextEffect = ({ nameText }: any) => {
                     step={1}
                     min={-100}
                     max={100}
-                    inputmode="decimal"
+                    inputMode="decimal"
                     type="number"
                     lang="nl"
                     defaultValue={getValueThreekitFunc('Text shadow Offset Y ')}

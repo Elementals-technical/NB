@@ -5,7 +5,7 @@
     position: absolute;
     width: 180px;
     left: 50%;
-    top: 40px;
+    top: 20px;
     z-index: 9;
     img {
       width: 100%;
@@ -28,14 +28,14 @@
     }
   }
 }
-.back_bottom {
-  position: absolute;
-  left: 3.5%;
-  top: 7.7%;
-  z-index: 100;
-}
 
 @media (max-width: 1024px) {
+  .back_bottom {
+    position: absolute;
+    left: 30px;
+    top: 56px;
+    z-index: 100;
+  }
   .logo {
     width: 80px !important;
     left: 50% !important;
