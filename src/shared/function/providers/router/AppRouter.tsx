@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouterProvider } from 'react-router';
+import { RouterProvider, json } from 'react-router-dom';
 import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { StartingScreen } from '../../../../page/StartingScreen/StartingScreen';
 import { ConfiguraionScreen } from '../../../../page/ConfiguraionScreen/ConfiguraionScreen';
@@ -12,6 +12,9 @@ import { PersonalizationObjectGraphics } from '../../../../features/layer/Person
 import { PersonalizationObjectText } from '../../../../features/layer/PersonalizationObjectText/PersonalizationObjectText';
 import { SettingsPersonaliztionRosterList } from '../../../../features/layer/SettingsPersonaliztionRosterList/SettingsPersonaliztionRosterList';
 import { PreviewGroup } from '../../../../wigetch/PreviewGroup/PreviewGroup';
+import { getSnaphots } from '../../Threekit/spanphot';
+import { useDispatch } from 'react-redux';
+import { setloadShowReviewPage } from '../redax/action';
 
 export const URLS = {
   ROOT: '/',
@@ -31,74 +34,94 @@ export const URLS = {
 
 export const URL_PAGE = {
   personalizePage: (configID: string) => `/${configID}/${URLS.PERSONALIZE}`,
+  personalizePageSetting: (configID: string) =>
+    `/${configID}/${URLS.PERSONALIZE}/${URLS.SETTINGS}`,
 };
-console.log('test');
 
-// createHashRouter
-// createBrowserRouter
-const router = createBrowserRouter([
-  {
-    path: URLS.ROOT,
-    element: <StartingScreen />,
-  },
-  //@ts-ignore
-  {
-    path: URLS.CONFIG_ID,
-    element: <ConfiguraionScreen />,
-    children: [
-      { index: true, element: <ColorGroup /> },
-      {
-        path: URLS.COLOR,
-        element: <ColorGroup />,
-      },
-      {
-        path: URLS.PERSONALIZE,
-        children: [
-          { index: true, element: <PersonalizeGroup /> },
-          {
-            path: URLS.SETTINGS,
-            element: <PersonalizationSetting />,
-            children: [
-              {
-                path: URLS.TEXT,
-                element: <PersonalizationObjectText />,
-                children: [
-                  {
-                    index: true,
-                    element: <SettingsPersonaliztionCustomText />,
-                  },
-                  {
-                    path: URLS.CUSTOM,
-                    element: <SettingsPersonaliztionCustomText />,
-                  },
-                  {
-                    path: URLS.PLAYER_NAME,
-                    element: <PersonalizationObjectTextRuster />,
-                  },
-                  {
-                    path: URLS.PLAYER_NUMBER,
-                    element: <PersonalizationObjectTextRuster />,
-                  },
-                ],
-              },
-              {
-                path: URLS.GRAPHIC,
-                element: <PersonalizationObjectGraphics />,
-              },
-            ],
-          },
-          {
-            path: URLS.roster_ID,
-            element: <SettingsPersonaliztionRosterList />,
-          },
-        ],
-      },
-      {
-        path: URLS.REVIEW,
-        element: <PreviewGroup />,
-      },
-    ],
-  },
-]);
+export const AppRouter = () => {
+  const dispatch = useDispatch();
 
-export const AppRouter = () => <RouterProvider router={router} />;
+  // createHashRouter
+  // createBrowserRouter
+  const router = createHashRouter([
+    {
+      path: URLS.ROOT,
+      element: <StartingScreen />,
+    },
+    //@ts-ignore
+    {
+      path: URLS.CONFIG_ID,
+      element: <ConfiguraionScreen />,
+      children: [
+        { index: true, element: <ColorGroup /> },
+        {
+          path: URLS.COLOR,
+          element: <ColorGroup />,
+        },
+        {
+          path: URLS.PERSONALIZE,
+          children: [
+            { index: true, element: <PersonalizeGroup /> },
+            {
+              path: URLS.SETTINGS,
+              element: <PersonalizationSetting />,
+              children: [
+                {
+                  path: URLS.TEXT,
+                  element: <PersonalizationObjectText />,
+                  children: [
+                    {
+                      index: true,
+                      element: <SettingsPersonaliztionCustomText />,
+                    },
+                    {
+                      path: URLS.CUSTOM,
+                      element: <SettingsPersonaliztionCustomText />,
+                    },
+                    {
+                      path: URLS.PLAYER_NAME,
+                      element: <PersonalizationObjectTextRuster />,
+                    },
+                    {
+                      path: URLS.PLAYER_NUMBER,
+                      element: <PersonalizationObjectTextRuster />,
+                    },
+                  ],
+                },
+                {
+                  path: URLS.GRAPHIC,
+                  element: <PersonalizationObjectGraphics />,
+                },
+              ],
+            },
+            {
+              path: URLS.roster_ID,
+              element: <SettingsPersonaliztionRosterList />,
+            },
+          ],
+        },
+        {
+          path: URLS.REVIEW,
+          element: <PreviewGroup />,
+          loader: async () => {
+            try {
+              await dispatch(setloadShowReviewPage(true));
+
+              const listSnapshot = await getSnaphots();
+
+              await dispatch(setloadShowReviewPage(false));
+
+              return listSnapshot;
+            } catch (e: any) {
+              throw json(
+                { message: 'Error occured while fetching data' },
+                { status: e.status }
+              );
+            }
+          },
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
+};

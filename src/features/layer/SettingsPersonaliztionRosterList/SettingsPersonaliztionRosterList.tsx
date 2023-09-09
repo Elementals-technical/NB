@@ -38,7 +38,6 @@ export const SettingsPersonaliztionRosterList = () => {
   const saveRosterBtn = () => {
     // navigate(-1)
     console.log('inputData', inputData);
-    debugger;
 
     const dataRuster = inputData
       .filter((item) => item['name'] !== '' || item['number'] !== '')

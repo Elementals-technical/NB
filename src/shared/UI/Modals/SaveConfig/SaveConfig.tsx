@@ -5,11 +5,24 @@ import s from './SaveConfig.module.scss';
 import { useShare } from '@threekit-tools/treble/dist';
 import { CopyIcon } from '../../../assets/svg/CopyIcon';
 import { useWindowWidth } from '../../../function/useWindowWidth';
+import { useSelector } from 'react-redux';
+import { getRosterSrore } from '../../../function/providers/redax/selectore';
+
+function fileToBase64(file: any) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    //@ts-ignore
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = (error) => reject(error);
+  });
+}
+
 export const SaveConfig = ({ onChange }: any) => {
   const handleShare: any = useShare();
   const [href, setHref] = useState('');
   const windowWidth: any = useWindowWidth();
-
+  const store = useSelector(getRosterSrore);
   useEffect(() => {
     copyFunc();
   }, []);
@@ -27,6 +40,30 @@ export const SaveConfig = ({ onChange }: any) => {
     //   const result = `${location}?${configId[1]}`;
     // });
   }
+
+  useEffect(() => {
+    //@ts-ignore
+
+    const saveConfig = async (store) => {
+      let newObj: any = {};
+      //@ts-ignore
+      for await (const file of Object.keys(window.loadFile)) {
+        //@ts-ignore
+        newObj[file] = await fileToBase64(window.loadFile[file][0]);
+      }
+      //@ts-ignore
+      const props = await window.threekit.player.saveConfiguration({
+        metadata: {
+          //@ts-ignore
+          fullConfig: window.threekit.configurator.getFullConfiguration(),
+          dataStore: store,
+          file: newObj,
+        },
+      });
+      console.log('props', props);
+    };
+    saveConfig(store);
+  }, []);
 
   return (
     <div className={s.wrapper}>

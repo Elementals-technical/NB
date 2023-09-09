@@ -8,7 +8,6 @@ const checkIsActiveSection = (activeSectionId: string, sectionId: string) =>
   sectionId.includes(`#${activeSectionId}#`);
 
 export const TabComponent = ({ data }: any) => {
-  //   debugger;
   const [selectedSectionID, setSectionID] = useState(
     data['headerComponent']['data']['values'][0]['value']
   );

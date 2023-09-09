@@ -8,6 +8,7 @@ const App = () => {
   useEffect(() => {
     getTrueVh();
   }, []);
+
   return (
     <ReactRedaxProvide>
       <AppRouter />

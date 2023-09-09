@@ -1,6 +1,9 @@
 import { options } from '../../../../features/layer/SettingsPersonaliztionCustomText/SettingsPersonaliztionCustomText';
 import { getAreasByType } from '../../../data/areasObjects';
 
+export const getRosterSrore = ({ ...state }) => {
+  return state['Configuration'];
+};
 export const getRosterText = ({ ...state }) => {
   return state['Configuration']['rosterText'];
 };

@@ -6,6 +6,7 @@ export const TYPE_REDUCER = {
   SET_TREKIT_ATTR: 'setThreekitAttribute',
   SET_LOAD_CUSTOM_IMG: 'seLoadCustomImg',
   SET_LOAD_CHANGE_OBJECT: 'seLoadChangeObkect',
+  SET_LOAD_REVIEW_PAGE: 'setloadShowReviewPage',
   SET_RUSTER: 'saveRoster',
 };
 
@@ -23,6 +24,10 @@ export const setThreekitAttribute = (data: boolean) => ({
 });
 export const seLoadCustomImg = (data: boolean) => ({
   type: TYPE_REDUCER.SET_LOAD_CUSTOM_IMG,
+  payload: data,
+});
+export const setloadShowReviewPage = (data: boolean) => ({
+  type: TYPE_REDUCER.SET_LOAD_REVIEW_PAGE,
   payload: data,
 });
 export const seLoadChangeObkect = (data: boolean) => ({

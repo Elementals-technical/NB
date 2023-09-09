@@ -51,18 +51,18 @@ export const LoadingCustomLogo = ({
   const handleNewFileUpload = (e) => {
     dispatch(setThreekitAttribute(true));
     dispatch(seLoadCustomImg(true));
-    dispatch(
-      setCurentLayer({
-        type: 'upload-graphic',
-      })
-    );
+
     //@ts-ignore
     console.log('= e.target;', e.target.files);
     const { files: newFile } = e.target;
 
     if (newFile.length) {
       let updatedFiles = addNewFiles(newFile);
-
+      dispatch(
+        setCurentLayer({
+          type: 'upload-graphic',
+        })
+      );
       setFiles(updatedFiles);
 
       callUpdateFilesCb(updatedFiles);

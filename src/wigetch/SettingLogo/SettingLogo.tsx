@@ -22,6 +22,45 @@ interface Props {
   configID: string;
 }
 
+const getObjectPropertiesForText = (
+  config: Record<string, any>,
+  keyZone: string
+) => {
+  return Object.fromEntries(
+    Object.entries(config).filter(
+      ([key]) =>
+        (key.includes(keyZone) && key.includes('Logo')) ||
+        (key.includes(keyZone) && key.includes('logo'))
+    )
+  );
+};
+
+const replaceKeywordInObject = (
+  obj: Record<string, any>,
+  oldKeyword: string,
+  newKeyword: string
+): Record<string, any> => {
+  return Object.fromEntries(
+    Object.entries(obj).map(([key, value]) => [
+      key.replace(oldKeyword, newKeyword),
+      value,
+    ])
+  );
+};
+
+function replaceKeysForLoadFile(obj: any, oldKey: string, newKey: string) {
+  const newObj: any = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (key.includes(oldKey)) {
+      newObj[key.replace(oldKey, newKey)] = value;
+    } else {
+      newObj[key] = value;
+    }
+  }
+  return newObj;
+}
+
 export const SettingLogo = ({
   zoneLogo,
   setZoneText,
@@ -63,48 +102,41 @@ export const SettingLogo = ({
   const setValueThreekitFunc = setValueThreekit(zoneLogo, setConfiguration);
 
   const selectedZoneText = (value: any) => {
-    const getObjectPropertiesForText = (
-      config: Record<string, any>,
-      keyZone: string
-    ) => {
-      return Object.fromEntries(
-        Object.entries(config).filter(
-          ([key]) =>
-            (key.includes(keyZone) && key.includes('Logo')) ||
-            (key.includes(keyZone) && key.includes('logo'))
-        )
-      );
-    };
-
-    const replaceKeywordInObject = (
-      obj: Record<string, any>,
-      oldKeyword: string,
-      newKeyword: string
-    ): Record<string, any> => {
-      return Object.fromEntries(
-        Object.entries(obj).map(([key, value]) => [
-          key.replace(oldKeyword, newKeyword),
-          value,
-        ])
-      );
-    };
-
+    if (zoneLogo === value['nameThreekit']) return;
     if (zoneLogo) {
-      const prewText = cloneDeep(
+      //@ts-ignore
+      const loadFile = window['loadFile'];
+      if (loadFile && Object.keys(loadFile).length > 0) {
+        const newObjLoadFile = replaceKeysForLoadFile(
+          loadFile,
+          zoneLogo,
+          value['nameThreekit']
+        );
+        //@ts-ignore
+        window['loadFile'] = newObjLoadFile;
+      }
+
+      console.log('zoneLogo', zoneLogo, '=>', value['nameThreekit'], value);
+      const dataLogoPrewPosition = cloneDeep(
         getObjectPropertiesForText(
           window.threekit.configurator.getConfiguration(),
           zoneLogo
         )
       );
-      const nextObjText = cloneDeep(
-        replaceKeywordInObject(prewText, zoneLogo, value['nameThreekit'])
+      const dataLogoNewPosition = cloneDeep(
+        replaceKeywordInObject(
+          dataLogoPrewPosition,
+          zoneLogo,
+          value['nameThreekit']
+        )
       );
-      const prewObjText = cloneDeep(
+      const cleareDataLogoPrewPosition = cloneDeep(
         replaceKeywordInObject(defaultObjLogo, 'back 2', zoneLogo)
       );
+      debugger;
 
-      setConfiguration({ ...nextObjText });
-      setConfiguration({ ...prewObjText });
+      setConfiguration({ ...dataLogoNewPosition });
+      setConfiguration({ ...cleareDataLogoPrewPosition });
       setZoneText(value['nameThreekit']);
     } else {
       setZoneText(value['nameThreekit']);
@@ -118,7 +150,7 @@ export const SettingLogo = ({
         <div className={s.line}>
           <div className={s.boxFont}>
             <Select
-              title={'Text location'}
+              title={'Graphic Location'}
               options={visibleLayers}
               value={layer['value']}
               onChange={(value) => {

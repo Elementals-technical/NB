@@ -1,28 +1,28 @@
+import { useAttribute } from '@threekit-tools/treble/dist';
+import { valueThreekitMainColor } from '../../../../shared/UI/ListColor/ListColor';
 import s from '../../PreviewGroup.module.scss';
-import { FC } from 'react';
 
-type ColorPreviewListT = {
-  colorData: any;
-};
-export const ColorPreviewList: FC<ColorPreviewListT> = ({ ...props }) => {
-  const { colorData } = props;
+export const ColorPreviewList = () => {
+  const [attribute, setAttribute] = useAttribute('Color');
+
+  if (!attribute) return <></>;
+  const slectedColor = valueThreekitMainColor.find(
+    (color) => color['value'] === attribute['value']
+  );
+  if (!slectedColor) return <></>;
+
   return (
     <div className={s.colorWrapper}>
-      {colorData &&
-        colorData.map((item: any, index: number) => {
-          return (
-            <div className={s.colorItem} key={`colorList_${index}`}>
-              <div className={s.colorTitle}>{item.title}</div>
-              <div className={s.colorValue}>
-                <div
-                  className={s.colorTag}
-                  style={{ background: item.colorTag }}
-                ></div>
-                <div className={s.colorName}>{item.colorName}</div>
-              </div>
-            </div>
-          );
-        })}
+      <div className={s.colorItem}>
+        <div className={s.colorTitle}>Short color</div>
+        <div className={s.colorValue}>
+          <div
+            className={s.colorTag}
+            style={{ background: slectedColor.hex }}
+          ></div>
+          <div className={s.colorName}>{slectedColor['label']}</div>
+        </div>
+      </div>
     </div>
   );
 };

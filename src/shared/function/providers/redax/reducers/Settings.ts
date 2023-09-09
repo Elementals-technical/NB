@@ -42,6 +42,7 @@ const initialState: stateT = {
     loadGrapic: false,
     loadCustomImg: false,
     loadChangetProduct: false,
+    loadShowReviewPage: false,
   },
 };
 
@@ -53,6 +54,18 @@ const Settings = (state = initialState, action: any) => {
       return {
         ...state,
         rosterText: listRoster,
+      };
+      break;
+    }
+    case TYPE_REDUCER.SET_LOAD_REVIEW_PAGE: {
+      const changeThreekit = action.payload;
+
+      return {
+        ...state,
+        loaders: {
+          ...state.loaders,
+          loadShowReviewPage: changeThreekit,
+        },
       };
       break;
     }

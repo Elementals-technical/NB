@@ -77,8 +77,6 @@ export const Select: React.FC<SelectI> = (props) => {
             }}
           >
             {options.map((op, index) => {
-              debugger;
-
               const stypeHidden = {
                 opacity: '0.6',
                 pointerEvents: 'none',

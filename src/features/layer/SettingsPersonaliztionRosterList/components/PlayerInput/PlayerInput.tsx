@@ -65,7 +65,7 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
     const updatedItems = updateObjectById(resetShowItems, currentId, {
       show: !currentValue.show,
     });
-    debugger;
+
     let obj = {};
     if (layautNumberForRuster) {
       obj = {

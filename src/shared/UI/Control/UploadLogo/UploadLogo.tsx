@@ -25,7 +25,7 @@ export const UploadLogo = ({ zoneLogo }: any) => {
     const requestOptions = {
       method: 'POST',
       data: formData,
-      url: '/api/loadFile', // Replace with your actual API endpoint
+      url: 'http://localhost:3001/api/loadFile', // Replace with your actual API endpoint
     };
 
     return await axios(requestOptions);
@@ -87,9 +87,19 @@ export const UploadLogo = ({ zoneLogo }: any) => {
                 },
               });
               //@ts-ignore
-              window.loadFile = {
-                [`Upload logo ${zoneLogo}`]: files,
-              };
+              if (window.loadFile) {
+                //@ts-ignore
+                window.loadFile = {
+                  //@ts-ignore
+                  ...window.loadFile,
+                  [`Upload logo ${zoneLogo}`]: files,
+                };
+              } else {
+                //@ts-ignore
+                window.loadFile = {
+                  [`Upload logo ${zoneLogo}`]: files,
+                };
+              }
 
               //@ts-ignore
               await window.threekit.player.evaluate();

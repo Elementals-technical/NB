@@ -9,42 +9,43 @@ interface Props {
   onClickBtn: () => void;
   [key: string]: any;
 }
+
+export const valueThreekitMainColor = [
+  {
+    label: 'Grey',
+    value: 'Grey',
+    hex: '#8A8E8C',
+  },
+  {
+    label: 'Red',
+    value: 'Red',
+    hex: '#E30D31',
+  },
+  {
+    label: 'Yellow',
+    value: 'Yellow',
+    hex: '#fde408',
+  },
+  {
+    label: 'Black',
+    value: 'Black',
+    hex: '#161516',
+  },
+  {
+    label: 'Forest Green',
+    value: 'Green',
+    hex: '#385644',
+  },
+];
+
 export const ListColor = ({ label, values, ...props }: Props) => {
   const [attribute, setAttribute]: any = useAttribute(props['nameThreekit']);
 
-  console.log('---', attribute);
   if (!attribute) return <></>;
   const selectedColor = (id: string) => {
     setAttribute(id);
   };
 
-  const valueThreekit = [
-    {
-      label: 'Grey',
-      value: 'Grey',
-      hex: '#8A8E8C',
-    },
-    {
-      label: 'Red',
-      value: 'Red',
-      hex: '#E30D31',
-    },
-    {
-      label: 'Yellow',
-      value: 'Yellow',
-      hex: '#fde408',
-    },
-    {
-      label: 'Black',
-      value: 'Black',
-      hex: '#161516',
-    },
-    {
-      label: 'Forest Green',
-      value: 'Green',
-      hex: '#385644',
-    },
-  ];
   return (
     <div className={s.wrap}>
       <div className={s.header}>
@@ -52,7 +53,7 @@ export const ListColor = ({ label, values, ...props }: Props) => {
         <div className={s.value}>White</div>
       </div>
       <div className={s.main}>
-        {valueThreekit.map((value: any) => {
+        {valueThreekitMainColor.map((value: any) => {
           return (
             <BtnColor
               key={value['value']}

@@ -56,9 +56,15 @@ export const LoadingDefaultLogo = ({ zoneLogo }: any) => {
   };
   const setDefaultLogogThreekit = async (nameThreekit: string) => {
     console.log('attributes', attributes);
+    dispatch(
+      setCurentLayer({
+        type: 'default-graphic',
+      })
+    );
+    const nameAttr = `Add Logo ${zoneLogo}`;
 
     let attr = Object.values(attributes).find((attr: any) =>
-      attr['name'].includes('Add Logo front 1')
+      attr['name'].includes(nameAttr)
     );
     if (!attr) return;
     //@ts-ignore
@@ -67,7 +73,6 @@ export const LoadingDefaultLogo = ({ zoneLogo }: any) => {
     const value = attr['values'].find(
       (value: any) => value['name'] === nameThreekit
     );
-    const nameAttr = `Add Logo ${zoneLogo}`;
 
     await setConfiguration({ [nameAttr]: value });
     //@ts-ignore
@@ -88,7 +93,7 @@ export const LoadingDefaultLogo = ({ zoneLogo }: any) => {
             <span>
               <IconPlus />
             </span>
-            Add default graphics ss
+            Choose from Graphics Library
           </div>
         </div>
       )}
