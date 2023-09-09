@@ -4,6 +4,7 @@ import { useConfigurator } from '@threekit-tools/treble/dist';
 import { useDebounce } from './hooks/useDebounce';
 interface RadSliderProps {
   name: string;
+  textZone: string;
   degree?: number;
 }
 
@@ -16,6 +17,7 @@ function normalizeDegree(degree: number) {
 
 export const RotationText: React.FC<RadSliderProps> = ({
   name,
+  textZone,
   degree = 0,
 }) => {
   const [minDegree] = useState(0);
@@ -32,7 +34,7 @@ export const RotationText: React.FC<RadSliderProps> = ({
   const onRotate = (degree: any) => {
     const normDegree = normalizeDegree(degree);
     console.log('normDegree: ', normDegree);
-    setConfiguration({ [`Rotate Text front 1`]: normDegree });
+    setConfiguration({ [`Rotate Text ${textZone}`]: normDegree });
   };
 
   useEffect(() => {

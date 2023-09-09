@@ -14,12 +14,9 @@ import { ZoomInOutPinch } from '../../shared/assets/svg/ZoomInOutPinch';
 import { RotationText } from '../RotationText/RotationText';
 import { useSelector } from 'react-redux';
 import { getCurentLayer } from '../../shared/function/providers/redax/selectore';
+import { RotationTextWrap } from '../RotationText/RotationTextWrap';
 export const View = () => {
   const navigate = useNavigate();
-
-  const curentLayer = useSelector(getCurentLayer);
-  const checkIfTextPanelActive =
-    curentLayer.type === 'custom' && curentLayer.typeArea === 'text';
 
   return (
     <>
@@ -39,9 +36,7 @@ export const View = () => {
           <img src="/images/logo.svg" alt="" />
         </div>
 
-        {checkIfTextPanelActive && (
-          <RotationText name="rotationText" degree={0} />
-        )}
+        <RotationTextWrap />
         <PlayerElem />
 
         <div className={s.wrap_icon}>
