@@ -41,6 +41,7 @@ const initialState: stateT = {
     loadChangeThreekit: false,
     loadGrapic: false,
     loadCustomImg: false,
+    loadChangetProduct: false,
   },
 };
 
@@ -52,6 +53,18 @@ const Settings = (state = initialState, action: any) => {
       return {
         ...state,
         rosterText: listRoster,
+      };
+      break;
+    }
+    case TYPE_REDUCER.SET_LOAD_CHANGE_OBJECT: {
+      const changeThreekit = action.payload;
+
+      return {
+        ...state,
+        loaders: {
+          ...state.loaders,
+          loadChangetProduct: changeThreekit,
+        },
       };
       break;
     }
