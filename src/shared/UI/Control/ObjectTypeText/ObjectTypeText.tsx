@@ -46,7 +46,6 @@ export const ObjectTypeText = () => {
     );
   }, []);
   useEffect(() => {
-    debugger;
     if (location.pathname.includes(URLS.PLAYER_NAME)) {
       setText('PLAYER NAME', curentLayer['nameThreekit'], setConfiguration);
     }

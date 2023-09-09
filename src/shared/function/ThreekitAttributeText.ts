@@ -25,7 +25,7 @@ export const resetObjectText = (
   nameThreekit: string
 ) => {
   let objText = replaceKeywordInObject(defaultObjText, 'back 2', nameThreekit);
-  debugger;
+
   setConfiguration({
     ...objText,
   });
@@ -39,7 +39,7 @@ export const resetObjectGraphic = (
     'back 2',
     nameThreekit
   );
-  debugger;
+
   setConfiguration({
     ...objGraphic,
   });

@@ -83,7 +83,7 @@ export const getVisibleLayers =
         isShow: true,
       }));
     }
-    debugger;
+
     return areasByType.map((option) => {
       return {
         ...option,
