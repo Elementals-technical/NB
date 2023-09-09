@@ -12,6 +12,7 @@ import {
 } from '../../../function/providers/redax/action';
 
 import { Upload } from '@threekit-tools/treble';
+import { fileToBase64 } from '../../../function/Files';
 
 export const UploadLogo = ({ zoneLogo }: any) => {
   const [attributes, setConfiguration]: any = useConfigurator();
@@ -92,12 +93,12 @@ export const UploadLogo = ({ zoneLogo }: any) => {
                 window.loadFile = {
                   //@ts-ignore
                   ...window.loadFile,
-                  [`Upload logo ${zoneLogo}`]: files,
+                  [`Upload logo ${zoneLogo}`]: await fileToBase64(files[0]),
                 };
               } else {
                 //@ts-ignore
                 window.loadFile = {
-                  [`Upload logo ${zoneLogo}`]: files,
+                  [`Upload logo ${zoneLogo}`]: await fileToBase64(files[0]),
                 };
               }
 

@@ -7,20 +7,14 @@ import { CopyIcon } from '../../../assets/svg/CopyIcon';
 import { useWindowWidth } from '../../../function/useWindowWidth';
 import { useSelector } from 'react-redux';
 import { getRosterSrore } from '../../../function/providers/redax/selectore';
-
-function fileToBase64(file: any) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    //@ts-ignore
-    reader.onload = () => resolve(reader.result.split(',')[1]);
-    reader.onerror = (error) => reject(error);
-  });
-}
+import { useParams } from 'react-router';
+import { URL_PAGE } from '../../../function/providers/router/AppRouter';
 
 export const SaveConfig = ({ onChange }: any) => {
   const handleShare: any = useShare();
   const [href, setHref] = useState('');
+
+  let { configID } = useParams();
   const windowWidth: any = useWindowWidth();
   const store = useSelector(getRosterSrore);
   useEffect(() => {
@@ -29,8 +23,8 @@ export const SaveConfig = ({ onChange }: any) => {
 
   async function copyFunc() {
     if (handleShare) {
-      const hrefLink = await handleShare();
-      setHref(hrefLink);
+      // const hrefLink = await handleShare();
+      // setHref(hrefLink);
     }
 
     // hrefLink.then((res: any) => {
@@ -45,25 +39,37 @@ export const SaveConfig = ({ onChange }: any) => {
     //@ts-ignore
 
     const saveConfig = async (store) => {
-      let newObj: any = {};
-      //@ts-ignore
-      for await (const file of Object.keys(window.loadFile)) {
-        //@ts-ignore
-        newObj[file] = await fileToBase64(window.loadFile[file][0]);
-      }
+      if (!configID) return;
       //@ts-ignore
       const props = await window.threekit.player.saveConfiguration({
         metadata: {
           //@ts-ignore
           fullConfig: window.threekit.configurator.getFullConfiguration(),
           dataStore: store,
-          file: newObj,
+          //@ts-ignore
+          file: window.loadFile,
         },
       });
-      console.log('props', props);
+      console.log('props', {
+        //@ts-ignore
+        fullConfig: window.threekit.configurator.getFullConfiguration(),
+        dataStore: store,
+        //@ts-ignore
+        file: window.loadFile,
+      });
+
+      const location = window.location.origin;
+      const link = `${location}${URL_PAGE.saveConfigPage(configID)}?tkid=${
+        props['shortId']
+      }`;
+      setHref(link);
     };
     saveConfig(store);
   }, []);
+
+  const copyToClipboard = async () => {
+    await navigator.clipboard.writeText(href);
+  };
 
   return (
     <div className={s.wrapper}>
@@ -87,7 +93,7 @@ export const SaveConfig = ({ onChange }: any) => {
           <div className={s.copy}>
             {windowWidth > 710 ? href : 'https://newbalanceteamsports...'}
           </div>
-          <div className={s.copyBtn} onClick={() => console.log()}>
+          <div className={s.copyBtn} onClick={() => copyToClipboard()}>
             <CopyIcon />
             <span>Copy link</span>
           </div>

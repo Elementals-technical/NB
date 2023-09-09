@@ -7,44 +7,28 @@ import { ThreekitProvider } from '@threekit-tools/treble/dist';
 import { useParams } from 'react-router';
 import { ChangeProduc } from '../../features/Threekit/UI/ChangeProduc/ChangeProduc';
 import axios from 'axios';
-
-const threekitUrl = 'https://preview.threekit.com/';
-const publicToken = '2e113be6-bbfb-48c6-998a-7efa10593f29';
-
-const CONFIGURATIONS_API_ROUTE = `api/configurations`;
-
-export const getSavedConfiguration = async ({ ...props }) => {
-  const { configurationId, authToken, threekitUrl } = props;
-
-  let error;
-  if (!configurationId) error = 'Requires Configuration ID';
-  if (error) return [undefined, { message: error }];
-
-  let response = await axios
-    .get(
-      `${threekitUrl}${CONFIGURATIONS_API_ROUTE}/${configurationId}?bearer_token=${authToken}`
-    )
-    .then((response) => response);
-
-  return response['data'];
-};
+import { useSearchParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { restoreConfig } from '../../shared/function/providers/redax/action';
+import { ResoreConfig } from '../../wigetch/ResoreConfig/ResoreConfig';
 
 export const ConfiguraionScreen = () => {
   const { configID } = useParams();
-  useEffect(() => {
-    getSavedConfiguration({
-      configurationId: 'RzIJ3mbvh',
-      authToken: publicToken,
-      threekitUrl: threekitUrl,
-    });
-  }, []);
-  if (!configID) return <></>;
+  const [searchParams] = useSearchParams();
+  const tkid = searchParams.get('tkid');
+
   const saveConfig: Record<string, string> = {
     Shorts: 'rL7-gjOig',
     Jersey: 'n0nAvYnGH',
     Hoodie: 'JOksyDpjv',
     Pants: 'tjic2RroK',
   };
+
+  if (!configID) return <></>;
+
+  let shortId = saveConfig[configID];
+
+  if (tkid) shortId = tkid;
 
   const projects = {
     credentials: {
@@ -55,7 +39,8 @@ export const ConfiguraionScreen = () => {
     },
     products: {
       preview: {
-        configurationId: saveConfig[configID],
+        // configurationId: saveConfig[configID],
+        configurationId: shortId,
       },
     },
   };
@@ -77,6 +62,7 @@ export const ConfiguraionScreen = () => {
       >
         <LoaderPage />
         <ChangeProduc />
+        <ResoreConfig />
         <div className={s.page}>
           <div className={s.view}>
             <View />

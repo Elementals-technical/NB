@@ -26,7 +26,7 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
       {layers.map((item: any) => {
         if (item['typeArea'] === 'text') {
           console.log('visibleLayersText', visibleLayersText);
-          debugger;
+
           const valueObj = visibleLayersText.find(
             (i: any) => i['nameThreekit'] === item['nameThreekit']
           );
@@ -148,13 +148,10 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
               <div className={s.main}>
                 {item['type'] === 'upload-graphic' && (
                   <img
-                    //@ts-ignore
-                    src={URL.createObjectURL(
+                    src={
                       //@ts-ignore
-                      window['loadFile'][
-                        `Upload logo ${item['nameThreekit']}`
-                      ][0]
-                    )}
+                      window['loadFile'][`Upload logo ${item['nameThreekit']}`]
+                    }
                   />
                 )}
                 {item['type'] === 'default-graphic' && IconInfo && (

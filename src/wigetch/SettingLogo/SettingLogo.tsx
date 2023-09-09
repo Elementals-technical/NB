@@ -133,7 +133,6 @@ export const SettingLogo = ({
       const cleareDataLogoPrewPosition = cloneDeep(
         replaceKeywordInObject(defaultObjLogo, 'back 2', zoneLogo)
       );
-      debugger;
 
       setConfiguration({ ...dataLogoNewPosition });
       setConfiguration({ ...cleareDataLogoPrewPosition });

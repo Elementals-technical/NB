@@ -14,7 +14,7 @@ import { UploadLogo } from '../../../shared/UI/Control/UploadLogo/UploadLogo';
 import { setCurentLayer } from '../../../shared/function/providers/redax/action';
 import { SettingLogo } from '../../../wigetch/SettingLogo/SettingLogo';
 
-const defaultObjText = {
+export const defaultObjLogo = {
   'Add Logo back 2': {
     assetId: '',
     type: 'item',
@@ -48,7 +48,7 @@ export const PersonalizationObjectGraphics = () => {
       <SettingLogo
         zoneLogo={zoneLogo}
         setZoneText={setZoneLogo}
-        defaultObjLogo={defaultObjText}
+        defaultObjLogo={defaultObjLogo}
         configID={configID}
       ></SettingLogo>
     </>

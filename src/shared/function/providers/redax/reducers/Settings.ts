@@ -48,6 +48,30 @@ const initialState: stateT = {
 
 const Settings = (state = initialState, action: any) => {
   switch (action.type) {
+    case TYPE_REDUCER.CLEAR_AREA_OBJECR: {
+      const { type, listPointAria } = action.payload;
+      const selectedLayers = state['selectedLayers'].filter((layer) => {
+        const isType = layer['typeArea'] === type;
+        const isArea = listPointAria.includes(layer['nameThreekit']);
+
+        return !(isType && isArea);
+      });
+      return {
+        ...state,
+        selectedLayers: selectedLayers,
+        // ...store,
+      };
+      break;
+    }
+    case TYPE_REDUCER.RESTORE_CONFIG: {
+      const store = action.payload;
+
+      return {
+        ...state,
+        ...store,
+      };
+      break;
+    }
     case TYPE_REDUCER.SET_RUSTER: {
       const listRoster = action.payload;
 

@@ -4,6 +4,8 @@ import { BtnNavigate } from '../../BtnNavigate/BtnNavigate';
 import s from './Navigation.module.scss';
 import { getProductByKey } from '../../../data/productInformation';
 import { SaveConfiguration } from '../../SaveConfiguration/SaveConfiguration';
+import { TransferIcon } from '../../../assets/svg/TransferIcon';
+import { TransferNav } from '../../Control/TransferNav/TransferNav';
 export const Navigation = () => {
   let { configID } = useParams();
   if (!configID) return <></>;
@@ -19,14 +21,7 @@ export const Navigation = () => {
       </div>
       <div className={s.navigate_box}>
         <SaveConfiguration />
-        {/* <BtnNavigate
-          svg={<TransferIcon />}
-          name={
-            <>
-              Transfer design to <strong>W Hoodie</strong>
-            </>
-          }
-        /> */}
+        <TransferNav />
       </div>
       <div className={s.test}></div>
     </div>

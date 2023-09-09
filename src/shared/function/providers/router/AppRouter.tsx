@@ -33,6 +33,7 @@ export const URLS = {
 };
 
 export const URL_PAGE = {
+  saveConfigPage: (configID: string) => `/${configID}`,
   personalizePage: (configID: string) => `/${configID}/${URLS.PERSONALIZE}`,
   personalizePageSetting: (configID: string) =>
     `/${configID}/${URLS.PERSONALIZE}/${URLS.SETTINGS}`,
@@ -43,7 +44,7 @@ export const AppRouter = () => {
 
   // createHashRouter
   // createBrowserRouter
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: URLS.ROOT,
       element: <StartingScreen />,

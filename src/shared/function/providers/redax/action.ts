@@ -8,8 +8,18 @@ export const TYPE_REDUCER = {
   SET_LOAD_CHANGE_OBJECT: 'seLoadChangeObkect',
   SET_LOAD_REVIEW_PAGE: 'setloadShowReviewPage',
   SET_RUSTER: 'saveRoster',
+  RESTORE_CONFIG: 'restoreConfig',
+  CLEAR_AREA_OBJECR: 'create_area_object',
 };
 
+export const createAreaObject = (data: any) => ({
+  type: TYPE_REDUCER.CLEAR_AREA_OBJECR,
+  payload: data,
+});
+export const restoreConfig = (data: any) => ({
+  type: TYPE_REDUCER.RESTORE_CONFIG,
+  payload: data,
+});
 export const setLayerArea = (data: selectedLayer) => ({
   type: TYPE_REDUCER.SET_LAYER_AREA,
   payload: data,

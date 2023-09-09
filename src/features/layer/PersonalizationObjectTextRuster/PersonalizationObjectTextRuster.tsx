@@ -20,7 +20,7 @@ import { URLS } from '../../../shared/function/providers/router/AppRouter';
 import { useSelector } from 'react-redux';
 import { getVisibleLayers } from '../../../shared/function/providers/redax/selectore';
 
-const defaultObjText = {
+export const defaultObjText = {
   'Add Text back 2': '',
   'Font Text back 2': 'Arial',
   'Rotate Text back 2': 0,
@@ -39,6 +39,19 @@ const defaultObjText = {
   'Text curve Amount back 2': 0.5,
   'Text Bookend Effect back 2': false,
   'Text Bookend Effect Size back 2': 128,
+};
+
+export const replaceKeywordInObject = (
+  obj: Record<string, any>,
+  oldKeyword: string,
+  newKeyword: string
+): Record<string, any> => {
+  return Object.fromEntries(
+    Object.entries(obj).map(([key, value]) => [
+      key.replace(oldKeyword, newKeyword),
+      value,
+    ])
+  );
 };
 
 export const PersonalizationObjectTextRuster = () => {
@@ -83,19 +96,6 @@ export const PersonalizationObjectTextRuster = () => {
         Object.entries(config).filter(
           ([key]) => key.includes(keyZone) && key.includes('Text')
         )
-      );
-    };
-
-    const replaceKeywordInObject = (
-      obj: Record<string, any>,
-      oldKeyword: string,
-      newKeyword: string
-    ): Record<string, any> => {
-      return Object.fromEntries(
-        Object.entries(obj).map(([key, value]) => [
-          key.replace(oldKeyword, newKeyword),
-          value,
-        ])
       );
     };
 

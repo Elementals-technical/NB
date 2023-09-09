@@ -48,7 +48,7 @@ export const generationArraySnapshots = async (
 
   const currentPosition = getPositionCamera();
   const currentQuatCamera = getPositionQuatCamera();
-  debugger;
+
   for await (const camera of cameras) {
     let size: any = { width: 1000, height: 1000 };
     let setObjectThreekit = {
@@ -66,7 +66,7 @@ export const generationArraySnapshots = async (
       base64: cloneDeep(snapshotBase64),
     });
   }
-  debugger;
+
   await setThreeKitObj({
     Camera: configuratorActiveCamera?.value,
     ExportSanphot: false,

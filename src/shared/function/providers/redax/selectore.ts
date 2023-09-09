@@ -2,7 +2,13 @@ import { options } from '../../../../features/layer/SettingsPersonaliztionCustom
 import { getAreasByType } from '../../../data/areasObjects';
 
 export const getRosterSrore = ({ ...state }) => {
-  return state['Configuration'];
+  const rosterText = getRosterText(state);
+  const selectedLayers = getSelectedLayers(state);
+
+  return {
+    selectedLayers: selectedLayers,
+    rosterText: rosterText,
+  };
 };
 export const getRosterText = ({ ...state }) => {
   return state['Configuration']['rosterText'];
