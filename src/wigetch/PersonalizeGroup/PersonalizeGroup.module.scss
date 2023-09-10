@@ -64,8 +64,25 @@
     width: 100%;
     width: auto;
   }
-  header {
-    border-top: 1px solid #ced4da;
-    border-bottom: 1px solid #ced4da;
+
+  .group {
+    header {
+      border-top: 1px solid #ced4da;
+      border-bottom: 1px solid #ced4da;
+    }
+    main {
+      height: calc(100% - 41px);
+    }
+    .mainWrap {
+      height: calc(100% - 41px - 46px);
+      padding: 10px 19px;
+    }
+    footer {
+      padding: 8px 20px;
+      .btn {
+        padding: 8px 24px;
+        font-size: 12px;
+      }
+    }
   }
 }

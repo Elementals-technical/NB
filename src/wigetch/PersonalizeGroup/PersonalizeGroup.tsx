@@ -25,12 +25,14 @@ export const PersonalizeGroup = () => {
   //     nameThreekit: 'back 2',
   //   },
   // ];
+  let mianClass = '';
+  if (selectedLayers.length > 0) mianClass = mianClass + ` ${s.mainWrap}`;
   return (
     <div className={s.group}>
       <header>
         <div className={s.title}>Personalization summary</div>
       </header>
-      <main>
+      <main className={s.mainWrap}>
         {selectedLayers.length < 1 && <PersonalizeScreenStart />}
 
         {selectedLayers.length > 0 && (

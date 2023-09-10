@@ -35,6 +35,9 @@
   z-index: 100;
 }
 @media (max-width: 1024px) {
+  .wrap_icon {
+    bottom: -20px !important;
+  }
   .back_bottom {
     position: absolute;
     left: 30px;

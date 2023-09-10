@@ -19,6 +19,9 @@ import { getLoadersName } from '../../shared/function/providers/redax/selectore'
 import { useConfigurator } from '@threekit-tools/treble/dist';
 
 export const getDefaultIcon = (value: string) => {
+  console.log('listDefaultGraphicsImg', listDefaultGraphicsImg);
+  console.log('value getDefaultIcon', value);
+
   return listDefaultGraphicsImg.find((img) => img['nameThreekit'] === value);
 };
 

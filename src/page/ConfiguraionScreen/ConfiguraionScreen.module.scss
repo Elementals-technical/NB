@@ -50,3 +50,13 @@
     overflow-y: auto;
   }
 }
+@media (max-width: 1024px) {
+  .wrap_configurator {
+    position: relative;
+    top: 0;
+    max-width: unset;
+    width: 100%;
+    height: calc((var(--vh, 1vh) * 40));
+    overflow-y: auto;
+  }
+}

@@ -103,6 +103,8 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
           let attr: any = Object.values(attributes).find((attr: any) =>
             attr['name'].includes(nameAttr)
           );
+          console.log('attr', attr);
+
           if (!attr) return <></>;
           //@ts-ignore
           if (attr['values'].length < 1) return <></>;
@@ -110,11 +112,16 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
           const value = attr['values'].find(
             (value: any) => value['assetId'] === attr['value']['assetId']
           );
+          console.log('value', value);
+          let IconInfo = undefined;
+          if (value) {
+            console.log(" value['name']", value['name']);
 
-          const IconInfo =
-            item['type'] === 'default-graphic' && value['name']
-              ? getDefaultIcon(value['name'])
-              : undefined;
+            IconInfo =
+              item['type'] === 'default-graphic' && value['name']
+                ? getDefaultIcon(value['name'])
+                : undefined;
+          }
 
           return (
             <div className={s.personalization}>

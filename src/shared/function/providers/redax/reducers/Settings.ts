@@ -136,6 +136,11 @@ const Settings = (state = initialState, action: any) => {
       layers.push(layer);
       return {
         ...state,
+        curentLayer: {
+          ...state.curentLayer,
+          type: '',
+          nameThreekit: '',
+        },
         selectedLayers: layers,
       };
       break;
