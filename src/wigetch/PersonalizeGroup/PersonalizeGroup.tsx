@@ -32,7 +32,7 @@ export const PersonalizeGroup = () => {
       <header>
         <div className={s.title}>Personalization summary</div>
       </header>
-      <main className={s.mainWrap}>
+      <main className={mianClass}>
         {selectedLayers.length < 1 && <PersonalizeScreenStart />}
 
         {selectedLayers.length > 0 && (
