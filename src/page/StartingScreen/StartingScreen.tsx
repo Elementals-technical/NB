@@ -1,6 +1,18 @@
 import { Link, NavLink, redirect, useNavigate } from 'react-router-dom';
 import s from './StartingScreen.module.scss';
 import { useId } from 'react';
+import {
+  getSelectedGraphicLayers,
+  getSelectedTextLayers,
+} from '../../shared/function/providers/redax/selectore';
+import { useSelector } from 'react-redux';
+import { resetArea } from '../../shared/function/providers/redax/action';
+import {
+  defaultObjText,
+  replaceKeywordInObject,
+} from '../../features/layer/PersonalizationObjectTextRuster/PersonalizationObjectTextRuster';
+import { useDispatch } from 'react-redux';
+import { defaultObjLogo } from '../../features/layer/PersonalizationObjectGraphics/PersonalizationObjectGraphics';
 
 const groupsProducts = [
   {
@@ -43,6 +55,68 @@ const groupsProducts = [
 
 export const StartingScreen = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const selectedGraphicLayers = useSelector(getSelectedGraphicLayers);
+  const selectedTextLayers = useSelector(getSelectedTextLayers);
+
+  const onNavigatePage = (idPage: string) => {
+    if (selectedTextLayers.length > 0) {
+      //@ts-ignore
+      if (
+        window &&
+        window.threekit &&
+        window.threekit.configurator &&
+        //@ts-ignore
+        window.threekit.configurator.setConfiguration
+      ) {
+        let restText = {};
+        selectedTextLayers.forEach((idArea: any) => {
+          let objText = replaceKeywordInObject(
+            defaultObjText,
+            'back 2',
+            idArea
+          );
+          restText = {
+            ...restText,
+            ...objText,
+          };
+        });
+
+        //@ts-ignore
+        window.threekit.configurator.setConfiguration({ ...restText });
+      }
+    }
+
+    if (selectedGraphicLayers.length > 0) {
+      //@ts-ignore
+      if (
+        window &&
+        window.threekit &&
+        window.threekit.configurator &&
+        //@ts-ignore
+        window.threekit.configurator.setConfiguration
+      ) {
+        let restLogo = {};
+        selectedGraphicLayers.forEach((grapic: any) => {
+          let objGrap = replaceKeywordInObject(
+            defaultObjLogo,
+            'back 2',
+            grapic['nameThreekit']
+          );
+          restLogo = {
+            ...restLogo,
+            ...objGrap,
+          };
+        });
+
+        //@ts-ignore
+        window.threekit.configurator.setConfiguration({ ...restLogo });
+      }
+    }
+    dispatch(resetArea());
+    navigate(idPage);
+  };
 
   return (
     <div className={s.page_wrap}>
@@ -63,7 +137,7 @@ export const StartingScreen = () => {
                     <>
                       <div
                         key={useId()}
-                        onClick={() => navigate(product.idConfig)}
+                        onClick={() => onNavigatePage(product.idConfig)}
                         className={s.product}
                       >
                         <div className={s.img}>

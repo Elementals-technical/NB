@@ -27,8 +27,6 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
   );
   const [attributes, setConfiguration]: any = useConfigurator();
 
-  debugger;
-
   const deleteItemPersonalize = (typeArea: string, namePoint: string) => {
     dispatch(createAreaObject({ type: typeArea, listPointAria: [namePoint] }));
 

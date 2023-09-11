@@ -10,8 +10,13 @@ export const TYPE_REDUCER = {
   SET_RUSTER: 'saveRoster',
   RESTORE_CONFIG: 'restoreConfig',
   CLEAR_AREA_OBJECR: 'create_area_object',
+  RESET_AREA: 'reset_area',
 };
 
+export const resetArea = () => ({
+  type: TYPE_REDUCER.RESET_AREA,
+  payload: {},
+});
 export const createAreaObject = (data: any) => ({
   type: TYPE_REDUCER.CLEAR_AREA_OBJECR,
   payload: data,

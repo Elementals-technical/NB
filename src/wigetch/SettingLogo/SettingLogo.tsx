@@ -146,7 +146,7 @@ export const SettingLogo = ({
   };
   if (!zoneLogo) return <></>;
   if (!layer) return <></>;
-  debugger;
+
   return (
     <div className={s.wrap}>
       <div className={s.box}>
