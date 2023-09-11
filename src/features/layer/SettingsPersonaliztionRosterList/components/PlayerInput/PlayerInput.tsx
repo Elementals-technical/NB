@@ -67,11 +67,12 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
     });
 
     let obj = {};
+
     if (layautNumberForRuster) {
       obj = {
         ...obj,
         [`Add Text ${layautNumberForRuster['nameThreekit']}`]:
-          !currentValue.show ? currentValue.name : '',
+          !currentValue.show ? currentValue.number : '00',
       };
     }
 
@@ -80,14 +81,14 @@ export const PlayerInput: FC<PlayerInputT> = ({ ...props }) => {
         ...obj,
         [`Add Text ${layautNameForRuster['nameThreekit']}`]: !currentValue.show
           ? currentValue.name
-          : '',
+          : 'PLAYER NAME',
       };
     }
 
-    const setText = (valueText: string) => {};
-    if (!currentValue.show) {
-      setConfiguration({ ...obj });
-    }
+    // const setText = (valueText: string) => {};
+
+    setConfiguration({ ...obj });
+
     setInputData(updatedItems);
   }
   function deleteValue() {

@@ -8,9 +8,16 @@ import { URL_PAGE } from '../../shared/function/providers/router/AppRouter';
 import { useSelector } from 'react-redux';
 import { getVisibleLayers } from '../../shared/function/providers/redax/selectore';
 import { getDefaultIcon } from '../LoadingDefaultLogo/LoadingDefaultLogo';
+import { useDispatch } from 'react-redux';
+import { createAreaObject } from '../../shared/function/providers/redax/action';
+import {
+  resetObjectGraphic,
+  resetObjectText,
+} from '../../shared/function/ThreekitAttributeText';
 
 export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
   let { configID } = useParams();
+  const dispatch = useDispatch();
 
   const visibleLayersText = useSelector(
     getVisibleLayers({ objectId: configID, typeZone: 'text' })
@@ -19,6 +26,19 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
     getVisibleLayers({ objectId: configID, typeZone: 'graphic' })
   );
   const [attributes, setConfiguration]: any = useConfigurator();
+
+  debugger;
+
+  const deleteItemPersonalize = (typeArea: string, namePoint: string) => {
+    dispatch(createAreaObject({ type: typeArea, listPointAria: [namePoint] }));
+
+    if (typeArea === 'text') {
+      resetObjectText(setConfiguration, namePoint);
+    }
+    if (typeArea === 'graphic') {
+      resetObjectGraphic(setConfiguration, namePoint);
+    }
+  };
 
   const navigate = useNavigate();
   return (
@@ -55,7 +75,15 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
                         {/* <div className={`${s.name}`}>Edit</div> */}
                       </div>
 
-                      <div className={`${s.btn} ${s.delete}`}>
+                      <div
+                        className={`${s.btn} ${s.delete}`}
+                        onClick={() =>
+                          deleteItemPersonalize(
+                            item['typeArea'],
+                            item['nameThreekit']
+                          )
+                        }
+                      >
                         <div className={s.icon}>
                           <DeleteIcon />
                         </div>
@@ -143,7 +171,15 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
                         {/* <div className={`${s.name}`}>Edit</div> */}
                       </div>
                       <div className={`${s.btn} ${s.delete}`}>
-                        <div className={s.icon}>
+                        <div
+                          className={s.icon}
+                          onClick={() =>
+                            deleteItemPersonalize(
+                              item['typeArea'],
+                              item['nameThreekit']
+                            )
+                          }
+                        >
                           <DeleteIcon />
                         </div>
                         <div className={s.name}>Delete</div>
