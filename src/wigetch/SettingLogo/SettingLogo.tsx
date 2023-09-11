@@ -11,7 +11,7 @@ import { cloneDeep } from 'lodash';
 import { useSelector } from 'react-redux';
 import { getVisibleLayers } from '../../shared/function/providers/redax/selectore';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setCurentLayer } from '../../shared/function/providers/redax/action';
 import { IconStart } from '../../shared/assets/svg/IconІStart';
 
@@ -69,6 +69,8 @@ export const SettingLogo = ({
 }: Props) => {
   const [attributes, setConfiguration]: any = useConfigurator();
 
+  const [valueSelect, setValueSelec] = useState('');
+
   const dispatch = useDispatch();
 
   const visibleLayers = useSelector(
@@ -79,6 +81,7 @@ export const SettingLogo = ({
   useEffect(() => {
     if (Object.keys(attributes).length > 0) {
       if (layer) {
+        setValueSelec(layer['value']);
         selectedZoneText(layer);
         dispatch(
           setCurentLayer({
@@ -143,6 +146,7 @@ export const SettingLogo = ({
   };
   if (!zoneLogo) return <></>;
   if (!layer) return <></>;
+  debugger;
   return (
     <div className={s.wrap}>
       <div className={s.box}>
@@ -151,12 +155,13 @@ export const SettingLogo = ({
             <Select
               title={'Graphic Location'}
               options={visibleLayers}
-              value={layer['value']}
+              value={valueSelect}
               onChange={(value) => {
                 const valueObj = visibleLayers.find(
                   (i) => i['value'] === value
                 );
                 if (valueObj) {
+                  setValueSelec(valueObj['value']);
                   selectedZoneText(valueObj);
                   dispatch(
                     setCurentLayer({
