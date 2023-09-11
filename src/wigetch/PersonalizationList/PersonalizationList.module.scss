@@ -90,7 +90,8 @@
   align-items: center;
   justify-content: center;
   min-height: 142px;
-  img {
+  max-height: 142px;
+  & img {
     max-width: 100%;
     height: auto;
     max-height: 100%;

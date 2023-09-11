@@ -15,12 +15,12 @@ export const listDefaultGraphicsImg = [
   {
     nameThreekit: 'NB_01',
     label: 'NB 01',
-    img: '/images/defaultLogo/bear.png',
+    img: '/images/defaultLogo/NB_Logo2A.png',
   },
   {
     nameThreekit: 'NB_02',
     label: 'NB 02',
-    img: '/images/defaultLogo/bear.png',
+    img: '/images/defaultLogo/NB_LOGO4A.png',
   },
 ];
 
