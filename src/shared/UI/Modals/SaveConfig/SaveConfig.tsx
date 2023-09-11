@@ -59,7 +59,7 @@ export const SaveConfig = ({ onChange }: any) => {
       });
 
       const location = window.location.origin;
-      const link = `${location}${URL_PAGE.saveConfigPage(configID)}?tkid=${
+      const link = `${location}/#${URL_PAGE.saveConfigPage(configID)}?tkid=${
         props['shortId']
       }`;
       setHref(link);

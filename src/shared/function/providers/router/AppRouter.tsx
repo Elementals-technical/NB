@@ -44,7 +44,7 @@ export const AppRouter = () => {
 
   // createHashRouter
   // createBrowserRouter
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: URLS.ROOT,
       element: <StartingScreen />,
