@@ -56,11 +56,24 @@
     position: relative;
     top: -10px;
   }
+
   .title {
     font-size: 24px !important;
   }
   .subTitle {
     font-size: 12px !important;
+  }
+
+  .navigation {
+    width: auto;
+    left: 8%;
+    height: auto;
+    padding: 0;
+  }
+  .navigate_box {
+    position: absolute;
+    top: 410%;
+    left: -20px;
   }
 }
 @media (max-width: 992px) {

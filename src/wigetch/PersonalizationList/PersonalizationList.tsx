@@ -170,16 +170,16 @@ export const PersonalizationList = ({ layers, isShowContol = true }: any) => {
                         </div>
                         {/* <div className={`${s.name}`}>Edit</div> */}
                       </div>
-                      <div className={`${s.btn} ${s.delete}`}>
-                        <div
-                          className={s.icon}
-                          onClick={() =>
-                            deleteItemPersonalize(
-                              item['typeArea'],
-                              item['nameThreekit']
-                            )
-                          }
-                        >
+                      <div
+                        className={`${s.btn} ${s.delete}`}
+                        onClick={() =>
+                          deleteItemPersonalize(
+                            item['typeArea'],
+                            item['nameThreekit']
+                          )
+                        }
+                      >
+                        <div className={s.icon}>
                           <DeleteIcon />
                         </div>
                         <div className={s.name}>Delete</div>

@@ -35,22 +35,12 @@
   }
   .view {
     max-width: 100%;
-    height: calc(var(--vh, 1vh) * 60);
-    min-height: calc(var(--vh, 1vh) * 60);
+    height: calc(var(--vh, 1vh) * 50);
+    min-height: calc(var(--vh, 1vh) * 50);
     &Player {
       height: 100%;
     }
   }
-  .wrap_configurator {
-    position: relative;
-    top: -48px;
-    max-width: unset;
-    width: 100%;
-    height: calc((var(--vh, 1vh) * 40) - 48px);
-    overflow-y: auto;
-  }
-}
-@media (max-width: 1024px) {
   .wrap_configurator {
     position: relative;
     top: 0;
