@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 interface OptionI {
   label: string | number;
   value: any;
+  labelImg?: any;
   [key: string]: any;
 }
 
@@ -100,7 +101,7 @@ export const Select: React.FC<SelectI> = (props) => {
                     ...style,
                   }}
                 >
-                  {op.label}
+                  {!!op.labelImg ? op.labelImg : op.label}
                 </div>
               );
             })}

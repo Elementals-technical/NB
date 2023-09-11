@@ -20,6 +20,11 @@ import { URLS } from '../../../shared/function/providers/router/AppRouter';
 import { useSelector } from 'react-redux';
 import { getVisibleLayers } from '../../../shared/function/providers/redax/selectore';
 import { setConfiguration } from '@threekit-tools/treble/dist/store/attributes';
+import { Arial } from '../../../shared/assets/svg/fonts/Arial';
+import { Mogula } from '../../../shared/assets/svg/fonts/Mogula';
+import { Rometano } from '../../../shared/assets/svg/fonts/Rometano';
+import { Times } from '../../../shared/assets/svg/fonts/Times';
+import { Running_led } from '../../../shared/assets/svg/fonts/Running_led';
 
 export const defaultObjText = {
   'Add Text back 2': '',
@@ -80,11 +85,11 @@ export const PersonalizationObjectTextRuster = () => {
   const layer = visibleLayers.find((layer) => layer['isShow']);
 
   const optionsFonts = [
-    { value: 'Arial', label: 'Arial' },
-    { value: 'Mogula', label: 'Modula' },
-    { value: 'Rometano', label: 'Rometano' },
-    { value: 'Times', label: 'Times' },
-    { value: 'Running led', label: 'Running led' },
+    { value: 'Arial', label: 'Arial', labelImg: <Arial /> },
+    { value: 'Mogula', label: 'Mogula', labelImg: <Mogula /> },
+    { value: 'Rometano', label: 'Rometano', labelImg: <Rometano /> },
+    { value: 'Times', label: 'Times', labelImg: <Times /> },
+    { value: 'Running led', label: 'Running led', labelImg: <Running_led /> },
   ];
 
   const selectedFoneText = (value: any) => {

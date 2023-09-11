@@ -24,6 +24,11 @@ import {
   getSelectedTextLayers,
   getVisibleLayers,
 } from '../../../shared/function/providers/redax/selectore';
+import { Arial } from '../../../shared/assets/svg/fonts/Arial';
+import { Mogula } from '../../../shared/assets/svg/fonts/Mogula';
+import { Rometano } from '../../../shared/assets/svg/fonts/Rometano';
+import { Times } from '../../../shared/assets/svg/fonts/Times';
+import { Running_led } from '../../../shared/assets/svg/fonts/Running_led';
 
 const defaultObjText = {
   'Add Text back 2': '',
@@ -50,12 +55,12 @@ export const options = [
   { value: 'upperback', label: 'Upper Back', nameThreekit: 'back 1' },
   { value: 'lowerback', label: 'Lower back', nameThreekit: 'back 2' },
 ];
-export const optionsFonts = [
-  { value: 'Arial', label: 'Arial' },
-  { value: 'Mogula', label: 'Modula' },
-  { value: 'Rometano', label: 'Rometano' },
-  { value: 'Times', label: 'Times' },
-  { value: 'Running led', label: 'Running led' },
+const optionsFonts = [
+  { value: 'Arial', label: 'Arial', labelImg: <Arial /> },
+  { value: 'Mogula', label: 'Mogula', labelImg: <Mogula /> },
+  { value: 'Rometano', label: 'Rometano', labelImg: <Rometano /> },
+  { value: 'Times', label: 'Times', labelImg: <Times /> },
+  { value: 'Running led', label: 'Running led', labelImg: <Running_led /> },
 ];
 
 export const SettingsPersonaliztionCustomText = () => {
