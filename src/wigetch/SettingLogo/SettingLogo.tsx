@@ -210,9 +210,9 @@ export const SettingLogo = ({
             inputMode="decimal"
             type="number"
             lang="nl"
-            defaultValue={getValueThreekitFunc('Vertical logo ')}
+            defaultValue={getValueThreekitFunc('Horizontal logo ')}
             onChange={(value: any) => {
-              selectedVerticalLogo(value);
+              selectedHorizontalLogo(value);
             }}
           />
         </LinerWrap>
@@ -225,9 +225,9 @@ export const SettingLogo = ({
             inputMode="decimal"
             type="number"
             lang="nl"
-            defaultValue={getValueThreekitFunc('Horizontal logo ')}
+            defaultValue={getValueThreekitFunc('Vertical logo ')}
             onChange={(value: any) => {
-              selectedHorizontalLogo(value);
+              selectedVerticalLogo(value);
             }}
           />
         </LinerWrap>

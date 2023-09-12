@@ -60,7 +60,7 @@ export const areasObject: areasObjects = {
       type: 'graphic',
     },
     {
-      label: 'Upper Back 2',
+      label: 'Mid Back',
       value: 'Upper Back 2',
       nameThreekit: 'back 2',
       type: 'graphic',
