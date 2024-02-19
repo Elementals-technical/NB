@@ -17,27 +17,6 @@ import { fileToBase64 } from '../../../function/Files';
 export const UploadLogo = ({ zoneLogo }: any) => {
   const [attributes, setConfiguration]: any = useConfigurator();
   const dispatch = useDispatch();
-
-  async function uploadFile(file: any) {
-    const fileName = file.name;
-    const formData = new FormData();
-    formData.append('files', file, fileName);
-
-    const requestOptions = {
-      method: 'POST',
-      data: formData,
-      url: '/api/loadFile', // Replace with your actual API endpoint
-    };
-
-    return await axios(requestOptions);
-  }
-
-  function extractAssetId(response: any) {
-    console.log('response', response);
-
-    return response.data.result.output.texture[0].assetId;
-  }
-
   const removeThreekit = async () => {
     dispatch(setThreekitAttribute(true));
     dispatch(
@@ -79,9 +58,9 @@ export const UploadLogo = ({ zoneLogo }: any) => {
                 return;
               }
 
-              const response = await uploadFile(formFile);
-              const assetId = extractAssetId(response);
-
+              const assetId =
+                //@ts-ignore
+                await window.threekit.player.uploadImage(formFile);
               await setConfiguration({
                 [`Upload logo ${zoneLogo}`]: {
                   assetId: assetId,
